@@ -13,7 +13,7 @@ public class EnemyMove : MonoBehaviour
     public float moveSpeed;
 
     private float knockbackDelay = 1;
-    
+     
     // Start is called before the first frame update
     void Start()
     {
@@ -47,7 +47,7 @@ public class EnemyMove : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        anim.SetTrigger("isHurt");
+        anim.SetTrigger("isHurt");           
         health = health - damage;
     }
 

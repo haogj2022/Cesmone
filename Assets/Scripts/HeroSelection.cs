@@ -29,9 +29,19 @@ public class HeroSelection : MonoBehaviour
     public SpriteRenderer femaleStaff;
     public SpriteRenderer femaleBow;
 
+    //references to heroes
+    [Header("Box Colliders")]
+    public BoxCollider2D maleSwordBox;
+    public BoxCollider2D maleStaffBox;
+    public BoxCollider2D maleBowBox;
+
+    public BoxCollider2D femaleSwordBox;
+    public BoxCollider2D femaleStaffBox;
+    public BoxCollider2D femaleBowBox;
+   
     void Start()
     {
-        Setup();
+        Setup();       
     }
 
     //when the game starts
@@ -50,6 +60,14 @@ public class HeroSelection : MonoBehaviour
         femaleSword.enabled = false;
         femaleStaff.enabled = false;
         femaleBow.enabled = false;
+
+        maleSwordBox.enabled = true; //enable male sword box
+        maleStaffBox.enabled = false;
+        maleBowBox.enabled = false;
+
+        femaleSwordBox.enabled = false;
+        femaleStaffBox.enabled = false;
+        femaleBowBox.enabled = false;
     }
 
     //when click Play button on Main Menu canvas
@@ -79,6 +97,14 @@ public class HeroSelection : MonoBehaviour
             femaleSword.enabled = false;
             femaleStaff.enabled = false;
             femaleBow.enabled = false;
+
+            maleSwordBox.enabled = true; //enable male sword box
+            maleStaffBox.enabled = false;
+            maleBowBox.enabled = false;
+
+            femaleSwordBox.enabled = false;
+            femaleStaffBox.enabled = false;
+            femaleBowBox.enabled = false;
         }
 
         //when staff heroes are visible
@@ -91,6 +117,14 @@ public class HeroSelection : MonoBehaviour
             femaleSword.enabled = false;
             femaleStaff.enabled = false;
             femaleBow.enabled = false;
+
+            maleSwordBox.enabled = false;
+            maleStaffBox.enabled = true; //enable male staff box
+            maleBowBox.enabled = false;
+
+            femaleSwordBox.enabled = false;
+            femaleStaffBox.enabled = false;
+            femaleBowBox.enabled = false;
         }
 
         //when bow heroes are visible
@@ -103,6 +137,14 @@ public class HeroSelection : MonoBehaviour
             femaleSword.enabled = false;
             femaleStaff.enabled = false;
             femaleBow.enabled = false;
+
+            maleSwordBox.enabled = false;
+            maleStaffBox.enabled = false;
+            maleBowBox.enabled = true; //enable male bow box
+
+            femaleSwordBox.enabled = false;
+            femaleStaffBox.enabled = false;
+            femaleBowBox.enabled = false;
         }
     }
 
@@ -119,6 +161,14 @@ public class HeroSelection : MonoBehaviour
             femaleSword.enabled = true; //enable female sword hero
             femaleStaff.enabled = false;
             femaleBow.enabled = false;
+
+            maleSwordBox.enabled = false;
+            maleStaffBox.enabled = false;
+            maleBowBox.enabled = false;
+
+            femaleSwordBox.enabled = true; //enable female sword box
+            femaleStaffBox.enabled = false;
+            femaleBowBox.enabled = false;
         }
 
         //when staff heroes are visible
@@ -131,6 +181,14 @@ public class HeroSelection : MonoBehaviour
             femaleSword.enabled = false;
             femaleStaff.enabled = true; //enable female staff hero
             femaleBow.enabled = false;
+
+            maleSwordBox.enabled = false;
+            maleStaffBox.enabled = false;
+            maleBowBox.enabled = false;
+
+            femaleSwordBox.enabled = false;
+            femaleStaffBox.enabled = true; //enable female staff box
+            femaleBowBox.enabled = false;
         }
 
         //when bow heroes are visible
@@ -143,6 +201,14 @@ public class HeroSelection : MonoBehaviour
             femaleSword.enabled = false;
             femaleStaff.enabled = false;
             femaleBow.enabled = true; //enable female bow hero
+
+            maleSwordBox.enabled = false;
+            maleStaffBox.enabled = false;
+            maleBowBox.enabled = false;
+
+            femaleSwordBox.enabled = false;
+            femaleStaffBox.enabled = false;
+            femaleBowBox.enabled = true; //enable female bow box
         }
     }
 
@@ -172,6 +238,10 @@ public class HeroSelection : MonoBehaviour
         maleSword.enabled = true; //enable male sword hero
         maleStaff.enabled = false;
         maleBow.enabled = false;
+
+        maleSwordBox.enabled = true; //enable male sword box
+        maleStaffBox.enabled = false;
+        maleBowBox.enabled = false;
     }
 
     //when click Staff button on Male Weapon Selection canvas
@@ -180,6 +250,10 @@ public class HeroSelection : MonoBehaviour
         maleSword.enabled = false;
         maleStaff.enabled = true; //enable male staff hero
         maleBow.enabled = false;
+
+        maleSwordBox.enabled = false;
+        maleStaffBox.enabled = true; //enable male staff box
+        maleBowBox.enabled = false;
     }
 
     //when click Bow button on Male Weapon Selection canvas
@@ -188,6 +262,10 @@ public class HeroSelection : MonoBehaviour
         maleSword.enabled = false;
         maleStaff.enabled = false;
         maleBow.enabled = true; //enable male bow hero
+
+        maleSwordBox.enabled = false;
+        maleStaffBox.enabled = false;
+        maleBowBox.enabled = true; //enable male bow box
     }
 
     //when click Sword button on Female Weapon Selection canvas
@@ -196,6 +274,10 @@ public class HeroSelection : MonoBehaviour
         femaleSword.enabled = true; //enable female sword hero
         femaleStaff.enabled = false;
         femaleBow.enabled = false;
+
+        femaleSwordBox.enabled = true; //enable female sword box
+        femaleStaffBox.enabled = false;
+        femaleBowBox.enabled = false;
     }
 
     //when click Staff button on Female Weapon Selection canvas
@@ -204,6 +286,10 @@ public class HeroSelection : MonoBehaviour
         femaleSword.enabled = false;
         femaleStaff.enabled = true; //enable female staff hero
         femaleBow.enabled = false;
+
+        femaleSwordBox.enabled = false;
+        femaleStaffBox.enabled = true; //enable female staff box
+        femaleBowBox.enabled = false;
     }
 
     //when click Bow button on Female Weapon Selection canvas
@@ -212,6 +298,10 @@ public class HeroSelection : MonoBehaviour
         femaleSword.enabled = false;
         femaleStaff.enabled = false;
         femaleBow.enabled = true; //enable female bow hero
+
+        femaleSwordBox.enabled = false;
+        femaleStaffBox.enabled = false;
+        femaleBowBox.enabled = true; //enable female bow box
     }
 
     //when click Back button on Male Weapon Selection canvas

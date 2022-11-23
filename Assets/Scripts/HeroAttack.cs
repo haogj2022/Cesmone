@@ -13,20 +13,20 @@ public class HeroAttack : MonoBehaviour
     {
         anim = GetComponent<Animator>();
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
+   
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.tag == "Enemy")
         {
             enemy = collision.GetComponent<EnemyMove>();
             anim.SetTrigger("isAttack");
-        }        
+        }
     }
 
     public void Attack()
     {
         if (enemy.health > 0)
-        {
+        {           
             enemy.TakeDamage(damage);
         }        
     }
