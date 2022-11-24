@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Created by: Nguyen Anh Hao
+//Date created: 20/11/2022
+//Summary: Deal damage to enemies
+
 public class HeroAttack : MonoBehaviour
 {
     Animator anim;

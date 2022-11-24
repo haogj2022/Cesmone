@@ -22,12 +22,11 @@ public class TouchAndGo : MonoBehaviour
     private void Start()
     {
         cam = Camera.main;
-        transform.position = point;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.tag == "Castle")
+        if (collision.gameObject.tag == "Castle")
         {
             Vector2 direction = (transform.position - point).normalized;
             point = new Vector2(transform.position.x + direction.x, transform.position.y + direction.y);
@@ -68,7 +67,6 @@ public class TouchAndGo : MonoBehaviour
                 }
 
                 transform.position = Vector3.Lerp(transform.position, point, fractionOfJourney);
-
             }
 
             if (journeyDistance < 0.01f)
@@ -81,12 +79,14 @@ public class TouchAndGo : MonoBehaviour
                 }
             }
 
-            if (transform.position.x > 0 && !facingRight)
+            Vector2 direction = (transform.position - point).normalized;
+
+            if (direction.x > 0 && facingRight)
             {
                 Flip();
             }
 
-            if (transform.position.x < 0 && facingRight)
+            if (direction.x < 0 && !facingRight)
             {
                 Flip();
             }
