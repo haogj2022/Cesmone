@@ -24,9 +24,9 @@ public class TouchAndGo : MonoBehaviour
         cam = Camera.main;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Castle")
+        if (collision.tag == "Castle")
         {
             Vector2 direction = (transform.position - point).normalized;
             point = new Vector2(transform.position.x + direction.x, transform.position.y + direction.y);

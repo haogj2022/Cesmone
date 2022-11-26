@@ -16,8 +16,10 @@ public class EnemyMove : MonoBehaviour
     public float health; 
     public float moveSpeed;
 
-    private float knockbackDelay = 1;
-     
+    private float knockbackDelay = 1.5f;
+    private float pushDelay = 0.5f;
+    private bool facingRight = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,21 +36,33 @@ public class EnemyMove : MonoBehaviour
         {
             direction = (target.transform.position - transform.position).normalized; //go back to target
         }
+
+        //when enemies hit the castle building
+        if (collision.tag == "Castle")
+        {
+            StartCoroutine(Knockback()); //enemies knock back
+        }
+
+        if (collision.tag == "Enemy")
+        {
+            StartCoroutine(Push()); //enemies push each other
+        }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    IEnumerator Push()
     {
-        //when enemies hit the castle building
-        if (collision.gameObject.tag == "Castle")
-        {
-            StartCoroutine(Knockback()); //enemies push back themselves
-        }
+        //enemies push each other in opposite direction
+        direction = transform.position - target.transform.position;
+        rb.velocity = new Vector2(direction.x * knockbackDelay, direction.y * knockbackDelay);
+
+        //enemies go back to target
+        yield return new WaitForSeconds(pushDelay);
+        direction = (target.transform.position - transform.position).normalized;
     }
 
     IEnumerator Knockback()
     {
-        //enemies push back themselves in opposite direction to target
-        yield return new WaitForSeconds(knockbackDelay);
+        //enemies knock back in opposite direction to target
         direction = transform.position - target.transform.position;
         rb.velocity = new Vector2(direction.x * knockbackDelay, direction.y * knockbackDelay);
 
@@ -60,8 +74,9 @@ public class EnemyMove : MonoBehaviour
     //when hero deals damage to enemies
     public void TakeDamage(float damage)
     {
-        anim.SetTrigger("isHurt");           
-        health = health - damage; //take damage
+        StartCoroutine(Knockback()); //enemies knock back
+        anim.SetTrigger("isHurt"); 
+        health = health - damage; //take damage                                                                
     }
 
     // Update is called once per frame
@@ -71,10 +86,41 @@ public class EnemyMove : MonoBehaviour
 
         MoveEnemy(); //call the move function
 
+        if (transform.position.y > 0)
+        {
+            gameObject.GetComponent<SpriteRenderer>().sortingOrder = 0;
+        }
+
+        if (transform.position.y < 0)
+        {
+            gameObject.GetComponent<SpriteRenderer>().sortingOrder = 3;
+        }
+
         if (health <= 0)
         {
             Destroy(gameObject);
         }
+
+        Vector2 direction = (transform.position - target.transform.position);
+
+        if (direction.x > 0 && !facingRight)
+        {
+            Flip();
+        }
+
+        if (direction.x < 0 && facingRight)
+        {
+            Flip();
+        }
+    }
+
+    void Flip()
+    {
+        Vector3 currentScale = transform.localScale;
+        currentScale.x *= -1;
+        transform.localScale = currentScale;
+
+        facingRight = !facingRight;
     }
 
     //move enemies using Rigidbody2D

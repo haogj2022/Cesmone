@@ -24,14 +24,16 @@ public class HeroAttack : MonoBehaviour
         {
             enemy = collision.GetComponent<EnemyMove>();
             anim.SetTrigger("isAttack");
-        }
+        }       
     }
 
     public void Attack()
-    {
+    { 
         if (enemy.health > 0)
-        {           
-            enemy.TakeDamage(damage);
-        }        
+        {
+            enemy.TakeDamage(damage); 
+        }
+
+        anim.SetTrigger("isIdle");       
     }
 }
