@@ -13,11 +13,11 @@ public class EnemyMove : MonoBehaviour
     GameObject target;    
     Vector2 direction;
 
-    public float health; 
+    public float currentHealth;
+    public float maxHealth;
     public float moveSpeed;
 
-    private float knockbackDelay = 1.5f;
-    private float pushDelay = 0.5f;
+    private float knockbackDelay = 0.5f;
     private bool facingRight = true;
 
     // Start is called before the first frame update
@@ -27,6 +27,7 @@ public class EnemyMove : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         direction = (target.transform.position - transform.position).normalized; //go to target
+        currentHealth = maxHealth;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -38,26 +39,10 @@ public class EnemyMove : MonoBehaviour
         }
 
         //when enemies hit the castle building
-        if (collision.tag == "Castle")
+        if (collision.tag == "Castle" || collision.tag == "Enemy")
         {
             StartCoroutine(Knockback()); //enemies knock back
         }
-
-        if (collision.tag == "Enemy")
-        {
-            StartCoroutine(Push()); //enemies push each other
-        }
-    }
-
-    IEnumerator Push()
-    {
-        //enemies push each other in opposite direction
-        direction = transform.position - target.transform.position;
-        rb.velocity = new Vector2(direction.x * knockbackDelay, direction.y * knockbackDelay);
-
-        //enemies go back to target
-        yield return new WaitForSeconds(pushDelay);
-        direction = (target.transform.position - transform.position).normalized;
     }
 
     IEnumerator Knockback()
@@ -76,7 +61,7 @@ public class EnemyMove : MonoBehaviour
     {
         StartCoroutine(Knockback()); //enemies knock back
         anim.SetTrigger("isHurt"); 
-        health = health - damage; //take damage                                                                
+        currentHealth = currentHealth - damage; //take damage                                                                
     }
 
     // Update is called once per frame
@@ -96,7 +81,7 @@ public class EnemyMove : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().sortingOrder = 3;
         }
 
-        if (health <= 0)
+        if (currentHealth <= 0)
         {
             Destroy(gameObject);
         }

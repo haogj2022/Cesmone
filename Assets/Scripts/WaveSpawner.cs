@@ -23,7 +23,7 @@ public class WaveSpawner : MonoBehaviour
     public Wave[] waves; //number of waves
     public Transform[] spawnPoints; //enemies spawn positions
 
-    public float waveDelay = 3f; //delay after completed wave
+    public float waveDelay = 5; //delay after completed wave
 
     private int nextWave = 0; 
     private float waveInterval; //pause between waves

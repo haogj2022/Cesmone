@@ -8,7 +8,8 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Transform followTransform;
+    GameObject follower;
+    public CastleHealth castle;
     public CompositeCollider2D mapBounds;
 
     private float xMin, xMax, yMin, yMax;
@@ -16,22 +17,31 @@ public class CameraFollow : MonoBehaviour
     private float camOrthsize;
     private Camera mainCam;
 
-    private float smoothSpeed = 0.01f;
+    private float smoothSpeed = 0.02f;
 
     private void Start()
     {
+        follower = GameObject.Find("Hero Selection");
+        castle.GetComponent<CastleHealth>();
+
         xMin = mapBounds.bounds.min.x - 4;
         xMax = mapBounds.bounds.max.x + 4;
         yMin = mapBounds.bounds.min.y;
         yMax = mapBounds.bounds.max.y;
+
         mainCam = GetComponent<Camera>();
         camOrthsize = mainCam.orthographicSize;
     }
 
     private void Update()
     {
-        camY = Mathf.Clamp(followTransform.position.y, yMin + camOrthsize, yMax - camOrthsize);
-        camX = Mathf.Clamp(followTransform.position.x, xMin + camOrthsize, xMax - camOrthsize);
+        if (castle.currentHealth <= 0)
+        {
+            follower = GameObject.Find("Castle");
+        }
+
+        camY = Mathf.Clamp(follower.transform.position.y, yMin + camOrthsize, yMax - camOrthsize);
+        camX = Mathf.Clamp(follower.transform.position.x, xMin + camOrthsize, xMax - camOrthsize);
 
         transform.position = Vector3.Lerp(transform.position, new Vector3(camX, camY, transform.position.z), smoothSpeed);
     }

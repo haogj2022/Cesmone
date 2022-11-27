@@ -20,7 +20,7 @@ public class HeroAttack : MonoBehaviour
    
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Enemy")
+        if (collision.tag == "Enemy" && Input.GetMouseButtonDown(0))
         {
             enemy = collision.GetComponent<EnemyMove>();
             anim.SetTrigger("isAttack");
@@ -29,7 +29,7 @@ public class HeroAttack : MonoBehaviour
 
     public void Attack()
     { 
-        if (enemy.health > 0)
+        if (enemy.currentHealth > 0)
         {
             enemy.TakeDamage(damage); 
         }
