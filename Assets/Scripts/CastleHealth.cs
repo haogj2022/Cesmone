@@ -21,7 +21,7 @@ public class CastleHealth : MonoBehaviour
         if (collision.tag == "Enemy" && currentHealth > 0)
         {
             anim.SetTrigger("isHit");
-            currentHealth = currentHealth - 1;
+            currentHealth = currentHealth - 0.5f;
         }
     }
 

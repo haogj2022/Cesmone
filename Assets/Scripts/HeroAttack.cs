@@ -17,14 +17,20 @@ public class HeroAttack : MonoBehaviour
     {
         anim = GetComponent<Animator>();
     }
-   
+
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Enemy" && Input.GetMouseButtonDown(0))
+        if (collision.tag == "Enemy")
         {
             enemy = collision.GetComponent<EnemyMove>();
-            anim.SetTrigger("isAttack");
-        }       
+            StartCoroutine(AttackDelay());
+        }
+    }
+
+    IEnumerator AttackDelay()
+    {
+        yield return new WaitForSeconds(0.5f);
+        anim.SetTrigger("isAttack");
     }
 
     public void Attack()
@@ -32,8 +38,6 @@ public class HeroAttack : MonoBehaviour
         if (enemy.currentHealth > 0)
         {
             enemy.TakeDamage(damage); 
-        }
-
-        anim.SetTrigger("isIdle");       
+        }      
     }
 }

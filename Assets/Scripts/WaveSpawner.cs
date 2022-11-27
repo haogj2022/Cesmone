@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 //Created by: Nguyen Anh Hao
 //Date created: 18/11/2022
@@ -22,6 +23,8 @@ public class WaveSpawner : MonoBehaviour
 
     public Wave[] waves; //number of waves
     public Transform[] spawnPoints; //enemies spawn positions
+    public Animator anim;
+    public TMP_Text waveName;
 
     public float waveDelay = 5; //delay after completed wave
 
@@ -31,11 +34,18 @@ public class WaveSpawner : MonoBehaviour
 
     public SpawnState state = SpawnState.COUNT; //start count down
 
-    private void Start()
-    {
-        Debug.Log("Starting first wave...");
+    private bool canAnimate = true;
 
+    private void Start()
+    {        
         waveInterval = waveDelay; //delay for a few seconds
+
+        if (canAnimate)
+        {
+            waveName.text = waves[nextWave].name;
+            anim.SetTrigger("WaveComplete");
+            canAnimate = false;
+        }
     }
 
     private void Update()
@@ -60,7 +70,7 @@ public class WaveSpawner : MonoBehaviour
             //enemies are not spawning
             if (state != SpawnState.SPAWN)
             {
-                StartCoroutine(SpawnWave(waves[nextWave])); //start the next wave
+                StartCoroutine(SpawnWave(waves[nextWave])); //start the next wave               
             }
         }
         else //enemies already spawned
@@ -71,8 +81,6 @@ public class WaveSpawner : MonoBehaviour
 
     void WaveCompleted()
     {
-        Debug.Log("Wave Completed");
-
         state = SpawnState.COUNT; //count down next wave
 
         waveInterval = waveDelay; //delay for a few seconds
@@ -84,9 +92,15 @@ public class WaveSpawner : MonoBehaviour
             state = SpawnState.WAIT;
         }
         else //there is still a wave
-        {
-            Debug.Log("Starting next wave...");
+        {           
             nextWave++;
+
+            if (canAnimate)
+            {
+                waveName.text = waves[nextWave].name;
+                anim.SetTrigger("WaveComplete");
+                canAnimate = false;
+            }
         }
     }
 
@@ -111,16 +125,16 @@ public class WaveSpawner : MonoBehaviour
 
     IEnumerator SpawnWave(Wave _wave)
     {
-        Debug.Log("Wave started: " + _wave.name);
+        canAnimate = true;
 
-        state = SpawnState.SPAWN; //start spawn enemies
+        state = SpawnState.SPAWN; //start spawn enemies        
 
         //spawn correct number of enemies
         for (int i = 0; i < _wave.count; i++)
         {
             SpawnEnemy(_wave.enemy);
             yield return new WaitForSeconds(1 / _wave.rate);
-        }
+        }       
 
         state = SpawnState.WAIT;
 
@@ -131,8 +145,6 @@ public class WaveSpawner : MonoBehaviour
     {
         int randomEnemy = Random.Range(0, _enemy.Length); //random enemies
         int randomSpawnPoint = Random.Range(0, spawnPoints.Length); //random spawn position
-
-        Debug.Log("Enemy spawned: " + _enemy[randomEnemy]);
 
         Instantiate(_enemy[randomEnemy], spawnPoints[randomSpawnPoint].position, Quaternion.identity); //spawn a random enemy at a random spawn position
     }
