@@ -23,14 +23,16 @@ public class HeroAttack : MonoBehaviour
         if (collision.tag == "Enemy")
         {
             enemy = collision.GetComponent<EnemyMove>();
-            StartCoroutine(AttackDelay());
+            anim.SetBool("canAttack", true);
         }
     }
 
-    IEnumerator AttackDelay()
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        yield return new WaitForSeconds(0.5f);
-        anim.SetTrigger("isAttack");
+        if (collision.tag == "Enemy")
+        {
+            anim.SetBool("canAttack", false);
+        }
     }
 
     public void Attack()

@@ -9,14 +9,14 @@ using UnityEngine;
 public class TouchAndGo : MonoBehaviour
 {
     private Camera cam;
-    public float speed;
+    private float moveSpeed = 0.05f;
     private float startTime;
     private float journeyDistance;
     Vector3 point = new Vector3();
 
     public Animator[] animators;
 
-    public bool isMoving = false;
+    public bool canMove = false;
     private bool facingRight = true;
 
     private void Start()
@@ -40,7 +40,7 @@ public class TouchAndGo : MonoBehaviour
 
     private void CharacterMove()
     {
-        if (isMoving == true)
+        if (canMove)
         {
             if (Input.GetMouseButtonDown(0))
             {                
@@ -53,14 +53,13 @@ public class TouchAndGo : MonoBehaviour
             journeyDistance = Vector3.Distance(transform.position, point);
 
             // Distance moved equals elapsed time times speed..
-            float distCovered = (Time.time - startTime) * speed;
+            float distCovered = (Time.time - startTime) * moveSpeed;
 
             // Fraction of journey completed equals current distance divided by total distance.
             float fractionOfJourney = distCovered / journeyDistance;
 
             if (transform.position != point)
             {
-
                 foreach(Animator anim in animators)
                 {
                     anim.SetTrigger("isRunning");
@@ -75,7 +74,7 @@ public class TouchAndGo : MonoBehaviour
 
                 foreach (Animator anim in animators)
                 {
-                    anim.SetTrigger("isIdle");
+                    anim.SetTrigger("isIdling");
                 }
             }
 

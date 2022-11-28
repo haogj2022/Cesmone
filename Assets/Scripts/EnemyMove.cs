@@ -17,7 +17,7 @@ public class EnemyMove : MonoBehaviour
     public float maxHealth;
     public float moveSpeed;
 
-    private float knockbackDelay = 0.5f;
+    private float knockbackDelay = 0.2f;
     private bool facingRight = true;
 
     // Start is called before the first frame update
@@ -37,31 +37,49 @@ public class EnemyMove : MonoBehaviour
         {
             direction = (target.transform.position - transform.position).normalized; //go back to target
         }
+    }
 
-        //when enemies hit the castle building
-        if (collision.tag == "Castle" || collision.tag == "Enemy")
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Castle")
         {
-            StartCoroutine(Knockback()); //enemies knock back
+            StartCoroutine(Pushed());
+        }
+
+        if (collision.gameObject.tag == "Enemy")
+        {
+            StartCoroutine(Knockedback());
         }
     }
 
-    IEnumerator Knockback()
+    IEnumerator Pushed()
     {
-        //enemies knock back in opposite direction to target
+        //enemies are pushed back in opposite direction to target
         direction = transform.position - target.transform.position;
         rb.velocity = new Vector2(direction.x * knockbackDelay, direction.y * knockbackDelay);
 
         //enemies go back to target
-        yield return new WaitForSeconds(knockbackDelay);
+        yield return new WaitForSeconds(knockbackDelay + 1);
         direction = (target.transform.position - transform.position).normalized;
     }
 
     //when hero deals damage to enemies
     public void TakeDamage(float damage)
     {
-        StartCoroutine(Knockback()); //enemies knock back
+        StartCoroutine(Knockedback()); //enemies are knocked back
         anim.SetTrigger("isHurt"); 
         currentHealth = currentHealth - damage; //take damage                                                                
+    }
+    
+    IEnumerator Knockedback()
+    {
+        //enemies are knocked back in opposite direction to target
+        direction = transform.position - target.transform.position;
+        rb.velocity = new Vector2(direction.x * knockbackDelay, direction.y * knockbackDelay);
+
+        //enemies go back to target
+        yield return new WaitForSeconds(knockbackDelay);
+        direction = (target.transform.position - transform.position).normalized;
     }
 
     // Update is called once per frame

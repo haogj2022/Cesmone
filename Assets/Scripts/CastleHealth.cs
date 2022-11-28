@@ -16,12 +16,12 @@ public class CastleHealth : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.tag == "Enemy" && currentHealth > 0)
+        if (collision.gameObject.tag == "Enemy" && currentHealth > 0)
         {
             anim.SetTrigger("isHit");
-            currentHealth = currentHealth - 0.5f;
+            currentHealth = currentHealth - 1;
         }
     }
 

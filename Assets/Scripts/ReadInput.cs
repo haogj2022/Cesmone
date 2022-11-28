@@ -45,7 +45,7 @@ public class ReadInput : MonoBehaviour
         {
             characterName.SetActive(false); //close Character Name canvas
 
-            character.isMoving = true; //enable character movement
+            character.canMove = true; //enable character movement
 
             spawner.enabled = true;
         }

@@ -1330,7 +1330,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beaedf124ed8c6342931d4816f79c10b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.1
   animators:
   - {fileID: 320945990}
   - {fileID: 690418459}
@@ -1338,7 +1337,7 @@ MonoBehaviour:
   - {fileID: 340045296}
   - {fileID: 588444912}
   - {fileID: 181881473}
-  isMoving: 0
+  canMove: 0
 --- !u!4 &395400104
 Transform:
   m_ObjectHideFlags: 0
@@ -2962,7 +2961,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: g
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3570,7 +3569,7 @@ PrefabInstance:
       objectReference: {fileID: 56793979, guid: a5b9acd3782a06c4986e1b9637fb2eb1, type: 3}
     - target: {fileID: 5030226183996204612, guid: 29bb6607222dbc042945071214567821, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5030226183996204612, guid: 29bb6607222dbc042945071214567821, type: 3}
       propertyPath: m_SortingOrder
@@ -15452,7 +15451,7 @@ GameObject:
   - component: {fileID: 1649901644}
   m_Layer: 0
   m_Name: Castle
-  m_TagString: Untagged
+  m_TagString: Castle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15519,10 +15518,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.2}
+  m_Offset: {x: 0, y: 1.4}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -15533,7 +15532,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6, y: 3}
+  m_Size: {x: 5.5, y: 3.2}
   m_EdgeRadius: 0
 --- !u!1001 &1653056508
 PrefabInstance:
@@ -15602,10 +15601,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1671983427}
   - component: {fileID: 1671983428}
-  - component: {fileID: 1671983429}
   m_Layer: 0
   m_Name: Barbican
-  m_TagString: Castle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15677,32 +15675,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &1671983429
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1671983426}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6.25, y: 3.125}
-    newSize: {x: 6.25, y: 3.125}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 6, y: 3}
-  m_EdgeRadius: 0
 --- !u!224 &1735066052 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1718328620356509338, guid: af131488b9f86be45806c8010e7f8acc, type: 3}
@@ -16368,14 +16340,14 @@ MonoBehaviour:
     enemy:
     - {fileID: 2919814328056208941, guid: be935a3b51f7a1b4682ed8ca7dd9e9ab, type: 3}
     - {fileID: 7729727695085830221, guid: 7231436565af6a4489c3c24215f70896, type: 3}
-    count: 15
+    count: 11
     rate: 1
   - name: Final Wave
     enemy:
     - {fileID: 2919814328056208941, guid: be935a3b51f7a1b4682ed8ca7dd9e9ab, type: 3}
     - {fileID: 7729727695085830221, guid: 7231436565af6a4489c3c24215f70896, type: 3}
     - {fileID: 2216256366025135717, guid: 989a810854ca9674386eba701de1a9d2, type: 3}
-    count: 20
+    count: 12
     rate: 1
   spawnPoints:
   - {fileID: 1526599913}
