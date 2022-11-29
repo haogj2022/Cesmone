@@ -17,7 +17,8 @@ public class CameraFollow : MonoBehaviour
     private float camOrthsize;
     private Camera mainCam;
 
-    private float smoothSpeed = 0.01f;
+    private float smoothSpeed = 0.05f;
+    private float wallOffset = 1.5f;
 
     public BoxCollider2D topWall;
     public BoxCollider2D bottomWall;
@@ -55,12 +56,12 @@ public class CameraFollow : MonoBehaviour
 
     void CheckWalls()
     {
-        topWall.offset = new Vector2(0, mainCam.ScreenToWorldPoint(new Vector3(0, Screen.height, 0)).y - 1.5f);
+        topWall.offset = new Vector2(0, mainCam.ScreenToWorldPoint(new Vector3(0, Screen.height, 0)).y - wallOffset);
 
         bottomWall.offset = new Vector2(0, mainCam.ScreenToWorldPoint(new Vector3(0, 0, 0)).y);
 
-        leftWall.offset = new Vector2(mainCam.ScreenToWorldPoint(new Vector3(0, 0, 0)).x, 0);
+        leftWall.offset = new Vector2(mainCam.ScreenToWorldPoint(new Vector3(0, 0, 0)).x + wallOffset, 0);
 
-        rightWall.offset = new Vector2(mainCam.ScreenToWorldPoint(new Vector3(Screen.width, 0, 0)).x, 0);
+        rightWall.offset = new Vector2(mainCam.ScreenToWorldPoint(new Vector3(Screen.width, 0, 0)).x - wallOffset, 0);
     }
 }

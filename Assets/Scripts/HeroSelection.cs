@@ -13,6 +13,7 @@ public class HeroSelection : MonoBehaviour
 {
     //references to canvases
     [Header("Canvases")]
+    public GameObject startScreen;
     public GameObject genderSelection;
     public GameObject maleWeaponSelection;
     public GameObject femaleWeaponSelection;
@@ -46,7 +47,8 @@ public class HeroSelection : MonoBehaviour
     //when the game starts
     void Setup()
     {
-        genderSelection.SetActive(true);
+        startScreen.SetActive(true); //open start screen
+        genderSelection.SetActive(false);
         maleWeaponSelection.SetActive(false);
         femaleWeaponSelection.SetActive(false);
         characterName.SetActive(false);
@@ -68,15 +70,17 @@ public class HeroSelection : MonoBehaviour
         femaleBowBox.enabled = false;
     }
 
-    //when click Play button on Main Menu canvas
+    //when click Play button on start screen canvas
     public void LoadGenderSelection()
     {
+        startScreen.SetActive(false);
         genderSelection.SetActive(true); //load the Gender Selection canvas
     }
 
     //when click Home button on Gender Selection canvas
     public void BackToMainMenu()
     {
+        startScreen.SetActive(true); //open start screen
         genderSelection.SetActive(false);
     }
 

@@ -27,12 +27,15 @@ public class JoystickController : MonoBehaviour
     {        
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentsInChildren<Animator>();
+        joystick.gameObject.SetActive(false);
     }
 
     private void FixedUpdate()
     {
         if (canMove)
         {
+            joystick.gameObject.SetActive(true);
+
             UpDownLeftRight();        
             
             if (joystick.Horizontal > 0 && !facingRight)
