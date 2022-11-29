@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class CastleHealth : MonoBehaviour
 {
@@ -9,11 +10,15 @@ public class CastleHealth : MonoBehaviour
     public float currentHealth;
     public float maxHealth;
 
+    TMP_Text healthText;
+
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
         currentHealth = maxHealth;
+
+        healthText = GetComponentInChildren<TMP_Text>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -28,9 +33,12 @@ public class CastleHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        healthText.text = currentHealth + " / " + maxHealth; 
+
         if (currentHealth <= 0)
         {
             anim.SetTrigger("isDestroyed");
+            
         }
     }
 }

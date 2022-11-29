@@ -16,7 +16,7 @@ public class ReadInput : MonoBehaviour
     public GameObject characterName; //a reference to Character Name canvas
     public TMP_InputField nameInput; //a reference to input field
     public TMP_Text nameToDisplay; //a reference to name to display
-    public TouchAndGo character; //a reference to Hero Selection object   
+    public JoystickController character; //a reference to joystick controller 
     public WaveSpawner spawner; //a reference to wave spawner
 
     private GameObject player; 

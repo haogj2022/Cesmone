@@ -17,7 +17,12 @@ public class CameraFollow : MonoBehaviour
     private float camOrthsize;
     private Camera mainCam;
 
-    private float smoothSpeed = 0.02f;
+    private float smoothSpeed = 0.01f;
+
+    public BoxCollider2D topWall;
+    public BoxCollider2D bottomWall;
+    public BoxCollider2D leftWall;
+    public BoxCollider2D rightWall;
 
     private void Start()
     {
@@ -35,6 +40,8 @@ public class CameraFollow : MonoBehaviour
 
     private void Update()
     {
+        CheckWalls();
+
         if (castle.currentHealth <= 0)
         {
             follower = GameObject.Find("Castle");
@@ -44,5 +51,16 @@ public class CameraFollow : MonoBehaviour
         camX = Mathf.Clamp(follower.transform.position.x, xMin + camOrthsize, xMax - camOrthsize);
 
         transform.position = Vector3.Lerp(transform.position, new Vector3(camX, camY, transform.position.z), smoothSpeed);
+    }
+
+    void CheckWalls()
+    {
+        topWall.offset = new Vector2(0, mainCam.ScreenToWorldPoint(new Vector3(0, Screen.height, 0)).y - 1.5f);
+
+        bottomWall.offset = new Vector2(0, mainCam.ScreenToWorldPoint(new Vector3(0, 0, 0)).y);
+
+        leftWall.offset = new Vector2(mainCam.ScreenToWorldPoint(new Vector3(0, 0, 0)).x, 0);
+
+        rightWall.offset = new Vector2(mainCam.ScreenToWorldPoint(new Vector3(Screen.width, 0, 0)).x, 0);
     }
 }

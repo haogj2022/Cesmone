@@ -11,11 +11,19 @@ public class HeroAttack : MonoBehaviour
     Animator anim;
     EnemyMove enemy;
 
+    GameObject player;
+
     public float damage;
 
     private void Start()
     {
         anim = GetComponent<Animator>();
+        player = GameObject.Find("Hero Selection");
+    }
+
+    private void FixedUpdate()
+    {
+        transform.position = player.transform.position;
     }
 
     private void OnTriggerStay2D(Collider2D collision)

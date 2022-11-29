@@ -17,7 +17,9 @@ public class EnemyMove : MonoBehaviour
     public float maxHealth;
     public float moveSpeed;
 
-    private float knockbackDelay = 0.2f;
+    private float knockedbackDelay = 0.2f;
+    private float pushedDelay = 2;
+
     private bool facingRight = true;
 
     // Start is called before the first frame update
@@ -50,16 +52,21 @@ public class EnemyMove : MonoBehaviour
         {
             StartCoroutine(Knockedback());
         }
+
+        if (collision.gameObject.tag == "Wall")
+        {
+            Physics2D.IgnoreCollision(collision.gameObject.GetComponent<BoxCollider2D>(), GetComponent<BoxCollider2D>());
+        }
     }
 
     IEnumerator Pushed()
     {
         //enemies are pushed back in opposite direction to target
         direction = transform.position - target.transform.position;
-        rb.velocity = new Vector2(direction.x * knockbackDelay, direction.y * knockbackDelay);
+        rb.velocity = new Vector2(direction.x * knockedbackDelay, direction.y * knockedbackDelay);
 
         //enemies go back to target
-        yield return new WaitForSeconds(knockbackDelay + 1);
+        yield return new WaitForSeconds(pushedDelay);
         direction = (target.transform.position - transform.position).normalized;
     }
 
@@ -75,10 +82,10 @@ public class EnemyMove : MonoBehaviour
     {
         //enemies are knocked back in opposite direction to target
         direction = transform.position - target.transform.position;
-        rb.velocity = new Vector2(direction.x * knockbackDelay, direction.y * knockbackDelay);
+        rb.velocity = new Vector2(direction.x * knockedbackDelay, direction.y * knockedbackDelay);
 
         //enemies go back to target
-        yield return new WaitForSeconds(knockbackDelay);
+        yield return new WaitForSeconds(knockedbackDelay);
         direction = (target.transform.position - transform.position).normalized;
     }
 
