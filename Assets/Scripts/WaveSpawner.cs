@@ -43,7 +43,8 @@ public class WaveSpawner : MonoBehaviour
         if (canAnimate)
         {
             waveName.text = waves[nextWave].name;
-            anim.SetTrigger("WaveComplete");
+            anim.SetTrigger("WaveStart");
+            anim.SetTrigger("NextWave");
             canAnimate = false;
         }
     }
@@ -88,7 +89,13 @@ public class WaveSpawner : MonoBehaviour
         //no more next wave
         if (nextWave + 1 > waves.Length - 1)
         {
-            Debug.Log("All waves completed!");
+            if (canAnimate)
+            {
+                anim.SetTrigger("WaveComplete");
+                anim.SetTrigger("AllClear");
+                canAnimate = false;
+            }
+
             state = SpawnState.WAIT;
         }
         else //there is still a wave
@@ -99,6 +106,7 @@ public class WaveSpawner : MonoBehaviour
             {
                 waveName.text = waves[nextWave].name;
                 anim.SetTrigger("WaveComplete");
+                anim.SetTrigger("NextWave");
                 canAnimate = false;
             }
         }

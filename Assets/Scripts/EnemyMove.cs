@@ -48,11 +48,6 @@ public class EnemyMove : MonoBehaviour
             StartCoroutine(Pushed());
         }
 
-        if (collision.gameObject.tag == "Enemy")
-        {
-            StartCoroutine(Knockedback());
-        }
-
         if (collision.gameObject.tag == "Wall")
         {
             Physics2D.IgnoreCollision(collision.gameObject.GetComponent<BoxCollider2D>(), GetComponent<BoxCollider2D>());

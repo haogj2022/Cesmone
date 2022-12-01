@@ -14,6 +14,9 @@ public class HeroAttack : MonoBehaviour
     GameObject player;
 
     public float damage;
+    public bool isRunning = false;
+
+    bool canAttack = false;
 
     private void Start()
     {
@@ -28,24 +31,49 @@ public class HeroAttack : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Enemy")
+        if (collision.tag == "Enemy" && !isRunning)
         {
+            canAttack = true;
+
             enemy = collision.GetComponent<EnemyMove>();
-            anim.SetBool("canAttack", true);
+
+            anim.SetBool("isIdling", false);
+            anim.SetBool("isRunning", false);
+            StartCoroutine(AttackDelay());
         }
+    }
+
+    IEnumerator AttackDelay()
+    {       
+        anim.SetBool("canAttack", true);
+        yield return new WaitForSeconds(1);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.tag == "Enemy")
         {
-            anim.SetBool("canAttack", false);
+            canAttack = false;
+
+            if (isRunning)
+            {
+                anim.SetBool("isIdling", false);
+                anim.SetBool("isRunning", true);
+                anim.SetBool("canAttack", false);
+            }
+            
+            if (!isRunning)
+            {
+                anim.SetBool("isIdling", true);
+                anim.SetBool("isRunning", false);
+                anim.SetBool("canAttack", false);
+            }
         }
     }
 
     public void Attack()
     { 
-        if (enemy.currentHealth > 0)
+        if (enemy.currentHealth > 0 && canAttack)
         {
             enemy.TakeDamage(damage); 
         }      

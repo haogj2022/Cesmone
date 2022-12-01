@@ -16,9 +16,9 @@ public class JoystickController : MonoBehaviour
 
     Animator[] anim;
 
-    Camera cam;
+    HeroAttack[] heroAttack;
 
-    float joystickOffset = 0.7f;
+    public float joystickOffset = 0.7f;
 
     public bool canMove = false;
     private bool facingRight = true;
@@ -28,6 +28,7 @@ public class JoystickController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentsInChildren<Animator>();
         joystick.gameObject.SetActive(false);
+        heroAttack = GetComponentsInChildren<HeroAttack>();
     }
 
     private void FixedUpdate()
@@ -56,18 +57,32 @@ public class JoystickController : MonoBehaviour
 
             joystick.Vertical > joystickOffset || joystick.Vertical < -joystickOffset)
         {
+            foreach (HeroAttack hero in heroAttack)
+            {
+                hero.isRunning = true;
+            }
+
             foreach (Animator anim in anim)
             {
-                anim.SetTrigger("isRunning");
+                anim.SetBool("isIdling", false);
+                anim.SetBool("isRunning", true);
+                anim.SetBool("canAttack", false);
             }
             
             rb.velocity = new Vector2(joystick.Horizontal * moveSpeed, joystick.Vertical * moveSpeed);
         }
         else
         {
+            foreach (HeroAttack hero in heroAttack)
+            {
+                hero.isRunning = false;
+            }
+
             foreach (Animator anim in anim)
             {
-                anim.SetTrigger("isIdling");
+                anim.SetBool("isIdling", true);
+                anim.SetBool("isRunning", false);
+                anim.SetBool("canAttack", false);
             }
 
             rb.velocity = Vector2.zero;
