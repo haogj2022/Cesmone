@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 //Created by: Nguyen Anh Hao
@@ -24,21 +25,30 @@ public class WaveSpawner : MonoBehaviour
     public Wave[] waves; //number of waves
     public Transform[] spawnPoints; //enemies spawn positions
     public Animator anim;
-    public TMP_Text waveName;
+    public TMP_Text waveName; //wave name text
 
     public float waveDelay = 5; //delay after completed wave
 
-    private int nextWave = 0; 
-    private float waveInterval; //pause between waves
-    private float search = 1; //search for alive enemies
+    int nextWave = 0; 
+    float waveInterval; //pause between waves
+    float search = 1; //search for alive enemies
+    float winDelay = 2;
 
-    public SpawnState state = SpawnState.COUNT; //start count down
+    SpawnState state = SpawnState.COUNT; //start count down
 
-    private bool canAnimate = true;
+    bool canAnimate = true; //animation can play
+   
+    Image winScreen;
 
-    private void Start()
-    {        
-        waveInterval = waveDelay; //delay for a few seconds
+    public GameObject[] stats;
+
+    JoystickController joystick;
+
+    ReadInput timer; 
+
+    void Start()
+    {
+        waveInterval = waveDelay; //delay for a few seconds       
 
         if (canAnimate)
         {
@@ -49,7 +59,7 @@ public class WaveSpawner : MonoBehaviour
         }
     }
 
-    private void Update()
+    void Update()
     {
         //wait for player to kill all enemies
         if (state == SpawnState.WAIT)
@@ -86,15 +96,17 @@ public class WaveSpawner : MonoBehaviour
 
         waveInterval = waveDelay; //delay for a few seconds
 
-        //no more next wave
+        //there is no more wave
         if (nextWave + 1 > waves.Length - 1)
         {
             if (canAnimate)
             {
                 anim.SetTrigger("WaveComplete");
                 anim.SetTrigger("AllClear");
-                canAnimate = false;
+                canAnimate = false;                               
             }
+            
+            StartCoroutine(PlayerWin());
 
             state = SpawnState.WAIT;
         }
@@ -110,6 +122,26 @@ public class WaveSpawner : MonoBehaviour
                 canAnimate = false;
             }
         }
+    }
+
+    IEnumerator PlayerWin()
+    {        
+        timer = GameObject.Find("Hero Name").GetComponent<ReadInput>();
+        timer.startTimer = false;
+                
+        yield return new WaitForSeconds(winDelay);
+        
+        joystick = GameObject.Find("Hero Selection").GetComponent<JoystickController>();
+        joystick.isActive = false;
+                
+        winScreen = GameObject.Find("Win").GetComponent<Image>();
+        winScreen.enabled = true;
+
+        foreach (GameObject stat in stats)
+        {
+            yield return new WaitForSeconds(1);
+            stat.SetActive(true);
+        }       
     }
 
     bool EnemyIsAlive()

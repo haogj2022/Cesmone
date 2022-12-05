@@ -2,25 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 using TMPro;
 
 //Created by: Nguyen Anh Hao
 //Date created: 14/11/2022
 //Summary: Handle input field
 
-///Date modified: 15/11/2022
-///Summary: Display text from input field
-
 public class ReadInput : MonoBehaviour
 {
-    public GameObject characterName; //a reference to Character Name canvas
-    public TMP_InputField nameInput; //a reference to input field
-    public TMP_Text nameToDisplay; //a reference to name to display
-    public JoystickController character; //a reference to joystick controller 
-    public WaveSpawner spawner; //a reference to wave spawner
+    [Header("GameObjects")]
+    public GameObject characterName; //Character Name canvas
+    public GameObject mainMenu;
 
-    private GameObject player; 
-    private float offset = 1.2f; 
+    [Header("UIs")]
+    public TMP_InputField nameInput; //input field for character name
+    public TMP_Text nameToDisplay; //name to show on screen
+    public TMP_Text timerText; //text to show current time
+    public TMP_Text numOfEnemyKilled; //text 
+
+    [Header("Scripts")]
+    public JoystickController joystick; //joystick controller object
+    public WaveSpawner spawner; //wave spawner object
+
+    GameObject player; 
+    float offset = 1.2f;
+    
+    float currentTime = 0;
+
+    public bool startTimer = false;
+    public float enemyKilled = 0;
 
     void Start()
     {
@@ -45,14 +56,32 @@ public class ReadInput : MonoBehaviour
         {
             characterName.SetActive(false); //close Character Name canvas
 
-            character.canMove = true; //enable character movement
+            joystick.isActive = true; //enable character movement
 
             spawner.enabled = true;
+
+            startTimer = true;
         }
     }
 
-    private void Update()
+    void Update()
     {
         nameToDisplay.transform.position = new Vector2(player.transform.position.x, player.transform.position.y + offset);
+
+        if (startTimer)
+        {
+            currentTime += Time.deltaTime;            
+        }
+
+        TimeSpan time = TimeSpan.FromSeconds(currentTime);
+        timerText.text = "Clear Time: " + time.ToString(@"mm\:ss\:fff");
+
+        numOfEnemyKilled.text = "Enemy Killed: " + enemyKilled;
+    }
+
+    //when click OK button in Win or Lose screen
+    public void OpenMainMenu()
+    {
+        mainMenu.SetActive(true);
     }
 }

@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Created by: Nguyen Anh Hao
+//Date created: 29/11/2022
+//Summary: Display castle's health bar
+
 public class CastleBar : MonoBehaviour
 {
     Vector2 localScale;

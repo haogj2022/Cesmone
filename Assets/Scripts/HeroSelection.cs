@@ -6,9 +6,6 @@ using UnityEngine;
 //Date created: 14/11/2022
 //Summary: Handle hero selection inputs
 
-///Day modified: 15/11/2022
-///Summary: Add option to quit to main menu
-
 public class HeroSelection : MonoBehaviour
 {
     //references to canvases
@@ -78,7 +75,7 @@ public class HeroSelection : MonoBehaviour
     }
 
     //when click Home button on Gender Selection canvas
-    public void BackToMainMenu()
+    public void BackToStartScreen()
     {
         startScreen.SetActive(true); //open start screen
         genderSelection.SetActive(false);

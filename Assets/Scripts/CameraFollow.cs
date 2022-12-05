@@ -12,20 +12,20 @@ public class CameraFollow : MonoBehaviour
     public CastleHealth castle;
     public CompositeCollider2D mapBounds;
 
-    private float xMin, xMax, yMin, yMax;
-    private float camX, camY;
-    private float camOrthsize;
-    private Camera mainCam;
+    float xMin, xMax, yMin, yMax;
+    float camX, camY;
+    float camOrthsize;
+    Camera mainCam;
 
-    private float smoothSpeed = 0.05f;
-    private float wallOffset = 1.5f;
+    float smoothSpeed = 0.05f;
+    float wallOffset = 1.5f;
 
     public BoxCollider2D topWall;
     public BoxCollider2D bottomWall;
     public BoxCollider2D leftWall;
     public BoxCollider2D rightWall;
 
-    private void Start()
+    void Start()
     {
         follower = GameObject.Find("Hero Selection");
         castle.GetComponent<CastleHealth>();
@@ -39,7 +39,7 @@ public class CameraFollow : MonoBehaviour
         camOrthsize = mainCam.orthographicSize;
     }
 
-    private void Update()
+    void Update()
     {
         CheckWalls();
 

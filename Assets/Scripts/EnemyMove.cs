@@ -17,12 +17,13 @@ public class EnemyMove : MonoBehaviour
     public float maxHealth;
     public float moveSpeed;
 
-    private float knockedbackDelay = 0.2f;
-    private float pushedDelay = 2;
+    float knockedbackDelay = 0.2f;
+    float pushedDelay = 2;
 
-    private bool facingRight = true;
+    bool facingRight = true;
 
-    // Start is called before the first frame update
+    ReadInput num;
+
     void Start()
     {
         target = GameObject.Find("Castle");
@@ -43,11 +44,13 @@ public class EnemyMove : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //when enemies hit the castle
         if (collision.gameObject.tag == "Castle")
         {
-            StartCoroutine(Pushed());
+            StartCoroutine(Pushed()); //enemies are pushed back
         }
 
+        //ignore collision with walls around the map
         if (collision.gameObject.tag == "Wall")
         {
             Physics2D.IgnoreCollision(collision.gameObject.GetComponent<BoxCollider2D>(), GetComponent<BoxCollider2D>());
@@ -84,38 +87,41 @@ public class EnemyMove : MonoBehaviour
         direction = (target.transform.position - transform.position).normalized;
     }
 
-    // Update is called once per frame
     void Update()
     {
         anim.SetTrigger("isAttack");
 
-        MoveEnemy(); //call the move function
+        MoveEnemy(); //enemies are moving
 
         if (transform.position.y > 0)
         {
-            gameObject.GetComponent<SpriteRenderer>().sortingOrder = 0;
+            gameObject.GetComponent<SpriteRenderer>().sortingOrder = 0; 
         }
 
         if (transform.position.y < 0)
         {
-            gameObject.GetComponent<SpriteRenderer>().sortingOrder = 3;
+            gameObject.GetComponent<SpriteRenderer>().sortingOrder = 3; 
         }
-
+       
         if (currentHealth <= 0)
         {
+            num = GameObject.Find("Hero Name").GetComponent<ReadInput>();
+            num.enemyKilled++; //increase number of enemies killed
             Destroy(gameObject);
         }
 
         Vector2 direction = (transform.position - target.transform.position);
 
+        //go to the right
         if (direction.x > 0 && !facingRight)
         {
-            Flip();
+            Flip(); //face right
         }
 
+        //go to the left
         if (direction.x < 0 && facingRight)
         {
-            Flip();
+            Flip(); //face left
         }
     }
 

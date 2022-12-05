@@ -18,7 +18,7 @@ public class HeroAttack : MonoBehaviour
 
     bool canAttack = false;
 
-    private void Start()
+    void Start()
     {
         anim = GetComponent<Animator>();
         player = GameObject.Find("Hero Selection");

@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+//Created by: Nguyen Anh Hao
+//Date created: 29/11/2022
+//Summary: Show castle's health text
+
 public class CastleHealth : MonoBehaviour
 {
     Animator anim;

@@ -18,36 +18,43 @@ public class JoystickController : MonoBehaviour
 
     HeroAttack[] heroAttack;
 
-    public float joystickOffset = 0.7f;
+    public float joystickOffset;
 
-    public bool canMove = false;
-    private bool facingRight = true;
+    public bool isActive = false; 
+    bool facingRight = true;
 
-    private void Start()
+    void Start()
     {        
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentsInChildren<Animator>();
-        joystick.gameObject.SetActive(false);
         heroAttack = GetComponentsInChildren<HeroAttack>();
+        joystickOffset = 0.7f;
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
-        if (canMove)
+        if (isActive) //joystick is active
         {
-            joystick.gameObject.SetActive(true);
+            joystick.gameObject.SetActive(true); //show joystick
 
             UpDownLeftRight();        
             
+            //move to the right
             if (joystick.Horizontal > 0 && !facingRight)
             {
-                Flip();
+                Flip(); //face right
             }
 
+            //move to the left
             if (joystick.Horizontal < 0 && facingRight)
             {
-                Flip();
+                Flip(); //face left
             }
+        }        
+        else
+        {
+            StopMoving(); 
+            joystick.gameObject.SetActive(false); //hide joystick
         }
     }
 
@@ -73,20 +80,25 @@ public class JoystickController : MonoBehaviour
         }
         else
         {
-            foreach (HeroAttack hero in heroAttack)
-            {
-                hero.isRunning = false;
-            }
-
-            foreach (Animator anim in anim)
-            {
-                anim.SetBool("isIdling", true);
-                anim.SetBool("isRunning", false);
-                anim.SetBool("canAttack", false);
-            }
-
-            rb.velocity = Vector2.zero;
+            StopMoving();
         }
+    }
+
+    void StopMoving()
+    {
+        foreach (HeroAttack hero in heroAttack)
+        {
+            hero.isRunning = false;
+        }
+
+        foreach (Animator anim in anim)
+        {
+            anim.SetBool("isIdling", true);
+            anim.SetBool("isRunning", false);
+            anim.SetBool("canAttack", false);
+        }
+
+        rb.velocity = Vector2.zero;
     }
 
     void Flip()
@@ -98,4 +110,3 @@ public class JoystickController : MonoBehaviour
         facingRight = !facingRight;
     }
 }
-
