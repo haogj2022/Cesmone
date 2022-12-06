@@ -1705,8 +1705,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beaedf124ed8c6342931d4816f79c10b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
   joystick: {fileID: 175614907}
+  moveSpeed: 5
   joystickOffset: 0.7
   isActive: 0
 --- !u!1001 &411951645
@@ -17938,12 +17938,12 @@ MonoBehaviour:
   - {fileID: 491979782}
   anim: {fileID: 1563283678}
   waveName: {fileID: 707434518}
-  waveDelay: 5
   stats:
   - {fileID: 1406364274}
   - {fileID: 844886806}
   - {fileID: 378115646}
   - {fileID: 1130585323}
+  waveDelay: 5
 --- !u!1 &2035201741
 GameObject:
   m_ObjectHideFlags: 0

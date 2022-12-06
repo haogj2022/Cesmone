@@ -6,55 +6,62 @@ using TMPro;
 
 //Created by: Nguyen Anh Hao
 //Date created: 18/11/2022
+//Object(s) holding this script: WaveSpawner
 //Summary: Spawn random enemies each wave
 
 public class WaveSpawner : MonoBehaviour
 {
-    public enum SpawnState { SPAWN, WAIT, COUNT}; //states of the wave
+    //the current states of the wave spawner
+    public enum SpawnState { SPAWN, WAIT, COUNT}; 
 
     //make the class editable in Inspector
     [System.Serializable]
     public class Wave
     {
-        public string name; //name of the wave
-        public Transform[] enemy; //random enemies
-        public int count; //number of enemies in the wave
-        public float rate; //how often the enemies spawn
+        public string name; 
+        public Transform[] enemy; 
+        public int count; 
+        public float rate; 
     }
 
-    public Wave[] waves; //number of waves
-    public Transform[] spawnPoints; //enemies spawn positions
-    public Animator anim;
-    public TMP_Text waveName; //wave name text
-
-    public float waveDelay = 5; //delay after completed wave
-
-    int nextWave = 0; 
-    float waveInterval; //pause between waves
-    float search = 1; //search for alive enemies
-    float winDelay = 2;
-
-    SpawnState state = SpawnState.COUNT; //start count down
-
-    bool canAnimate = true; //animation can play
-   
-    Image winScreen;
-
+    public Wave[] waves;
+    public Transform[] spawnPoints; 
+    public Animator anim; 
+    public TMP_Text waveName; 
     public GameObject[] stats;
 
-    JoystickController joystick;
+    public float waveDelay = 5; 
 
+    int nextWave = 0; 
+    float waveInterval;
+    float search = 1; 
+    float winDelay = 2; 
+    bool canAnimate = true;
+
+    SpawnState state = SpawnState.COUNT; 
+      
+    Image winScreen;     
+    JoystickController joystick; 
     ReadInput timer; 
 
     void Start()
     {
-        waveInterval = waveDelay; //delay for a few seconds       
+        //start count down for the first wave
+        waveInterval = waveDelay;       
 
+        //when wave animations can play
         if (canAnimate)
         {
-            waveName.text = waves[nextWave].name;
+            //play wave start animation
             anim.SetTrigger("WaveStart");
+            
+            //show the wave name on screen
+            waveName.text = waves[nextWave].name;
+            
+            //play next wave animation
             anim.SetTrigger("NextWave");
+
+            //stop playing wave animations
             canAnimate = false;
         }
     }
@@ -67,11 +74,13 @@ public class WaveSpawner : MonoBehaviour
             //no enemy is alive
             if (!EnemyIsAlive())
             {
+                //wave is completed
                 WaveCompleted();
             }
             else //there is still an enemy
-            {
-                return; //let player kill it
+            {   
+                //let player kill it
+                return; 
             }
         }
 
@@ -81,62 +90,92 @@ public class WaveSpawner : MonoBehaviour
             //enemies are not spawning
             if (state != SpawnState.SPAWN)
             {
-                StartCoroutine(SpawnWave(waves[nextWave])); //start the next wave               
+                //start the next wave
+                StartCoroutine(SpawnWave(waves[nextWave]));              
             }
         }
         else //enemies already spawned
         {
-            waveInterval -= Time.deltaTime; //start pause between waves
+            //wait for the wave to be completed
+            waveInterval -= Time.deltaTime; 
         }
     }
 
+    //called by Update() when a wave is completed
     void WaveCompleted()
-    {
-        state = SpawnState.COUNT; //count down next wave
-
-        waveInterval = waveDelay; //delay for a few seconds
+    {        
+        //count down for the next wave
+        waveInterval = waveDelay;
+        
+        //wait for the count down
+        state = SpawnState.COUNT;
 
         //there is no more wave
         if (nextWave + 1 > waves.Length - 1)
         {
+            //when wave animations can play
             if (canAnimate)
             {
+                //play wave complete animation
                 anim.SetTrigger("WaveComplete");
+
+                //play all clear animation
                 anim.SetTrigger("AllClear");
+
+                //stop playing wave animations
                 canAnimate = false;                               
             }
-            
+
+            //wait for the animations to complete
+            state = SpawnState.WAIT;
+
+            //player wins the level
             StartCoroutine(PlayerWin());
 
-            state = SpawnState.WAIT;
+            
         }
         else //there is still a wave
         {           
+            //continue to the next wave
             nextWave++;
 
+            //when wave animations can play
             if (canAnimate)
             {
+                //play wave start animation
+                anim.SetTrigger("WaveStart");
+
+                //show the wave name on screen
                 waveName.text = waves[nextWave].name;
-                anim.SetTrigger("WaveComplete");
+
+                //play next wave animation
                 anim.SetTrigger("NextWave");
+
+                //stop playing wave animations
                 canAnimate = false;
             }
         }
     }
 
+    //called by WaveCompleted() when player completed all the waves
     IEnumerator PlayerWin()
-    {        
+    {    
+        //stop the timer
         timer = GameObject.Find("Hero Name").GetComponent<ReadInput>();
         timer.startTimer = false;
                 
+        //wait for a few seconds
         yield return new WaitForSeconds(winDelay);
         
+        //hide the joystick on screen
         joystick = GameObject.Find("Hero Selection").GetComponent<JoystickController>();
         joystick.isActive = false;
                 
+        //enable the victory screen
         winScreen = GameObject.Find("Win").GetComponent<Image>();
         winScreen.enabled = true;
 
+        //show the stats one by one
         foreach (GameObject stat in stats)
         {
             yield return new WaitForSeconds(1);
@@ -144,48 +183,65 @@ public class WaveSpawner : MonoBehaviour
         }       
     }
 
+    //called by Update() when checking for alive enemies
     bool EnemyIsAlive()
     {
-        search -= Time.deltaTime; //start search for alive enemy
-
-        //search for it every second
+        //search for alive enemies
+        search -= Time.deltaTime; 
+        
+        //for every second
         if (search <= 0)
         {
-            search = 1;
+            search = 1; //search again
 
-            //no alive enemy left
+            //cannot find any game object with tag "Enemy"
             if (GameObject.FindGameObjectWithTag("Enemy") == null)
-            {
-                return false;
+            {   
+                //no enemy alive
+                return false; 
             }
         }
-
-        return true;
+        
+        //there is still an enemy
+        return true; 
     }
 
+    //called by Update() when starting a new wave
     IEnumerator SpawnWave(Wave _wave)
     {
+        //enable wave animations
         canAnimate = true;
 
-        state = SpawnState.SPAWN; //start spawn enemies        
+        //start spawning enemies
+        state = SpawnState.SPAWN;     
 
         //spawn correct number of enemies
         for (int i = 0; i < _wave.count; i++)
         {
+            //spawn the enemies
             SpawnEnemy(_wave.enemy);
+
+            //wait for a few seconds
             yield return new WaitForSeconds(1 / _wave.rate);
         }       
 
+        //wait for the wave to be completed
         state = SpawnState.WAIT;
 
+        //break out of the function
         yield break;
     }
 
+    //called by SpawnWave() when spawning an enemy
     void SpawnEnemy(Transform[] _enemy)
     {
-        int randomEnemy = Random.Range(0, _enemy.Length); //random enemies
-        int randomSpawnPoint = Random.Range(0, spawnPoints.Length); //random spawn position
+        //pick a random enemy from the enemy array
+        int randomEnemy = Random.Range(0, _enemy.Length); 
 
-        Instantiate(_enemy[randomEnemy], spawnPoints[randomSpawnPoint].position, Quaternion.identity); //spawn a random enemy at a random spawn position
+        //choose a random spawn position from the spawn point array
+        int randomSpawnPoint = Random.Range(0, spawnPoints.Length);
+
+        //spawn the picked enemy at chosen position
+        Instantiate(_enemy[randomEnemy], spawnPoints[randomSpawnPoint].position, Quaternion.identity); 
     }
 }

@@ -5,44 +5,56 @@ using TMPro;
 
 //Created by: Nguyen Anh Hao
 //Date created: 29/11/2022
+//Object(s) holding this script: Castle
 //Summary: Show castle's health text
 
 public class CastleHealth : MonoBehaviour
 {
     Animator anim;
+    TMP_Text healthText;
 
     public float currentHealth;
     public float maxHealth;
 
-    TMP_Text healthText;
-
-    // Start is called before the first frame update
     void Start()
     {
+        //get animator component
         anim = GetComponent<Animator>();
-        currentHealth = maxHealth;
-
+        
+        //get component in children
         healthText = GetComponentInChildren<TMP_Text>();
+        
+        //set the new health
+        currentHealth = maxHealth;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Enemy" && currentHealth > 0)
+        //when castle collides with enemies
+        if (collision.gameObject.tag == "Enemy")
         {
-            anim.SetTrigger("isHit");
-            currentHealth = currentHealth - 1;
+            //when castle is not destroyed
+            if(currentHealth > 0)
+            {
+                //play the hit animation
+                anim.SetTrigger("isHit");
+
+                //castle takes damage
+                currentHealth = currentHealth - 1;
+            }       
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
+        //show the health text
         healthText.text = currentHealth + " / " + maxHealth; 
 
+        //when castle is destroyed
         if (currentHealth <= 0)
         {
-            anim.SetTrigger("isDestroyed");
-            
+            //play the destroyed animation
+            anim.SetTrigger("isDestroyed");            
         }
     }
 }
