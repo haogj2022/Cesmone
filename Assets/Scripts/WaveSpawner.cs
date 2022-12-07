@@ -35,17 +35,23 @@ public class WaveSpawner : MonoBehaviour
     int nextWave = 0; 
     float waveInterval;
     float search = 1; 
-    float winDelay = 2; 
+    float winDelay = 2;
+    float loseDelay = 5;
     bool canAnimate = true;
 
     SpawnState state = SpawnState.COUNT; 
       
-    Image winScreen;     
+    Image winScreen;
+    Image loseScreen;
     JoystickController joystick; 
-    ReadInput timer; 
+    ReadInput timer;
+    CastleHealth castle;
 
     void Start()
     {
+        //find castle game object in hierarchy
+        castle = GameObject.Find("Castle").GetComponent<CastleHealth>();
+
         //start count down for the first wave
         waveInterval = waveDelay;       
 
@@ -78,9 +84,18 @@ public class WaveSpawner : MonoBehaviour
                 WaveCompleted();
             }
             else //there is still an enemy
-            {   
-                //let player kill it
-                return; 
+            {
+                //when castle is destroyed
+                if (castle.currentHealth <= 0)
+                {
+                    //player loses the level
+                    StartCoroutine(PlayerLose());
+                }
+                else //when castle is not destroyed
+                {
+                    //let player kill the enemy
+                    return;
+                }                 
             }
         }
 
@@ -98,9 +113,9 @@ public class WaveSpawner : MonoBehaviour
         {
             //wait for the wave to be completed
             waveInterval -= Time.deltaTime; 
-        }
+        }      
     }
-
+   
     //called by Update() when a wave is completed
     void WaveCompleted()
     {        
@@ -130,9 +145,7 @@ public class WaveSpawner : MonoBehaviour
             state = SpawnState.WAIT;
 
             //player wins the level
-            StartCoroutine(PlayerWin());
-
-            
+            StartCoroutine(PlayerWin());           
         }
         else //there is still a wave
         {           
@@ -143,7 +156,7 @@ public class WaveSpawner : MonoBehaviour
             if (canAnimate)
             {
                 //play wave start animation
-                anim.SetTrigger("WaveStart");
+                anim.SetTrigger("WaveComplete");
 
                 //show the wave name on screen
                 waveName.text = waves[nextWave].name;
@@ -181,6 +194,36 @@ public class WaveSpawner : MonoBehaviour
             yield return new WaitForSeconds(1);
             stat.SetActive(true);
         }       
+    }
+
+    //called by Update() when player fails to defend the castle
+    IEnumerator PlayerLose()
+    {
+        
+
+        //stop the timer
+        timer = GameObject.Find("Hero Name").GetComponent<ReadInput>();
+        timer.startTimer = false;
+
+        //wait for a few seconds
+        yield return new WaitForSeconds(loseDelay);
+
+        //hide the joystick on screen
+        joystick = GameObject.Find("Hero Selection").GetComponent<JoystickController>();
+        joystick.isActive = false;
+
+        //enable the defeat screen
+        loseScreen = GameObject.Find("Lose").GetComponent<Image>();
+        loseScreen.enabled = true;
+
+        //show the stats one by one
+        foreach (GameObject stat in stats)
+        {
+            yield return new WaitForSeconds(1);
+            stat.SetActive(true);
+        }
+        
+        Time.timeScale = 0;
     }
 
     //called by Update() when checking for alive enemies

@@ -30,12 +30,6 @@ public class CameraFollow : MonoBehaviour
 
     void Start()
     {
-        //set new camera's following speed
-        smoothSpeed = 0.05f;
-
-        //camera follows the character
-        follower = GameObject.Find("Hero Selection");
-
         //get castle health script
         castle.GetComponent<CastleHealth>();
 
@@ -54,17 +48,29 @@ public class CameraFollow : MonoBehaviour
 
     void Update()
     {
+        //set new camera's following speed
+        smoothSpeed = 0.05f;
+
+        //camera follows the character
+        follower = GameObject.Find("Hero Selection");
+
         //checks for walls around the map
         CheckWalls();
 
         //when castle is destroyed
         if (castle.currentHealth <= 0)
         {
+            //ignore collisions with all the walls around the map
+            Physics2D.IgnoreCollision(follower.GetComponent<BoxCollider2D>(), topWall);
+            Physics2D.IgnoreCollision(follower.GetComponent<BoxCollider2D>(), bottomWall);
+            Physics2D.IgnoreCollision(follower.GetComponent<BoxCollider2D>(), leftWall);
+            Physics2D.IgnoreCollision(follower.GetComponent<BoxCollider2D>(), rightWall);
+
             //set new camera's following speed
-            smoothSpeed = 1;
+            smoothSpeed = 0.02f;
 
             //camera follows the castle instead
-            follower = GameObject.Find("Castle");
+            follower = GameObject.Find("Castle");            
         }
 
         //calculate the position of character on screen

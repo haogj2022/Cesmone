@@ -25,7 +25,8 @@ public class ReadInput : MonoBehaviour
     public JoystickController joystick; 
     public WaveSpawner spawner;
 
-    GameObject player; 
+    GameObject player;
+    CastleHealth castle;
 
     float offset = 1.2f;    
     float currentTime = 0;
@@ -41,6 +42,9 @@ public class ReadInput : MonoBehaviour
 
         //find hero selection game object in hierarchy
         player = GameObject.Find("Hero Selection");
+
+        //find castle game object in hierarchy
+        castle = GameObject.Find("Castle").GetComponent<CastleHealth>();
 
         //disable wave spawner
         spawner.enabled = false;
@@ -91,17 +95,24 @@ public class ReadInput : MonoBehaviour
             currentTime += Time.deltaTime;            
         }
 
-        //set the time text
-        TimeSpan time = TimeSpan.FromSeconds(currentTime);
-        timerText.text = "Clear Time: " + time.ToString(@"mm\:ss\:fff");
-
+        if (castle.currentHealth > 0)
+        {
+            //set the time text
+            TimeSpan time = TimeSpan.FromSeconds(currentTime);
+            timerText.text = "Clear Time: " + time.ToString(@"mm\:ss\:fff");
+        }
+        else
+        {
+            timerText.text = "Clear Time: N/A";
+        }
+        
         //set the enemy killed text
         numOfEnemyKilled.text = "Enemy Killed: " + enemyKilled;
     }
 
     //when click OK button in Win or Lose screen
     public void OpenMainMenu()
-    {
+    {        
         //open main menu canvas
         mainMenu.SetActive(true); 
     }
