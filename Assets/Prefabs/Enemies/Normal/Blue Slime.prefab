@@ -268,3 +268,5 @@ MonoBehaviour:
   currentHealth: 10
   maxHealth: 10
   moveSpeed: 0.5
+  numOfCoins: 1
+  coin: {fileID: 2667061014639936435, guid: 8ad1294a1acadd54eb86de9c51e13f6a, type: 3}
