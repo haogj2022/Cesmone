@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Created by: Nguyen Anh Hao
+//Date created: 07/12/2022
+//Object(s) holding this script: Coin
+//Summary: Enemies drop coins upon death
+
 public class EnemyCoin : MonoBehaviour
 {
     ReadInput coin;
@@ -16,6 +21,7 @@ public class EnemyCoin : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             coin.coinCollected++;
+            coin.totalCoins++;
             Destroy(gameObject);
         }
 

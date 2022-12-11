@@ -6,7 +6,7 @@ using TMPro;
 
 //Created by: Nguyen Anh Hao
 //Date created: 18/11/2022
-//Object(s) holding this script: WaveSpawner
+//Object(s) holding this script: Level 1
 //Summary: Spawn random enemies each wave
 
 public class WaveSpawner : MonoBehaviour
@@ -31,14 +31,14 @@ public class WaveSpawner : MonoBehaviour
     public GameObject[] stats;
 
     public float waveDelay = 5; 
-
-    int nextWave = 0; 
+    public bool canAnimate = true;
+    public int nextWave = 0; 
+    
     float waveInterval;
     float search = 1; 
     float winDelay = 2;
     float loseDelay = 5;
-    bool canAnimate = true;
-
+    
     SpawnState state = SpawnState.COUNT; 
       
     Image winScreen;
@@ -47,13 +47,19 @@ public class WaveSpawner : MonoBehaviour
     ReadInput timer;
     CastleHealth castle;
 
-    void Start()
+    public void StartLevel1()
     {
         //find castle game object in hierarchy
         castle = GameObject.Find("Castle").GetComponent<CastleHealth>();
+        
+        nextWave = 0;
+        
+        canAnimate = true;
 
         //start count down for the first wave
-        waveInterval = waveDelay;       
+        waveInterval = waveDelay;
+
+        state = SpawnState.COUNT;
 
         //when wave animations can play
         if (canAnimate)
@@ -88,8 +94,8 @@ public class WaveSpawner : MonoBehaviour
                 //when castle is destroyed
                 if (castle.currentHealth <= 0)
                 {
-                    //player loses the level
-                    StartCoroutine(PlayerLose());
+                    //end the wave so enemies do not spawn
+                    WaveCompleted();
                 }
                 else //when castle is not destroyed
                 {
@@ -131,24 +137,34 @@ public class WaveSpawner : MonoBehaviour
             //when wave animations can play
             if (canAnimate)
             {
-                //play wave complete animation
-                anim.SetTrigger("WaveComplete");
+                if (castle.currentHealth > 0)
+                {
+                    //play wave complete animation
+                    anim.SetTrigger("WaveComplete");
 
-                //play all clear animation
-                anim.SetTrigger("AllClear");
+                    //play all clear animation
+                    anim.SetTrigger("AllClear");
 
-                //stop playing wave animations
-                canAnimate = false;                               
+                    //player wins the level
+                    StartCoroutine(PlayerWin());
+
+                    //stop playing wave animations
+                    canAnimate = false;
+                }
+                else
+                {
+                    //player wins the level
+                    StartCoroutine(PlayerLose());
+
+                    //stop playing wave animations
+                    canAnimate = false;
+                }                
             }
-
-            //wait for the animations to complete
-            state = SpawnState.WAIT;
-
-            //player wins the level
-            StartCoroutine(PlayerWin());           
+            
+            state = SpawnState.WAIT;                      
         }
         else //there is still a wave
-        {           
+        {                 
             //continue to the next wave
             nextWave++;
 
@@ -166,7 +182,7 @@ public class WaveSpawner : MonoBehaviour
 
                 //stop playing wave animations
                 canAnimate = false;
-            }
+            }                        
         }
     }
 
@@ -193,7 +209,7 @@ public class WaveSpawner : MonoBehaviour
         {
             yield return new WaitForSeconds(1);
             stat.SetActive(true);
-        }       
+        }
     }
 
     //called by Update() when player fails to defend the castle
@@ -220,8 +236,6 @@ public class WaveSpawner : MonoBehaviour
             yield return new WaitForSeconds(1);
             stat.SetActive(true);
         }
-        
-        Time.timeScale = 0;
     }
 
     //called by Update() when checking for alive enemies

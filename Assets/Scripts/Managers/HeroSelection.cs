@@ -4,13 +4,16 @@ using UnityEngine;
 
 //Created by: Nguyen Anh Hao
 //Date created: 14/11/2022
+//Object(s) holding this script: Hero Selection
 //Summary: Handle hero selection inputs
 
 public class HeroSelection : MonoBehaviour
 {
     [Header("Canvases")]
     public GameObject startScreen;
+    public GameObject mainMenu;
     public GameObject genderSelection;
+
     public GameObject maleWeaponSelection;
     public GameObject femaleWeaponSelection;
     public GameObject characterName;
@@ -42,8 +45,10 @@ public class HeroSelection : MonoBehaviour
     void Setup()
     {   
         //open start screen
-        startScreen.SetActive(true); 
+        startScreen.SetActive(true);
+        mainMenu.SetActive(false);
         genderSelection.SetActive(false);
+
         maleWeaponSelection.SetActive(false);
         femaleWeaponSelection.SetActive(false);
         characterName.SetActive(false);
@@ -68,10 +73,12 @@ public class HeroSelection : MonoBehaviour
     }
 
     //when click Play button on start screen canvas
+    //when click Setting button on main menu canvas
     public void LoadGenderSelection()
     {
         //open the Gender Selection canvas
         startScreen.SetActive(false);
+        mainMenu.SetActive(false);
         genderSelection.SetActive(true); 
     }
 

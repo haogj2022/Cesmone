@@ -56,5 +56,10 @@ public class CastleHealth : MonoBehaviour
             //play the destroyed animation
             anim.SetTrigger("isDestroyed");            
         }
+        else
+        {
+            //play the reset animation
+            anim.SetTrigger("isReset");
+        }       
     }
 }
