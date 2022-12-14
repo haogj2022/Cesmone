@@ -12,7 +12,7 @@ public class EnemyMove : MonoBehaviour
     Animator anim;
     Rigidbody2D rb;
     GameObject target;
-    ReadInput num;
+    PlayerStats num;
 
     Vector2 direction;
 
@@ -85,17 +85,21 @@ public class EnemyMove : MonoBehaviour
         direction = (target.transform.position - transform.position).normalized;
     }
 
-    //when hero deals damage to enemy
+    //called by HeroAttack.Attack() when hero deals damage to enemy
     public void TakeDamage(float damage)
     {   
-        //play the hurt animation
-        anim.SetTrigger("isHurt");
-        
-        //enemy is knocked back
-        StartCoroutine(Knockedback());
+        //when enemy is still alive
+        if (currentHealth > 0)
+        {
+            //play the hurt animation
+            anim.SetTrigger("isHurt");
 
-        //enemy takes damage
-        currentHealth = currentHealth - damage;                                                               
+            //enemy is knocked back
+            StartCoroutine(Knockedback());
+
+            //enemy takes damage
+            currentHealth = currentHealth - damage;
+        }                                                             
     }
 
     //called by TakeDamage() when enemy takes damage
@@ -174,19 +178,7 @@ public class EnemyMove : MonoBehaviour
         //when enemy's health reaches zero
         if (currentHealth <= 0)
         {
-            //increase number of enemy killed
-            num = GameObject.Find("Hero Name").GetComponent<ReadInput>();
-            num.enemyKilled++;
-
-            //drop a number of coins
-            for (int i = 0; i < numOfCoins; i++)
-            {
-                //drop a coin
-                Instantiate(coin, transform.position, Quaternion.identity);
-            }
-            
-            //remove the enemy from the game
-            Destroy(gameObject);
+            EnemyDeath();
         }
 
         //when castle is not destroyed
@@ -195,10 +187,23 @@ public class EnemyMove : MonoBehaviour
             //enemy moves to the castle
             rb.velocity = new Vector2(direction.x * moveSpeed, direction.y * moveSpeed); 
         }
-        else //when castle is destroyed
+    }
+
+    //called by MoveEnemy() when enemy is killed by player
+    void EnemyDeath() 
+    {
+        //increase number of enemy killed
+        num = GameObject.Find("Hero Name").GetComponent<PlayerStats>();
+        num.enemyKilled++;
+
+        //drop a number of coins
+        for (int i = 0; i < numOfCoins; i++)
         {
-            //enemy stop moving
-            rb.velocity = Vector2.zero;
+            //drop a coin
+            Instantiate(coin, transform.position, Quaternion.identity);
         }
+
+        //remove the enemy from the game
+        Destroy(gameObject);
     }
 }

@@ -9,19 +9,24 @@ using UnityEngine;
 
 public class EnemyCoin : MonoBehaviour
 {
-    ReadInput coin;
+    PlayerStats coin;
 
     void Start()
     {
-        coin = GameObject.Find("Hero Name").GetComponent<ReadInput>();
+        //find the hero name object in hierarchy
+        coin = GameObject.Find("Hero Name").GetComponent<PlayerStats>();
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        //when collide with player
         if (collision.gameObject.tag == "Player")
         {
+            //increase number of coins
             coin.coinCollected++;
             coin.totalCoins++;
+
+            //remove object from screen
             Destroy(gameObject);
         }
 

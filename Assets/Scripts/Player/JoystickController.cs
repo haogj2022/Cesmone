@@ -34,17 +34,23 @@ public class JoystickController : MonoBehaviour
         joystickOffset = 0.7f;
     }
 
-    void FixedUpdate()
+    void Update()
+    {
+        MoveHandle();        
+    }
+
+    //called by Update() when player move joystick's handle
+    void MoveHandle()
     {
         //when joystick is enabled
-        if (isActive) 
+        if (isActive)
         {
             //show the joystick on screen
-            joystick.gameObject.SetActive(true); 
+            joystick.gameObject.SetActive(true);
 
             //enable movement
-            UpDownLeftRight();        
-            
+            UpDownLeftRight();
+
             //when character moves to the right
             if (joystick.Horizontal > 0 && !facingRight)
             {
@@ -56,20 +62,20 @@ public class JoystickController : MonoBehaviour
             if (joystick.Horizontal < 0 && facingRight)
             {
                 //character faces left
-                Flip(); 
+                Flip();
             }
-        }        
+        }
         else //when joystick is not enable
         {
             //character stop moving
-            StopMoving(); 
+            StopMoving();
 
             //hide the joystick on screen
-            joystick.gameObject.SetActive(false); 
+            joystick.gameObject.SetActive(false);
         }
     }
 
-    //called by FixedUpdate() to move character around
+    //called by MoveHandle() to move character around
     void UpDownLeftRight()
     {
         //when player fully drags the joystick's handle
@@ -88,7 +94,7 @@ public class JoystickController : MonoBehaviour
             {
                 anim.SetBool("isIdling", false);
                 anim.SetBool("isRunning", true);
-                anim.SetBool("canAttack", false);
+
             }
             
             //move the character to drag direction
@@ -101,7 +107,7 @@ public class JoystickController : MonoBehaviour
         }
     }
 
-    //called by FixedUpdate() and UpDownLeftRight() 
+    //called by MoveHandle() and UpDownLeftRight() 
     //to stop character from moving
     void StopMoving()
     {
@@ -116,14 +122,13 @@ public class JoystickController : MonoBehaviour
         {
             anim.SetBool("isIdling", true);
             anim.SetBool("isRunning", false);
-            anim.SetBool("canAttack", false);
         }
 
         //character stop moving
         rb.velocity = Vector2.zero;
     }
 
-    //called by FixedUpdate() to face character in correct direction
+    //called by MoveHandle() to face character in correct direction
     void Flip()
     {
         //declare a new Vector3 for a new scale

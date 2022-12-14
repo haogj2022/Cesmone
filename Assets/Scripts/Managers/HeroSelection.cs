@@ -5,7 +5,7 @@ using UnityEngine;
 //Created by: Nguyen Anh Hao
 //Date created: 14/11/2022
 //Object(s) holding this script: Hero Selection
-//Summary: Handle hero selection inputs
+//Summary: Handle hero selection
 
 public class HeroSelection : MonoBehaviour
 {

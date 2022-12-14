@@ -32,6 +32,7 @@ public class WaveSpawner : MonoBehaviour
 
     public float waveDelay = 5; 
     public bool canAnimate = true;
+    public bool canSpawn = true;
     public int nextWave = 0; 
     
     float waveInterval;
@@ -44,13 +45,18 @@ public class WaveSpawner : MonoBehaviour
     Image winScreen;
     Image loseScreen;
     JoystickController joystick; 
-    ReadInput timer;
+    PlayerStats timer;
     CastleHealth castle;
+    LevelSelection level;
 
-    public void StartLevel1()
+    //called by LevelSelection.Level1() to start level 1
+    public void StartLevel()
     {
         //find castle game object in hierarchy
         castle = GameObject.Find("Castle").GetComponent<CastleHealth>();
+
+        //find wave spawner object in hierarchy
+        level = GameObject.Find("WaveSpawner").GetComponent<LevelSelection>();
         
         nextWave = 0;
         
@@ -80,6 +86,12 @@ public class WaveSpawner : MonoBehaviour
 
     void Update()
     {
+        SpawnEvent();    
+    }
+
+    //called by Update() to manage spawn event
+    void SpawnEvent()
+    {
         //wait for player to kill all enemies
         if (state == SpawnState.WAIT)
         {
@@ -101,7 +113,7 @@ public class WaveSpawner : MonoBehaviour
                 {
                     //let player kill the enemy
                     return;
-                }                 
+                }
             }
         }
 
@@ -112,14 +124,14 @@ public class WaveSpawner : MonoBehaviour
             if (state != SpawnState.SPAWN)
             {
                 //start the next wave
-                StartCoroutine(SpawnWave(waves[nextWave]));              
+                StartCoroutine(SpawnWave(waves[nextWave]));
             }
         }
         else //enemies already spawned
         {
             //wait for the wave to be completed
-            waveInterval -= Time.deltaTime; 
-        }      
+            waveInterval -= Time.deltaTime;
+        }
     }
    
     //called by Update() when a wave is completed
@@ -137,6 +149,7 @@ public class WaveSpawner : MonoBehaviour
             //when wave animations can play
             if (canAnimate)
             {
+                //castle is not destroyed
                 if (castle.currentHealth > 0)
                 {
                     //play wave complete animation
@@ -151,7 +164,7 @@ public class WaveSpawner : MonoBehaviour
                     //stop playing wave animations
                     canAnimate = false;
                 }
-                else
+                else //castle is destroyed
                 {
                     //player wins the level
                     StartCoroutine(PlayerLose());
@@ -188,9 +201,12 @@ public class WaveSpawner : MonoBehaviour
 
     //called by WaveCompleted() when player completed all the waves
     IEnumerator PlayerWin()
-    {    
+    {
+        //level is complete
+        level.LevelComplete();
+
         //stop the timer
-        timer = GameObject.Find("Hero Name").GetComponent<ReadInput>();
+        timer = GameObject.Find("Hero Name").GetComponent<PlayerStats>();
         timer.startTimer = false;
                 
         //wait for a few seconds
@@ -212,11 +228,14 @@ public class WaveSpawner : MonoBehaviour
         }
     }
 
-    //called by Update() when player fails to defend the castle
+    //called by WaveComplete() when player fails to defend the castle
     IEnumerator PlayerLose()
     {
+        //level is complete
+        level.LevelComplete();
+
         //stop the timer
-        timer = GameObject.Find("Hero Name").GetComponent<ReadInput>();
+        timer = GameObject.Find("Hero Name").GetComponent<PlayerStats>();
         timer.startTimer = false;
 
         //wait for a few seconds
@@ -238,7 +257,7 @@ public class WaveSpawner : MonoBehaviour
         }
     }
 
-    //called by Update() when checking for alive enemies
+    //called by SpawnEvent() when checking for alive enemies
     bool EnemyIsAlive()
     {
         //search for alive enemies
@@ -261,30 +280,39 @@ public class WaveSpawner : MonoBehaviour
         return true; 
     }
 
-    //called by Update() when starting a new wave
+    //called by SpawnEvent() when starting a new wave
     IEnumerator SpawnWave(Wave _wave)
     {
         //enable wave animations
         canAnimate = true;
 
         //start spawning enemies
-        state = SpawnState.SPAWN;     
+        state = SpawnState.SPAWN;
 
         //spawn correct number of enemies
         for (int i = 0; i < _wave.count; i++)
         {
-            //spawn the enemies
-            SpawnEnemy(_wave.enemy);
+            //enemy can spawn
+            if (canSpawn)
+            {
+                //spawn the enemies
+                SpawnEnemy(_wave.enemy);
+            }
+            else //enemy cannot spawn
+            {
+                //break out of the loop
+                break;
+            }
 
             //wait for a few seconds
             yield return new WaitForSeconds(1 / _wave.rate);
-        }       
+        }
 
         //wait for the wave to be completed
         state = SpawnState.WAIT;
 
         //break out of the function
-        yield break;
+        yield break;            
     }
 
     //called by SpawnWave() when spawning an enemy

@@ -18,7 +18,7 @@ public class CameraFollow : MonoBehaviour
     float xMin, xMax, yMin, yMax;
     float camX, camY;
     float camOrthsize;
-    float smoothSpeed;
+    float smoothSpeed = 0.02f;
     float wallOffset = 1.5f;
 
     [Header("Walls")]
@@ -48,9 +48,12 @@ public class CameraFollow : MonoBehaviour
 
     void Update()
     {
-        //set new camera's following speed
-        smoothSpeed = 0.05f;
+        FollowTarget();
+    }
 
+    //called by Update() to follow the target
+    void FollowTarget()
+    {
         //camera follows the character
         follower = GameObject.Find("Hero Selection");
 
@@ -66,11 +69,8 @@ public class CameraFollow : MonoBehaviour
             Physics2D.IgnoreCollision(follower.GetComponent<BoxCollider2D>(), leftWall);
             Physics2D.IgnoreCollision(follower.GetComponent<BoxCollider2D>(), rightWall);
 
-            //set new camera's following speed
-            smoothSpeed = 0.02f;
-
             //camera follows the castle instead
-            follower = GameObject.Find("Castle");            
+            follower = GameObject.Find("Castle");
         }
 
         //calculate the position of character on screen
@@ -81,7 +81,7 @@ public class CameraFollow : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position, new Vector3(camX, camY, transform.position.z), smoothSpeed);
     }
 
-    //called by Update() when setup walls around the map
+    //called by FollowTarget() to setup walls around the map
     void CheckWalls()
     {
         //setup the top wall on screen

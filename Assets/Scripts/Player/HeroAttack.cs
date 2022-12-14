@@ -28,7 +28,7 @@ public class HeroAttack : MonoBehaviour
         player = GameObject.Find("Hero Selection");
     }
 
-    private void FixedUpdate()
+    void Update()
     {
         //follow the hero selection game object
         transform.position = player.transform.position;
@@ -49,8 +49,6 @@ public class HeroAttack : MonoBehaviour
                 enemy = collision.GetComponent<EnemyMove>();
 
                 //play the attacking animation
-                anim.SetBool("isIdling", false);
-                anim.SetBool("isRunning", false);
                 anim.SetBool("canAttack", true);
             }            
         }
@@ -63,26 +61,13 @@ public class HeroAttack : MonoBehaviour
         {
             //character cannot attack
             canAttack = false;
-
-            //when character is running
-            if (isRunning)
-            {
-                //play the running animation
-                anim.SetBool("isIdling", false);
-                anim.SetBool("isRunning", true);
-                anim.SetBool("canAttack", false);
-            }            
-            else //when character is not running
-            {
-                //play the idling animation
-                anim.SetBool("isIdling", true);
-                anim.SetBool("isRunning", false);
-                anim.SetBool("canAttack", false);
-            }
+            
+            //disable attack animation
+            anim.SetBool("canAttack", false);          
         }
     }
 
-    //when character attacks an enemy
+    //called in attack animation when character attacks an enemy
     public void Attack()
     { 
         //when enemy is still alive
