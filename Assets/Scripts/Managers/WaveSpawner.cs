@@ -164,37 +164,38 @@ public class WaveSpawner : MonoBehaviour
                     //stop playing wave animations
                     canAnimate = false;
                 }
-                else //castle is destroyed
-                {
-                    //player wins the level
-                    StartCoroutine(PlayerLose());
-
-                    //stop playing wave animations
-                    canAnimate = false;
-                }                
             }
             
             state = SpawnState.WAIT;                      
         }
         else //there is still a wave
-        {                 
+        {
             //continue to the next wave
-            nextWave++;
+            nextWave++; 
 
             //when wave animations can play
             if (canAnimate)
-            {
-                //play wave start animation
-                anim.SetTrigger("WaveComplete");
+            {                 
+                //castle is not destroyed
+                if (castle.currentHealth > 0)
+                {
+                    //play wave start animation
+                    anim.SetTrigger("WaveComplete");
 
-                //show the wave name on screen
-                waveName.text = waves[nextWave].name;
+                    //show the wave name on screen
+                    waveName.text = waves[nextWave].name;
 
-                //play next wave animation
-                anim.SetTrigger("NextWave");
+                    //play next wave animation
+                    anim.SetTrigger("NextWave");
 
-                //stop playing wave animations
-                canAnimate = false;
+                    //stop playing wave animations
+                    canAnimate = false;
+                }
+                else //castle is destroyed
+                {
+                    //player loses the level
+                    StartCoroutine(PlayerLose());
+                }               
             }                        
         }
     }
