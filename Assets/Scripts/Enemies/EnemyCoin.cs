@@ -13,8 +13,8 @@ public class EnemyCoin : MonoBehaviour
 
     void Start()
     {
-        //find the hero name object in hierarchy
-        coin = GameObject.Find("Hero Name").GetComponent<PlayerStats>();
+        //find the WIn & Lose Screen object in hierarchy
+        coin = GameObject.Find("Win & Lose Screen").GetComponent<PlayerStats>();
     }
 
     void OnCollisionEnter2D(Collision2D collision)

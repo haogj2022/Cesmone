@@ -4,7 +4,7 @@ using UnityEngine;
 
 //Created by: Nguyen Anh Hao
 //Date created: 29/11/2022
-//Object(s) holding this script: Castle
+//Object(s) holding this script: Castle bar
 //Summary: Display castle's health bar
 
 public class CastleBar : MonoBehaviour

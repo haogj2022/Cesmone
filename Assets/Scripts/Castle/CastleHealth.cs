@@ -10,12 +10,12 @@ using TMPro;
 
 public class CastleHealth : MonoBehaviour
 {
-    Animator anim;
-    TMP_Text healthText;
-
     public float currentHealth;
     public float maxHealth;
-
+    
+    Animator anim;
+    TMP_Text healthText;
+    
     void Start()
     {
         //get animator component

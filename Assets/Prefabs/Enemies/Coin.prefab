@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2607148182104705496}
   - component: {fileID: 205596195313937262}
   - component: {fileID: -5272706829781488846}
-  - component: {fileID: 8307843134344866093}
+  - component: {fileID: 1001941211179128103}
   - component: {fileID: 7993731150831944162}
   m_Layer: 0
   m_Name: Coin
@@ -129,7 +129,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &8307843134344866093
+--- !u!61 &1001941211179128103
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -153,7 +153,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8, y: 0.8}
+  m_Size: {x: 0.35, y: 0.35}
   m_EdgeRadius: 0
 --- !u!114 &7993731150831944162
 MonoBehaviour:

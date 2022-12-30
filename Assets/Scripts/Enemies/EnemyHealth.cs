@@ -4,9 +4,7 @@ using UnityEngine;
 
 //Created by: Nguyen Anh Hao
 //Date created: 29/11/2022
-//Object(s) holding this script: Health bar(Blue Slime),
-//                               Health bar(Purple Slime),
-//                               Health bar(Red Slime)
+//Object(s) holding this script: All game objects with 'Enemy' tag
 //Summary: Display enemy's health
 
 public class EnemyHealth : MonoBehaviour

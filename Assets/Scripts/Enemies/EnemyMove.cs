@@ -1,42 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 //Created by: Nguyen Anh Hao
 //Date created: 18/11/2022
-//Object(s) holding this script: Blue Slime, Purple Slime, Red Slime
+//Object(s) holding this script: All game objects with 'Enemy' tag
 //Summary: Enemies move toward castle building
 
 public class EnemyMove : MonoBehaviour
 {
-    Animator anim;
-    Rigidbody2D rb;
-    GameObject target;
-    PlayerStats num;
-
-    Vector2 direction;
-
+    public GameObject coin;
+    public GameObject damageText;
+    
     public float currentHealth;
     public float maxHealth;
     public float moveSpeed;
     public float numOfCoins;
 
     float knockedbackDelay = 0.2f;
-    float pushedDelay = 2;
+    float pushedDelay = 1;
     bool facingRight = true;
 
-    public GameObject coin;
-
+    Vector2 direction;
+    
+    SpriteRenderer self;
+    Rigidbody2D rb;
+    GameObject target;
+    PlayerStats num;
+    
     void Start()
     {
+        //get sprite renderer component
+        self = GetComponent<SpriteRenderer>();
+
         //find the castle game object in hierarchy
         target = GameObject.Find("Castle");
 
         //get rigid body component
         rb = GetComponent<Rigidbody2D>();
-
-        //get animator component
-        anim = GetComponent<Animator>();
 
         //set the direction to the castle
         direction = (target.transform.position - transform.position).normalized;
@@ -45,7 +47,7 @@ public class EnemyMove : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {       
         //when enemy moves out of the map
         if (collision.tag == "Map")
@@ -69,31 +71,17 @@ public class EnemyMove : MonoBehaviour
         {
             Physics2D.IgnoreCollision(collision.gameObject.GetComponent<BoxCollider2D>(), GetComponent<BoxCollider2D>());
         }
-    }
-
-    //called by OnCollisionEnter2D() when enemy hit the castle
-    IEnumerator Pushed()
-    {
-        //enemy is pushed back in opposite direction to the castle
-        direction = transform.position - target.transform.position;
-        rb.velocity = new Vector2(direction.x * knockedbackDelay, direction.y * knockedbackDelay);
-
-        //wait for a few seconds
-        yield return new WaitForSeconds(pushedDelay);
-        
-        //enemy goes back to the castle
-        direction = (target.transform.position - transform.position).normalized;
-    }
+    }    
 
     //called by HeroAttack.Attack() when hero deals damage to enemy
     public void TakeDamage(float damage)
     {   
+        GameObject dmg = Instantiate(damageText, transform.position, Quaternion.identity);
+        dmg.transform.GetChild(0).GetComponent<TMP_Text>().text = "" + damage;       
+        
         //when enemy is still alive
         if (currentHealth > 0)
         {
-            //play the hurt animation
-            anim.SetTrigger("isHurt");
-
             //enemy is knocked back
             StartCoroutine(Knockedback());
 
@@ -102,15 +90,33 @@ public class EnemyMove : MonoBehaviour
         }                                                             
     }
 
+    //called by OnCollisionEnter2D() when enemy hit castle
+    IEnumerator Pushed()
+    {
+        //enemy is pushed in opposite direction to the castle
+        direction = transform.position - target.transform.position;
+
+        //wait for a few seconds
+        yield return new WaitForSeconds(pushedDelay);
+
+        //enemy goes back to the castle
+        direction = (target.transform.position - transform.position).normalized;
+    }
+
     //called by TakeDamage() when enemy takes damage
     IEnumerator Knockedback()
-    {
+    {   
+        //change color of enemy to red
+        self.color = Color.red;        
+        
         //enemy is knocked back in opposite direction to the castle
         direction = transform.position - target.transform.position;
-        rb.velocity = new Vector2(direction.x * knockedbackDelay, direction.y * knockedbackDelay);
 
         //wait for a few seconds
         yield return new WaitForSeconds(knockedbackDelay);
+        
+        //change color of enemy to white
+        self.color = Color.white;
         
         //enemy goes back to the castle
         direction = (target.transform.position - transform.position).normalized;
@@ -118,9 +124,6 @@ public class EnemyMove : MonoBehaviour
 
     void Update()
     {
-        //play attack animation
-        anim.SetTrigger("isAttack");
-
         //move enemy to the castle
         MoveEnemy(); 
 
@@ -161,20 +164,6 @@ public class EnemyMove : MonoBehaviour
     //called by Update() to move enemy to the castle
     void MoveEnemy()
     {
-        //when enemy is spawned on top of the map
-        if (transform.position.y > 0)
-        {
-            //set the sprite renderer's sorting layer to behind character
-            gameObject.GetComponent<SpriteRenderer>().sortingOrder = 0;
-        }
-
-        //when enemy is spawned at bottom of the map
-        if (transform.position.y < 0)
-        {
-            //set the sprite renderer's sorting layer to in front of character
-            gameObject.GetComponent<SpriteRenderer>().sortingOrder = 3;
-        }
-
         //when enemy's health reaches zero
         if (currentHealth <= 0)
         {
@@ -193,7 +182,7 @@ public class EnemyMove : MonoBehaviour
     void EnemyDeath() 
     {
         //increase number of enemy killed
-        num = GameObject.Find("Hero Name").GetComponent<PlayerStats>();
+        num = GameObject.Find("Win & Lose Screen").GetComponent<PlayerStats>();
         num.enemyKilled++;
 
         //drop a number of coins

@@ -9,8 +9,6 @@ using UnityEngine;
 
 public class HeroSelection : MonoBehaviour
 {
-    [Header("Canvases")]
-    public GameObject startScreen;
     public GameObject mainMenu;
     public GameObject genderSelection;
 
@@ -18,363 +16,310 @@ public class HeroSelection : MonoBehaviour
     public GameObject femaleWeaponSelection;
     public GameObject characterName;
 
-    [Header("Sprite Renderers")]
-    public SpriteRenderer maleSword;
-    public SpriteRenderer maleStaff;
-    public SpriteRenderer maleBow;
+    public SpriteRenderer[] heroes;
+    public BoxCollider2D[] hitBoxes;
 
-    public SpriteRenderer femaleSword;
-    public SpriteRenderer femaleStaff;
-    public SpriteRenderer femaleBow;
-
-    [Header("Box Colliders 2D")]
-    public BoxCollider2D maleSwordBox;
-    public BoxCollider2D maleStaffBox;
-    public BoxCollider2D maleBowBox;
-
-    public BoxCollider2D femaleSwordBox;
-    public BoxCollider2D femaleStaffBox;
-    public BoxCollider2D femaleBowBox;
-   
-    void Start()
-    {
-        Setup();       
-    }
-
-    //when the game starts
-    void Setup()
-    {   
-        //open start screen
-        startScreen.SetActive(true);
-        mainMenu.SetActive(false);
-        genderSelection.SetActive(false);
-
-        maleWeaponSelection.SetActive(false);
-        femaleWeaponSelection.SetActive(false);
-        characterName.SetActive(false);
-        
-        //enable male sword hero
-        maleSword.enabled = true; 
-        maleStaff.enabled = false;
-        maleBow.enabled = false;
-
-        femaleSword.enabled = false;
-        femaleStaff.enabled = false;
-        femaleBow.enabled = false;
-        
-        //enable male sword box
-        maleSwordBox.enabled = true; 
-        maleStaffBox.enabled = false;
-        maleBowBox.enabled = false;
-
-        femaleSwordBox.enabled = false;
-        femaleStaffBox.enabled = false;
-        femaleBowBox.enabled = false;
-    }
-
-    //when click Play button on start screen canvas
-    //when click Setting button on main menu canvas
+    //when click Edit Character button in main menu
     public void LoadGenderSelection()
     {
-        //open the Gender Selection canvas
-        startScreen.SetActive(false);
+        //open the Gender Selection menu
         mainMenu.SetActive(false);
         genderSelection.SetActive(true); 
     }
 
-    //when click Home button on Gender Selection canvas
-    public void BackToStartScreen()
-    {   
-        //open start screen canvas
-        startScreen.SetActive(true); 
+    //when click Home button in Gender Selection menu
+    public void BackToMainMenu()
+    {
+        //open main menu
+        mainMenu.SetActive(true); 
         genderSelection.SetActive(false);
     }
 
-    //when click Male button on Gender Selection canvas
+    //when click Male button in Gender Selection menu
     public void LoadMaleGender()
     {
         //when sword heroes are visible
-        if (maleSword.enabled == true || femaleSword.enabled == true)
+        if (heroes[0].enabled == true || heroes[3].enabled == true)
         {   
             //enable male sword hero
-            maleSword.enabled = true; 
-            maleStaff.enabled = false;
-            maleBow.enabled = false;
+            heroes[0].enabled = true; 
+            heroes[1].enabled = false;
+            heroes[2].enabled = false;
 
-            femaleSword.enabled = false;
-            femaleStaff.enabled = false;
-            femaleBow.enabled = false;
+            heroes[3].enabled = false;
+            heroes[4].enabled = false;
+            heroes[5].enabled = false;
             
-            //enable male sword box
-            maleSwordBox.enabled = true; 
-            maleStaffBox.enabled = false;
-            maleBowBox.enabled = false;
+            //enable male sword hit box
+            hitBoxes[0].enabled = true; 
+            hitBoxes[1].enabled = false;
+            hitBoxes[2].enabled = false;
 
-            femaleSwordBox.enabled = false;
-            femaleStaffBox.enabled = false;
-            femaleBowBox.enabled = false;
+            hitBoxes[3].enabled = false;
+            hitBoxes[4].enabled = false;
+            hitBoxes[5].enabled = false;
         }
 
         //when staff heroes are visible
-        if (maleStaff.enabled == true || femaleStaff.enabled == true)
-        {   
+        if (heroes[1].enabled == true || heroes[4].enabled == true)
+        {
             //enable male staff hero
-            maleSword.enabled = false;
-            maleStaff.enabled = true; 
-            maleBow.enabled = false;
+            heroes[0].enabled = false;
+            heroes[1].enabled = true;
+            heroes[2].enabled = false;
 
-            femaleSword.enabled = false;
-            femaleStaff.enabled = false;
-            femaleBow.enabled = false;
-            
-            //enable male staff box
-            maleSwordBox.enabled = false;
-            maleStaffBox.enabled = true; 
-            maleBowBox.enabled = false;
+            heroes[3].enabled = false;
+            heroes[4].enabled = false;
+            heroes[5].enabled = false;
 
-            femaleSwordBox.enabled = false;
-            femaleStaffBox.enabled = false;
-            femaleBowBox.enabled = false;
+            //enable male staff hit box
+            hitBoxes[0].enabled = false;
+            hitBoxes[1].enabled = true;
+            hitBoxes[2].enabled = false;
+
+            hitBoxes[3].enabled = false;
+            hitBoxes[4].enabled = false;
+            hitBoxes[5].enabled = false;
         }
 
         //when bow heroes are visible
-        if (maleBow.enabled == true || femaleBow.enabled == true)
-        {   
+        if (heroes[2].enabled == true || heroes[5].enabled == true)
+        {
             //enable male bow hero
-            maleSword.enabled = false;
-            maleStaff.enabled = false;
-            maleBow.enabled = true; 
+            heroes[0].enabled = false;
+            heroes[1].enabled = false;
+            heroes[2].enabled = true;
 
-            femaleSword.enabled = false;
-            femaleStaff.enabled = false;
-            femaleBow.enabled = false;
-            
-            //enable male bow box
-            maleSwordBox.enabled = false;
-            maleStaffBox.enabled = false;
-            maleBowBox.enabled = true; 
+            heroes[3].enabled = false;
+            heroes[4].enabled = false;
+            heroes[5].enabled = false;
 
-            femaleSwordBox.enabled = false;
-            femaleStaffBox.enabled = false;
-            femaleBowBox.enabled = false;
+            //enable male bow hit box
+            hitBoxes[0].enabled = false;
+            hitBoxes[1].enabled = false;
+            hitBoxes[2].enabled = true;
+
+            hitBoxes[3].enabled = false;
+            hitBoxes[4].enabled = false;
+            hitBoxes[5].enabled = false;
         }
     }
 
-    //when click Female button on Gender Selection canvas
+    //when click Female button in Gender Selection menu
     public void LoadFemaleGender()
     {
         //when sword heroes are visible
-        if (maleSword.enabled == true || femaleSword.enabled == true)
+        if (heroes[0].enabled == true || heroes[3].enabled == true)
         {
-            maleSword.enabled = false;
-            maleStaff.enabled = false;
-            maleBow.enabled = false;
-            
             //enable female sword hero
-            femaleSword.enabled = true; 
-            femaleStaff.enabled = false;
-            femaleBow.enabled = false;
-            
-            maleSwordBox.enabled = false;
-            maleStaffBox.enabled = false;
-            maleBowBox.enabled = false;
-            
-            //enable female sword box
-            femaleSwordBox.enabled = true; 
-            femaleStaffBox.enabled = false;
-            femaleBowBox.enabled = false;
+            heroes[0].enabled = false;
+            heroes[1].enabled = false;
+            heroes[2].enabled = false;
+
+            heroes[3].enabled = true;
+            heroes[4].enabled = false;
+            heroes[5].enabled = false;
+
+            //enable female sword hit box
+            hitBoxes[0].enabled = false;
+            hitBoxes[1].enabled = false;
+            hitBoxes[2].enabled = false;
+
+            hitBoxes[3].enabled = true;
+            hitBoxes[4].enabled = false;
+            hitBoxes[5].enabled = false;
         }
 
         //when staff heroes are visible
-        if (maleStaff.enabled == true || femaleStaff.enabled == true)
+        if (heroes[1].enabled == true || heroes[4].enabled == true)
         {
-            maleSword.enabled = false;
-            maleStaff.enabled = false;
-            maleBow.enabled = false;
-            
             //enable female staff hero
-            femaleSword.enabled = false;
-            femaleStaff.enabled = true; 
-            femaleBow.enabled = false;
+            heroes[0].enabled = false;
+            heroes[1].enabled = false;
+            heroes[2].enabled = false;
 
-            maleSwordBox.enabled = false;
-            maleStaffBox.enabled = false;
-            maleBowBox.enabled = false;
-            
-            //enable female staff box
-            femaleSwordBox.enabled = false;
-            femaleStaffBox.enabled = true; 
-            femaleBowBox.enabled = false;
+            heroes[3].enabled = false;
+            heroes[4].enabled = true;
+            heroes[5].enabled = false;
+
+            //enable female staff hit box
+            hitBoxes[0].enabled = false;
+            hitBoxes[1].enabled = false;
+            hitBoxes[2].enabled = false;
+
+            hitBoxes[3].enabled = false;
+            hitBoxes[4].enabled = true;
+            hitBoxes[5].enabled = false;
         }
 
         //when bow heroes are visible
-        if (maleBow.enabled == true || femaleBow.enabled == true)
+        if (heroes[2].enabled == true || heroes[5].enabled == true)
         {
-            maleSword.enabled = false;
-            maleStaff.enabled = false;
-            maleBow.enabled = false;
-            
-            //enable female bow hero
-            femaleSword.enabled = false;
-            femaleStaff.enabled = false;
-            femaleBow.enabled = true; 
+            //enable male sword hero
+            heroes[0].enabled = false;
+            heroes[1].enabled = false;
+            heroes[2].enabled = false;
 
-            maleSwordBox.enabled = false;
-            maleStaffBox.enabled = false;
-            maleBowBox.enabled = false;
-            
-            //enable female bow box
-            femaleSwordBox.enabled = false;
-            femaleStaffBox.enabled = false;
-            femaleBowBox.enabled = true; 
+            heroes[3].enabled = false;
+            heroes[4].enabled = false;
+            heroes[5].enabled = true;
+
+            //enable male sword hit box
+            hitBoxes[0].enabled = false;
+            hitBoxes[1].enabled = false;
+            hitBoxes[2].enabled = false;
+
+            hitBoxes[3].enabled = false;
+            hitBoxes[4].enabled = false;
+            hitBoxes[5].enabled = true;
         }
     }
 
-    //when click Next button on Gender Selection canvas
-    //when click Back button on Character Name canvas
-    public void LoadHeroWeapon()
+    //when click Next button in Gender Selection menu
+    //when click Back button in Character Name menu
+    public void LoadWeaponSelection()
     {
         genderSelection.SetActive(false);
         characterName.SetActive(false);
         
         //when male heroes are visible
-        if (maleSword.enabled == true || maleStaff.enabled == true || maleBow.enabled == true)
+        if (heroes[0].enabled == true || heroes[1].enabled == true || heroes[2].enabled == true)
         {   
-            //open Male Weapon Selection canvas
+            //open Male Weapon Selection menu
             maleWeaponSelection.SetActive(true); 
         }
 
         //when female heroes are visible
-        if (femaleSword.enabled == true || femaleStaff.enabled == true || femaleBow.enabled == true)
+        if (heroes[3].enabled == true || heroes[4].enabled == true || heroes[5].enabled == true)
         {   
-            //open Female Weapon Selection canvas
+            //open Female Weapon Selection menu
             femaleWeaponSelection.SetActive(true); 
         }
     }
 
-    //when click Sword button on Male Weapon Selection canvas
+    //when click Sword button in Male Weapon Selection menu
     public void LoadMaleSword()
     {   
         //enable male sword hero     
-        maleSword.enabled = true; 
-        maleStaff.enabled = false;
-        maleBow.enabled = false;
+        heroes[0].enabled = true; 
+        heroes[1].enabled = false;
+        heroes[2].enabled = false;
         
         //enable male sword box
-        maleSwordBox.enabled = true; 
-        maleStaffBox.enabled = false;
-        maleBowBox.enabled = false;
+        hitBoxes[0].enabled = true; 
+        hitBoxes[1].enabled = false;
+        hitBoxes[2].enabled = false;
     }
 
-    //when click Staff button on Male Weapon Selection canvas
+    //when click Staff button in Male Weapon Selection menu
     public void LoadMaleStaff()
     {   
         //enable male staff hero
-        maleSword.enabled = false;
-        maleStaff.enabled = true; 
-        maleBow.enabled = false;
+        heroes[0].enabled = false;
+        heroes[1].enabled = true; 
+        heroes[2].enabled = false;
         
         //enable male staff box
-        maleSwordBox.enabled = false;
-        maleStaffBox.enabled = true; 
-        maleBowBox.enabled = false;
+        hitBoxes[0].enabled = false;
+        hitBoxes[1].enabled = true; 
+        hitBoxes[2].enabled = false;
     }
 
-    //when click Bow button on Male Weapon Selection canvas
+    //when click Bow button in Male Weapon Selection menu
     public void LoadMaleBow()
     {   
         //enable male bow hero
-        maleSword.enabled = false;
-        maleStaff.enabled = false;
-        maleBow.enabled = true; 
+        heroes[0].enabled = false;
+        heroes[1].enabled = false;
+        heroes[2].enabled = true; 
         
         //enable male bow box
-        maleSwordBox.enabled = false;
-        maleStaffBox.enabled = false;
-        maleBowBox.enabled = true; 
+        hitBoxes[0].enabled = false;
+        hitBoxes[1].enabled = false;
+        hitBoxes[2].enabled = true; 
     }
 
-    //when click Sword button on Female Weapon Selection canvas
+    //when click Sword button in Female Weapon Selection menu
     public void LoadFemaleSword()
     {   
         //enable female sword hero
-        femaleSword.enabled = true; 
-        femaleStaff.enabled = false;
-        femaleBow.enabled = false;
+        heroes[3].enabled = true; 
+        heroes[4].enabled = false;
+        heroes[5].enabled = false;
         
         //enable female sword box
-        femaleSwordBox.enabled = true; 
-        femaleStaffBox.enabled = false;
-        femaleBowBox.enabled = false;
+        hitBoxes[3].enabled = true; 
+        hitBoxes[4].enabled = false;
+        hitBoxes[5].enabled = false;
     }
 
-    //when click Staff button on Female Weapon Selection canvas
+    //when click Staff button in Female Weapon Selection menu
     public void LoadFemaleStaff()
     {   
         //enable female staff hero
-        femaleSword.enabled = false;
-        femaleStaff.enabled = true; 
-        femaleBow.enabled = false;
+        heroes[3].enabled = false;
+        heroes[4].enabled = true; 
+        heroes[5].enabled = false;
         
         //enable female staff box
-        femaleSwordBox.enabled = false;
-        femaleStaffBox.enabled = true; 
-        femaleBowBox.enabled = false;
+        hitBoxes[3].enabled = false;
+        hitBoxes[4].enabled = true; 
+        hitBoxes[5].enabled = false;
     }
 
-    //when click Bow button on Female Weapon Selection canvas
+    //when click Bow button in Female Weapon Selection menu
     public void LoadFemaleBow()
     {   
         //enable female bow hero
-        femaleSword.enabled = false;
-        femaleStaff.enabled = false;
-        femaleBow.enabled = true; 
+        heroes[3].enabled = false;
+        heroes[4].enabled = false;
+        heroes[5].enabled = true; 
         
         //enable female bow box
-        femaleSwordBox.enabled = false;
-        femaleStaffBox.enabled = false;
-        femaleBowBox.enabled = true; 
+        hitBoxes[3].enabled = false;
+        hitBoxes[4].enabled = false;
+        hitBoxes[5].enabled = true; 
     }
 
-    //when click Back button on Male Weapon Selection canvas
-    //when click Back button on Female Weapon Selection canvas
+    //when click Back button in Male Weapon Selection menu
+    //when click Back button in Female Weapon Selection menu
     public void BackToGenderSelection()
     {   
-        //open Gender Selection canvas
+        //open Gender Selection menu
         genderSelection.SetActive(true); 
 
         //when male heroes are visible
-        if (maleSword.enabled == true || maleStaff.enabled == true || maleBow.enabled == true)
+        if (heroes[0].enabled == true || heroes[1].enabled == true || heroes[2].enabled == true)
         {   
-            //close Male Weapon Selection canvas
+            //close Male Weapon Selection menu
             maleWeaponSelection.SetActive(false); 
         }
 
         //when female heroes are visible
-        if (femaleSword.enabled == true || femaleStaff.enabled == true || femaleBow.enabled == true)
+        if (heroes[3].enabled == true || heroes[4].enabled == true || heroes[5].enabled == true)
         {   
-            //close Female Weapon Selection canvas
+            //close Female Weapon Selection menu
             femaleWeaponSelection.SetActive(false); 
         }
     }  
 
-    //when click Next button on Male Weapon Selection canvas
-    //when click Next button on Female Weapon Selection canvas
+    //when click Next button in Male Weapon Selection menu
+    //when click Next button in Female Weapon Selection menu
     public void LoadCharacterName()
     {
         characterName.SetActive(true);
 
         //when male heroes are visible
-        if (maleSword.enabled == true || maleStaff.enabled == true || maleBow.enabled == true)
+        if (heroes[0].enabled == true || heroes[1].enabled == true || heroes[2].enabled == true)
         {   
-            //close Male Weapon Selection canvas
+            //close Male Weapon Selection menu
             maleWeaponSelection.SetActive(false); 
         }
 
         //when female heroes are visible
-        if (femaleSword.enabled == true || femaleStaff.enabled == true || femaleBow.enabled == true)
+        if (heroes[3].enabled == true || heroes[4].enabled == true || heroes[5].enabled == true)
         {   
-            //close Female Weapon Selection canvas
+            //close Female Weapon Selection menu
             femaleWeaponSelection.SetActive(false); 
         }
     }

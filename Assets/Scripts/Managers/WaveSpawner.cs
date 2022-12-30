@@ -47,19 +47,24 @@ public class WaveSpawner : MonoBehaviour
     JoystickController joystick; 
     PlayerStats timer;
     CastleHealth castle;
-    LevelSelection level;
+    SpawnerManager level;
 
-    //called by LevelSelection.Level1() to start level 1
+    //called in LevelSelection script to start the level
     public void StartLevel()
     {
         //find castle game object in hierarchy
         castle = GameObject.Find("Castle").GetComponent<CastleHealth>();
 
-        //find wave spawner object in hierarchy
-        level = GameObject.Find("WaveSpawner").GetComponent<LevelSelection>();
+        //find spawner manager object in hierarchy
+        level = GameObject.Find("Spawner Manager").GetComponent<SpawnerManager>();
         
+        //start first wave
         nextWave = 0;
-        
+
+        //enemies can spawn
+        canSpawn = true;
+
+        //wave animations can play
         canAnimate = true;
 
         //start count down for the first wave
@@ -143,14 +148,32 @@ public class WaveSpawner : MonoBehaviour
         //wait for the count down
         state = SpawnState.COUNT;
 
-        //there is no more wave
-        if (nextWave + 1 > waves.Length - 1)
-        {
+        //when castle is destroyed
+        if (castle.currentHealth <= 0)
+        {   
+            //stop spawning enemies
+            canSpawn = false;
+
             //when wave animations can play
             if (canAnimate)
+            {   
+                //player loses the level
+                StartCoroutine(PlayerLose());
+
+                //stop playing wave animations
+                canAnimate = false;
+            }
+
+            //wait for player to go back to main menu
+            state = SpawnState.WAIT;
+        }
+        else //when castle is not destroyed
+        {
+            //there is no more wave
+            if (nextWave + 1 > waves.Length - 1)
             {
-                //castle is not destroyed
-                if (castle.currentHealth > 0)
+                //when wave animations can play
+                if (canAnimate)
                 {
                     //play wave complete animation
                     anim.SetTrigger("WaveComplete");
@@ -164,20 +187,17 @@ public class WaveSpawner : MonoBehaviour
                     //stop playing wave animations
                     canAnimate = false;
                 }
-            }
-            
-            state = SpawnState.WAIT;                      
-        }
-        else //there is still a wave
-        {
-            //continue to the next wave
-            nextWave++; 
 
-            //when wave animations can play
-            if (canAnimate)
-            {                 
-                //castle is not destroyed
-                if (castle.currentHealth > 0)
+                //wait for player to go back to main menu
+                state = SpawnState.WAIT;
+            }
+            else //there is still a wave
+            {
+                //continue to the next wave
+                nextWave++;
+
+                //when wave animations can play
+                if (canAnimate)
                 {
                     //play wave start animation
                     anim.SetTrigger("WaveComplete");
@@ -191,13 +211,8 @@ public class WaveSpawner : MonoBehaviour
                     //stop playing wave animations
                     canAnimate = false;
                 }
-                else //castle is destroyed
-                {
-                    //player loses the level
-                    StartCoroutine(PlayerLose());
-                }               
-            }                        
-        }
+            }
+        }       
     }
 
     //called by WaveCompleted() when player completed all the waves
@@ -207,7 +222,7 @@ public class WaveSpawner : MonoBehaviour
         level.LevelComplete();
 
         //stop the timer
-        timer = GameObject.Find("Hero Name").GetComponent<PlayerStats>();
+        timer = GameObject.Find("Win & Lose Screen").GetComponent<PlayerStats>();
         timer.startTimer = false;
                 
         //wait for a few seconds
@@ -236,7 +251,7 @@ public class WaveSpawner : MonoBehaviour
         level.LevelComplete();
 
         //stop the timer
-        timer = GameObject.Find("Hero Name").GetComponent<PlayerStats>();
+        timer = GameObject.Find("Win & Lose Screen").GetComponent<PlayerStats>();
         timer.startTimer = false;
 
         //wait for a few seconds

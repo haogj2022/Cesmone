@@ -10,15 +10,15 @@ using UnityEngine;
 
 public class HeroAttack : MonoBehaviour
 {
-    Animator anim;
-    EnemyMove enemy;
-    GameObject player;
-
     public float damage;
     public bool isRunning = false;
 
     bool canAttack = false;
-
+    
+    Animator anim;
+    EnemyMove enemy;
+    GameObject player;
+    
     void Start()
     {
         //get animator component

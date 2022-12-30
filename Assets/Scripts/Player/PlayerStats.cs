@@ -20,7 +20,6 @@ public class PlayerStats : MonoBehaviour
     
     public bool startTimer = false;
     
-    [Header("Text Mesh Pros UGUI")]
     public TMP_Text timerText;
     public TMP_Text numOfEnemyKilled;
     public TMP_Text numOfCoinsCollected;

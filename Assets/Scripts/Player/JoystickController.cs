@@ -8,19 +8,19 @@ using UnityEngine;
 //Summary: Move character with joystick
 
 public class JoystickController : MonoBehaviour
-{    
+{
+    public Joystick joystick;
+
+    public float moveSpeed;   
+    public bool isActive = false; 
+    
+    float joystickOffset = 0.7f;
+    bool facingRight = true;
+    
     Rigidbody2D rb;   
     Animator[] anim;
     HeroAttack[] heroAttack;
-
-    public Joystick joystick;
-
-    public float moveSpeed;
-    public float joystickOffset;
-    public bool isActive = false; 
-
-    bool facingRight = true;
-
+    
     void Start()
     {      
         //get rigid body component

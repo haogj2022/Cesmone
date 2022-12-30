@@ -9,6 +9,7 @@ TagManager:
   - Map
   - Wall
   - Coin
+  - Damage
   layers:
   - Default
   - TransparentFX
