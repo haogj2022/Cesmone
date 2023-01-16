@@ -74,11 +74,26 @@ public class EnemyMove : MonoBehaviour
     }    
 
     //called by HeroAttack.Attack() when hero deals damage to enemy
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, bool isCrit)
     {   
+        //show damage taken
         GameObject dmg = Instantiate(damageText, transform.position, Quaternion.identity);
-        dmg.transform.GetChild(0).GetComponent<TMP_Text>().text = "" + damage;       
-        
+
+        //is critical damage
+        if (isCrit)
+        {
+            //change damage text color to yellow
+            dmg.transform.GetChild(0).GetComponent<TMP_Text>().color = Color.yellow;
+
+            //set damage text
+            dmg.transform.GetChild(0).GetComponent<TMP_Text>().text = damage + "\n critical";
+        }
+        else //is not critical damage
+        {
+            //set damage text
+            dmg.transform.GetChild(0).GetComponent<TMP_Text>().text = damage + ""; 
+        }
+                        
         //when enemy is still alive
         if (currentHealth > 0)
         {
@@ -183,7 +198,7 @@ public class EnemyMove : MonoBehaviour
     {
         //increase number of enemy killed
         num = GameObject.Find("Win & Lose Screen").GetComponent<PlayerStats>();
-        num.enemyKilled++;
+        num.enemiesKilled++;
 
         //drop a number of coins
         for (int i = 0; i < numOfCoins; i++)

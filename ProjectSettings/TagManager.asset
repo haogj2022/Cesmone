@@ -10,6 +10,8 @@ TagManager:
   - Wall
   - Coin
   - Damage
+  - Hero
+  - Spawner
   layers:
   - Default
   - TransparentFX

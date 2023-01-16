@@ -4,14 +4,15 @@ using UnityEngine;
 
 //Created by: Nguyen Anh Hao
 //Date created: 20/11/2022
-//Object(s) holding this script: Male sword, Male staff, Male bow
-//                               Female sword, Female staff, Female bow
+//Object(s) holding this script: All game objects with 'Hero' tag
 //Summary: Deal damage to enemies
 
 public class HeroAttack : MonoBehaviour
 {
     public float damage;
-    public bool isRunning = false;
+    public float critChance;
+    public float critDamage;
+    public bool isCritical = false;   
 
     bool canAttack = false;
     
@@ -38,13 +39,13 @@ public class HeroAttack : MonoBehaviour
     {
         //when enemies are within attack range
         if (collision.tag == "Enemy")
-        {
-            //when character is not running
-            if (!isRunning)
+        {   
+            //character can attack
+            canAttack = true;
+            
+            //when character can attack
+            if (canAttack)
             {
-                //character can attack
-                canAttack = true;
-
                 //get component from enemy
                 enemy = collision.GetComponent<EnemyMove>();
 
@@ -61,7 +62,7 @@ public class HeroAttack : MonoBehaviour
         {
             //character cannot attack
             canAttack = false;
-            
+
             //disable attack animation
             anim.SetBool("canAttack", false);          
         }
@@ -76,9 +77,22 @@ public class HeroAttack : MonoBehaviour
             //when enemy is within range
             if (canAttack)
             {
-                //enemy takes damage
-                enemy.TakeDamage(damage);
+                //random chance for crit attack
+                float randValue = Random.Range(0, 100);
+
+                //is a critical attack
+                if (randValue < critChance)
+                {
+                    //enemy takes critical damage
+                    float totalDamage = damage + critDamage;                   
+                    enemy.TakeDamage(totalDamage, isCritical = true);
+                }
+                else //not a critical attack
+                {
+                    //enemy takes normal damage
+                    enemy.TakeDamage(damage, isCritical = false);
+                }                
             }            
         }      
-    }
+    }    
 }

@@ -19,7 +19,6 @@ public class JoystickController : MonoBehaviour
     
     Rigidbody2D rb;   
     Animator[] anim;
-    HeroAttack[] heroAttack;
     
     void Start()
     {      
@@ -28,7 +27,6 @@ public class JoystickController : MonoBehaviour
 
         //get all the components from children
         anim = GetComponentsInChildren<Animator>();
-        heroAttack = GetComponentsInChildren<HeroAttack>();
 
         //set joystick offset
         joystickOffset = 0.7f;
@@ -83,18 +81,12 @@ public class JoystickController : MonoBehaviour
 
             joystick.Vertical > joystickOffset || joystick.Vertical < -joystickOffset)
         {
-            //character is running
-            foreach (HeroAttack hero in heroAttack)
-            {
-                hero.isRunning = true;
-            }
 
             //play the running animations
             foreach (Animator anim in anim)
             {
                 anim.SetBool("isIdling", false);
                 anim.SetBool("isRunning", true);
-
             }
             
             //move the character to drag direction
@@ -111,12 +103,6 @@ public class JoystickController : MonoBehaviour
     //to stop character from moving
     void StopMoving()
     {
-        //character is not running
-        foreach (HeroAttack hero in heroAttack)
-        {
-            hero.isRunning = false;
-        }
-
         //play the idling animations
         foreach (Animator anim in anim)
         {

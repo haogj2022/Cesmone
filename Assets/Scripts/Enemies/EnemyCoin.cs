@@ -23,7 +23,7 @@ public class EnemyCoin : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             //increase number of coins
-            coin.coinCollected++;
+            coin.coinsCollected++;
             coin.totalCoins++;
 
             //remove object from screen

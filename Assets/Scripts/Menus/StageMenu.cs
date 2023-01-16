@@ -4,7 +4,7 @@ using UnityEngine;
 
 //Created by: Nguyen Anh Hao
 //Date created: 22/12/2022
-//Object(s) holding this script: Level Selection
+//Object(s) holding this script: Stage Menu
 //Summary: Handle stage menu events
 
 public class StageMenu : MonoBehaviour

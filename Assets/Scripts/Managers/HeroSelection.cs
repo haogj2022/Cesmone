@@ -11,7 +11,6 @@ public class HeroSelection : MonoBehaviour
 {
     public GameObject mainMenu;
     public GameObject genderSelection;
-
     public GameObject maleWeaponSelection;
     public GameObject femaleWeaponSelection;
     public GameObject characterName;

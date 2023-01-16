@@ -6,24 +6,20 @@ using TMPro;
 
 //Created by: Nguyen Anh Hao
 //Date created: 14/12/2022
-//Object(s) holding this script: Hero Name
+//Object(s) holding this script: Win & Lose Screen
 //Summary: Show stats after player complete a level
 
 public class PlayerStats : MonoBehaviour
 {
     public GameObject[] stats;
-    
+    public TMP_Text[] num;
+
     public float currentTime = 0;
-    public float enemyKilled = 0;
-    public float coinCollected = 0;
+    public float enemiesKilled = 0;
+    public float coinsCollected = 0;
     public float totalCoins = 0;
     
     public bool startTimer = false;
-    
-    public TMP_Text timerText;
-    public TMP_Text numOfEnemyKilled;
-    public TMP_Text numOfCoinsCollected;
-    public TMP_Text numOfTotalCoins;
 
     CastleHealth castle;
     
@@ -55,21 +51,21 @@ public class PlayerStats : MonoBehaviour
         {
             //set the time text
             TimeSpan time = TimeSpan.FromSeconds(currentTime);
-            timerText.text = "Clear Time: " + time.ToString(@"mm\:ss\:fff");
+            num[0].text = "Clear Time: " + time.ToString(@"hh\:mm\:ss");
         }
         else //castle is destroyed
         {
             //player not complete the level yet
-            timerText.text = "Clear Time: N/A";
+            num[0].text = "Clear Time: N/A";
         }
 
         //set the enemy killed text
-        numOfEnemyKilled.text = "Enemies Killed: " + enemyKilled;
+        num[1].text = "Enemies Killed: " + enemiesKilled;
 
         //set the coin collected text
-        numOfCoinsCollected.text = "Coins Collected: " + coinCollected;
+        num[2].text = "Coins Collected: " + coinsCollected;
 
         //set the total coin text
-        numOfTotalCoins.text = "" + totalCoins;
+        num[3].text = "" + totalCoins;
     }
 }

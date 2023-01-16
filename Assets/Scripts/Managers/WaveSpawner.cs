@@ -6,7 +6,7 @@ using TMPro;
 
 //Created by: Nguyen Anh Hao
 //Date created: 18/11/2022
-//Object(s) holding this script: Level 1
+//Object(s) holding this script: All game objects with 'Spawner' tag
 //Summary: Spawn random enemies each wave
 
 public class WaveSpawner : MonoBehaviour
@@ -26,51 +26,52 @@ public class WaveSpawner : MonoBehaviour
 
     public Wave[] waves;
     public Transform[] spawnPoints; 
-    public Animator anim; 
-    public TMP_Text waveName; 
-    public GameObject[] stats;
-
-    public float waveDelay = 5; 
-    public bool canAnimate = true;
-    public bool canSpawn = true;
-    public int nextWave = 0; 
     
+    public TMP_Text waveName;
+    public GameObject clearText;
+    public Button nextLevel;
+      
+    public bool canSpawn = true;
+
+    float waveDelay = 5;       
     float waveInterval;
     float search = 1; 
     float winDelay = 2;
     float loseDelay = 5;
-    
+
+    int nextWave = 0; 
+    bool canAnimate = true;
+
     SpawnState state = SpawnState.COUNT; 
-      
+    
+    Animator anim; 
     Image winScreen;
     Image loseScreen;
     JoystickController joystick; 
-    PlayerStats timer;
+    PlayerStats player;
     CastleHealth castle;
     SpawnerManager level;
 
     //called in LevelSelection script to start the level
     public void StartLevel()
     {
+        //find wave animation game object in hierarchy
+        anim = GameObject.Find("Wave Animation").GetComponent<Animator>();
+
         //find castle game object in hierarchy
         castle = GameObject.Find("Castle").GetComponent<CastleHealth>();
 
         //find spawner manager object in hierarchy
         level = GameObject.Find("Spawner Manager").GetComponent<SpawnerManager>();
         
+        //count down the first wave
+        waveInterval = waveDelay;
+        state = SpawnState.COUNT;
+        
         //start first wave
         nextWave = 0;
-
-        //enemies can spawn
         canSpawn = true;
-
-        //wave animations can play
         canAnimate = true;
-
-        //start count down for the first wave
-        waveInterval = waveDelay;
-
-        state = SpawnState.COUNT;
 
         //when wave animations can play
         if (canAnimate)
@@ -222,8 +223,8 @@ public class WaveSpawner : MonoBehaviour
         level.LevelComplete();
 
         //stop the timer
-        timer = GameObject.Find("Win & Lose Screen").GetComponent<PlayerStats>();
-        timer.startTimer = false;
+        player = GameObject.Find("Win & Lose Screen").GetComponent<PlayerStats>();
+        player.startTimer = false;
                 
         //wait for a few seconds
         yield return new WaitForSeconds(winDelay);
@@ -237,11 +238,17 @@ public class WaveSpawner : MonoBehaviour
         winScreen.enabled = true;
 
         //show the stats one by one
-        foreach (GameObject stat in stats)
+        foreach (GameObject stat in player.stats)
         {
             yield return new WaitForSeconds(1);
             stat.SetActive(true);
         }
+
+        //enable clear text
+        clearText.SetActive(true);
+
+        //enable next level
+        nextLevel.interactable = true;
     }
 
     //called by WaveComplete() when player fails to defend the castle
@@ -251,8 +258,8 @@ public class WaveSpawner : MonoBehaviour
         level.LevelComplete();
 
         //stop the timer
-        timer = GameObject.Find("Win & Lose Screen").GetComponent<PlayerStats>();
-        timer.startTimer = false;
+        player = GameObject.Find("Win & Lose Screen").GetComponent<PlayerStats>();
+        player.startTimer = false;
 
         //wait for a few seconds
         yield return new WaitForSeconds(loseDelay);
@@ -266,7 +273,7 @@ public class WaveSpawner : MonoBehaviour
         loseScreen.enabled = true;
 
         //show the stats one by one
-        foreach (GameObject stat in stats)
+        foreach (GameObject stat in player.stats)
         {
             yield return new WaitForSeconds(1);
             stat.SetActive(true);
