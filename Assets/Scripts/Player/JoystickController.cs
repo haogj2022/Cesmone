@@ -11,10 +11,10 @@ public class JoystickController : MonoBehaviour
 {
     public Joystick joystick;
 
-    public float moveSpeed;   
+    public float moveSpeed = 5;
+    public float handleOffset = 0.7f;   
     public bool isActive = false; 
     
-    float joystickOffset = 0.7f;
     bool facingRight = true;
     
     Rigidbody2D rb;   
@@ -29,7 +29,7 @@ public class JoystickController : MonoBehaviour
         anim = GetComponentsInChildren<Animator>();
 
         //set joystick offset
-        joystickOffset = 0.7f;
+        handleOffset = 0.7f;
     }
 
     void Update()
@@ -77,9 +77,9 @@ public class JoystickController : MonoBehaviour
     void UpDownLeftRight()
     {
         //when player fully drags the joystick's handle
-        if (joystick.Horizontal > joystickOffset || joystick.Horizontal < -joystickOffset || 
+        if (joystick.Horizontal > handleOffset || joystick.Horizontal < -handleOffset || 
 
-            joystick.Vertical > joystickOffset || joystick.Vertical < -joystickOffset)
+            joystick.Vertical > handleOffset || joystick.Vertical < -handleOffset)
         {
 
             //play the running animations

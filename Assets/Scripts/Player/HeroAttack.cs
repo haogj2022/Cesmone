@@ -19,11 +19,14 @@ public class HeroAttack : MonoBehaviour
     Animator anim;
     EnemyMove enemy;
     GameObject player;
+    JoystickController handle;
     
     void Start()
     {
         //get animator component
         anim = GetComponent<Animator>();
+
+        handle = GetComponentInParent<JoystickController>();
 
         //find the hero selection game object in hierarchy
         player = GameObject.Find("Hero Selection");
@@ -39,18 +42,29 @@ public class HeroAttack : MonoBehaviour
     {
         //when enemies are within attack range
         if (collision.tag == "Enemy")
-        {   
-            //character can attack
-            canAttack = true;
-            
-            //when character can attack
-            if (canAttack)
-            {
-                //get component from enemy
-                enemy = collision.GetComponent<EnemyMove>();
+        {
+            //character is running
+            if (handle.joystick.Horizontal > handle.handleOffset || handle.joystick.Horizontal < -handle.handleOffset ||
 
-                //play the attacking animation
-                anim.SetBool("canAttack", true);
+                handle.joystick.Vertical > handle.handleOffset || handle.joystick.Vertical < -handle.handleOffset)
+            {
+                //character cannot attack
+                canAttack = false;
+            }
+            else //character is not running
+            {
+                //character can attack
+                canAttack = true;
+
+                //when character can attack
+                if (canAttack)
+                {
+                    //get component from enemy
+                    enemy = collision.GetComponent<EnemyMove>();
+
+                    //play the attacking animation
+                    anim.SetBool("canAttack", true);
+                }
             }            
         }
     }

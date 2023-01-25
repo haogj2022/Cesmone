@@ -13,7 +13,7 @@ public class EnemyCoin : MonoBehaviour
 
     void Start()
     {
-        //find the WIn & Lose Screen object in hierarchy
+        //find the Win & Lose Screen object in hierarchy
         coin = GameObject.Find("Win & Lose Screen").GetComponent<PlayerStats>();
     }
 
@@ -28,12 +28,6 @@ public class EnemyCoin : MonoBehaviour
 
             //remove object from screen
             Destroy(gameObject);
-        }
-
-        //ignore collision with walls
-        if (collision.gameObject.tag == "Wall")
-        {
-            Physics2D.IgnoreCollision(collision.gameObject.GetComponent<BoxCollider2D>(), GetComponent<BoxCollider2D>());
         }
     }
 }
