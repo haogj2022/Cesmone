@@ -265,9 +265,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1b8cc4653a47b042b2fa0043a498f28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin: {fileID: 6857306138514230750, guid: d94061f0a9fae874aae20b4f40c39ea1, type: 3}
+  coin: {fileID: 2667061014639936435, guid: 8ad1294a1acadd54eb86de9c51e13f6a, type: 3}
   damageText: {fileID: 5565856242849039190, guid: 140723a8d4dabf644946edde9aecc0e0, type: 3}
   currentHealth: 60
   maxHealth: 60
   moveSpeed: 0.5
-  numOfCoins: 2
+  numOfCoins: 8
