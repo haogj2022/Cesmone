@@ -495,7 +495,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: +0%
+  m_text: +2%
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 196770e59d6a7b24d806b9179cb04b7e, type: 2}
   m_sharedMaterial: {fileID: 3688514531012307979, guid: 196770e59d6a7b24d806b9179cb04b7e, type: 2}
@@ -1688,7 +1688,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: +0% -> +2%
+  m_text: +2% -> +4%
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 196770e59d6a7b24d806b9179cb04b7e, type: 2}
   m_sharedMaterial: {fileID: 3688514531012307979, guid: 196770e59d6a7b24d806b9179cb04b7e, type: 2}
@@ -10012,7 +10012,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: +1
+  m_text: +5
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 196770e59d6a7b24d806b9179cb04b7e, type: 2}
   m_sharedMaterial: {fileID: 3688514531012307979, guid: 196770e59d6a7b24d806b9179cb04b7e, type: 2}
@@ -20438,7 +20438,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: +0 -> +2
+  m_text: +4 -> +6
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 196770e59d6a7b24d806b9179cb04b7e, type: 2}
   m_sharedMaterial: {fileID: 3688514531012307979, guid: 196770e59d6a7b24d806b9179cb04b7e, type: 2}
@@ -24568,7 +24568,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: +1 -> +3
+  m_text: +5 -> +7
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 196770e59d6a7b24d806b9179cb04b7e, type: 2}
   m_sharedMaterial: {fileID: 3688514531012307979, guid: 196770e59d6a7b24d806b9179cb04b7e, type: 2}
@@ -28164,7 +28164,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: +0% -> +2%
+  m_text: +2% -> +4%
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 196770e59d6a7b24d806b9179cb04b7e, type: 2}
   m_sharedMaterial: {fileID: 3688514531012307979, guid: 196770e59d6a7b24d806b9179cb04b7e, type: 2}
@@ -29334,7 +29334,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: +0% -> +2%
+  m_text: +2% -> +4%
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 196770e59d6a7b24d806b9179cb04b7e, type: 2}
   m_sharedMaterial: {fileID: 3688514531012307979, guid: 196770e59d6a7b24d806b9179cb04b7e, type: 2}
@@ -30398,7 +30398,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: +0%
+  m_text: +2%
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 196770e59d6a7b24d806b9179cb04b7e, type: 2}
   m_sharedMaterial: {fileID: 3688514531012307979, guid: 196770e59d6a7b24d806b9179cb04b7e, type: 2}
@@ -34669,7 +34669,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: +0
+  m_text: +4
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 196770e59d6a7b24d806b9179cb04b7e, type: 2}
   m_sharedMaterial: {fileID: 3688514531012307979, guid: 196770e59d6a7b24d806b9179cb04b7e, type: 2}
@@ -36276,7 +36276,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: +2 -> +4
+  m_text: +6 -> +8
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 196770e59d6a7b24d806b9179cb04b7e, type: 2}
   m_sharedMaterial: {fileID: 3688514531012307979, guid: 196770e59d6a7b24d806b9179cb04b7e, type: 2}
@@ -40714,43 +40714,43 @@ MonoBehaviour:
     currentStat: {fileID: 2027830737}
     upgrade: {fileID: 1743228146}
     newStat: {fileID: 1206204715}
-    lastUpgrade: 0
-    nextUpgrade: 2
+    lastUpgrade: 2
+    nextUpgrade: 4
     cost: 20
   - name: Staff's Crit Chance
     currentStat: {fileID: 40875335}
     upgrade: {fileID: 183444584}
     newStat: {fileID: 132145928}
-    lastUpgrade: 0
-    nextUpgrade: 2
+    lastUpgrade: 2
+    nextUpgrade: 4
     cost: 20
   - name: Bow's Crit Chance
     currentStat: {fileID: 1306206463}
     upgrade: {fileID: 1074245967}
     newStat: {fileID: 1130584665}
-    lastUpgrade: 0
-    nextUpgrade: 2
+    lastUpgrade: 2
+    nextUpgrade: 4
     cost: 20
   - name: Sword's Crit Damage
     currentStat: {fileID: 1478486217}
     upgrade: {fileID: 783578608}
     newStat: {fileID: 637119675}
-    lastUpgrade: 0
-    nextUpgrade: 2
+    lastUpgrade: 4
+    nextUpgrade: 6
     cost: 20
   - name: Staff's Crit Damage
     currentStat: {fileID: 572177250}
     upgrade: {fileID: 464879272}
     newStat: {fileID: 944514350}
-    lastUpgrade: 1
-    nextUpgrade: 3
+    lastUpgrade: 5
+    nextUpgrade: 7
     cost: 20
   - name: Bow's Crit Damage
     currentStat: {fileID: 2005418067}
     upgrade: {fileID: 1742574437}
     newStat: {fileID: 1567384540}
-    lastUpgrade: 2
-    nextUpgrade: 4
+    lastUpgrade: 6
+    nextUpgrade: 8
     cost: 20
   heroes:
   - {fileID: 1894146038}
@@ -43930,7 +43930,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: +2
+  m_text: +6
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 196770e59d6a7b24d806b9179cb04b7e, type: 2}
   m_sharedMaterial: {fileID: 3688514531012307979, guid: 196770e59d6a7b24d806b9179cb04b7e, type: 2}
@@ -44019,7 +44019,7 @@ GameObject:
   - component: {fileID: 2007865811}
   - component: {fileID: 2007865810}
   m_Layer: 0
-  m_Name: Grassland
+  m_Name: Grassland Day
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53495,7 +53495,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: +0%
+  m_text: +2%
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 196770e59d6a7b24d806b9179cb04b7e, type: 2}
   m_sharedMaterial: {fileID: 3688514531012307979, guid: 196770e59d6a7b24d806b9179cb04b7e, type: 2}

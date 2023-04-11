@@ -168,6 +168,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  critChance: 0
-  critDamage: 1
+  critChance: 2
+  critDamage: 5
   isCritical: 0
