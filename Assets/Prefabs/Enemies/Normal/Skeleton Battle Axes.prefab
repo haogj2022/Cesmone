@@ -154,7 +154,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 2}
+  m_Size: {x: 1, y: 2}
   m_EdgeRadius: 0
 --- !u!114 &3013615506192112005
 MonoBehaviour:
@@ -172,7 +172,7 @@ MonoBehaviour:
   damageText: {fileID: 5565856242849039190, guid: 140723a8d4dabf644946edde9aecc0e0, type: 3}
   currentHealth: 45
   maxHealth: 45
-  moveSpeed: 0.75
+  moveSpeed: 0.7
   numOfCoins: 8
 --- !u!1 &8908232506250884438
 GameObject:
