@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5300539582166106540}
   - component: {fileID: 4767388069444489455}
   m_Layer: 0
-  m_Name: Male Bow
+  m_Name: Male bow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a6eab05faa1cbc429ba0fe24e895f5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 4
-  critChance: 2
-  critDamage: 6
+  damage: 10
+  critChance: 4
+  critDamage: 5
   isCritical: 0
