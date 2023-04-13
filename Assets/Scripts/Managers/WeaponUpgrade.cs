@@ -100,7 +100,7 @@ public class WeaponUpgrade : MonoBehaviour
             }
 
             //increase cost for the next upgrade
-            upgrades[type].cost += 20;
+            upgrades[type].cost += 10;
 
             //enable upgrade
             canUpgrade = true;           
@@ -132,7 +132,7 @@ public class WeaponUpgrade : MonoBehaviour
             }
 
             //increase cost for the next upgrade
-            upgrades[type + 3].cost += 20;
+            upgrades[type + 3].cost += 10;
 
             //enable upgrade
             canUpgrade = true;
@@ -176,7 +176,7 @@ public class WeaponUpgrade : MonoBehaviour
             }
 
             //increase cost for the next upgrade
-            upgrades[type + 6].cost += 20;
+            upgrades[type + 6].cost += 10;
 
             //enable upgrade
             canUpgrade = true;

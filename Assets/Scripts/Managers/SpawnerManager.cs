@@ -11,7 +11,7 @@ using UnityEngine.UI;
 public class SpawnerManager : MonoBehaviour
 {
     public WaveSpawner[] spawners;
-    
+
     public GameObject startScreen;
     public GameObject mainMenu;
     public GameObject pauseButton;
@@ -32,7 +32,6 @@ public class SpawnerManager : MonoBehaviour
         //open start screen
         startScreen.SetActive(true);
 
-        //find joystick game object in hierarchy
         joystick = GameObject.Find("Hero Selection").GetComponent<JoystickController>();
 
         //find stat game object in hierarchy
@@ -78,9 +77,9 @@ public class SpawnerManager : MonoBehaviour
         //show pause button
         pauseButton.SetActive(true);
 
-        //show joystick on screen
+        //show joystick on screen        
         joystick.isActive = true;
-
+                
         //start timer
         stat.startTimer = true;
 

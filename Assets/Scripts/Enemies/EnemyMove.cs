@@ -18,7 +18,7 @@ public class EnemyMove : MonoBehaviour
     public float moveSpeed;
     public float numOfCoins;
 
-    float knockedbackDelay = 0.2f;
+    float knockedbackDelay = 0.1f;
     float pushedDelay = 1;
     bool facingRight = true;
 

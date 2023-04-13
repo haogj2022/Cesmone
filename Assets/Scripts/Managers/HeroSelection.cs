@@ -16,7 +16,8 @@ public class HeroSelection : MonoBehaviour
     public GameObject characterName;
 
     public SpriteRenderer[] heroes;
-    public BoxCollider2D[] hitBoxes;
+    public BoxCollider2D[] hitboxes;
+    public SpriteRenderer[] damageAreas;
 
     //when click Edit Character button in main menu
     public void LoadGenderSelection()
@@ -50,13 +51,13 @@ public class HeroSelection : MonoBehaviour
             heroes[5].enabled = false;
             
             //enable male sword hit box
-            hitBoxes[0].enabled = true; 
-            hitBoxes[1].enabled = false;
-            hitBoxes[2].enabled = false;
+            hitboxes[0].enabled = true; 
+            hitboxes[1].enabled = false;
+            hitboxes[2].enabled = false;
 
-            hitBoxes[3].enabled = false;
-            hitBoxes[4].enabled = false;
-            hitBoxes[5].enabled = false;
+            hitboxes[3].enabled = false;
+            hitboxes[4].enabled = false;
+            hitboxes[5].enabled = false;
         }
 
         //when staff heroes are visible
@@ -72,13 +73,20 @@ public class HeroSelection : MonoBehaviour
             heroes[5].enabled = false;
 
             //enable male staff hit box
-            hitBoxes[0].enabled = false;
-            hitBoxes[1].enabled = true;
-            hitBoxes[2].enabled = false;
+            hitboxes[0].enabled = false;
+            hitboxes[1].enabled = true;
+            hitboxes[2].enabled = false;
 
-            hitBoxes[3].enabled = false;
-            hitBoxes[4].enabled = false;
-            hitBoxes[5].enabled = false;
+            hitboxes[3].enabled = false;
+            hitboxes[4].enabled = false;
+            hitboxes[5].enabled = false;
+
+            //enable male staff damage area
+            damageAreas[0].enabled = true;
+            damageAreas[1].enabled = false;
+
+            damageAreas[2].enabled = false;
+            damageAreas[3].enabled = false;
         }
 
         //when bow heroes are visible
@@ -94,13 +102,20 @@ public class HeroSelection : MonoBehaviour
             heroes[5].enabled = false;
 
             //enable male bow hit box
-            hitBoxes[0].enabled = false;
-            hitBoxes[1].enabled = false;
-            hitBoxes[2].enabled = true;
+            hitboxes[0].enabled = false;
+            hitboxes[1].enabled = false;
+            hitboxes[2].enabled = true;
 
-            hitBoxes[3].enabled = false;
-            hitBoxes[4].enabled = false;
-            hitBoxes[5].enabled = false;
+            hitboxes[3].enabled = false;
+            hitboxes[4].enabled = false;
+            hitboxes[5].enabled = false;
+
+            //enable male bow damage area
+            damageAreas[0].enabled = false;
+            damageAreas[1].enabled = true;
+
+            damageAreas[2].enabled = false;
+            damageAreas[3].enabled = false;
         }
     }
 
@@ -120,13 +135,13 @@ public class HeroSelection : MonoBehaviour
             heroes[5].enabled = false;
 
             //enable female sword hit box
-            hitBoxes[0].enabled = false;
-            hitBoxes[1].enabled = false;
-            hitBoxes[2].enabled = false;
+            hitboxes[0].enabled = false;
+            hitboxes[1].enabled = false;
+            hitboxes[2].enabled = false;
 
-            hitBoxes[3].enabled = true;
-            hitBoxes[4].enabled = false;
-            hitBoxes[5].enabled = false;
+            hitboxes[3].enabled = true;
+            hitboxes[4].enabled = false;
+            hitboxes[5].enabled = false;            
         }
 
         //when staff heroes are visible
@@ -142,13 +157,20 @@ public class HeroSelection : MonoBehaviour
             heroes[5].enabled = false;
 
             //enable female staff hit box
-            hitBoxes[0].enabled = false;
-            hitBoxes[1].enabled = false;
-            hitBoxes[2].enabled = false;
+            hitboxes[0].enabled = false;
+            hitboxes[1].enabled = false;
+            hitboxes[2].enabled = false;
 
-            hitBoxes[3].enabled = false;
-            hitBoxes[4].enabled = true;
-            hitBoxes[5].enabled = false;
+            hitboxes[3].enabled = false;
+            hitboxes[4].enabled = true;
+            hitboxes[5].enabled = false;
+
+            //enable female staff damage area
+            damageAreas[0].enabled = false;
+            damageAreas[1].enabled = false;
+
+            damageAreas[2].enabled = true;
+            damageAreas[3].enabled = false;
         }
 
         //when bow heroes are visible
@@ -164,13 +186,20 @@ public class HeroSelection : MonoBehaviour
             heroes[5].enabled = true;
 
             //enable male sword hit box
-            hitBoxes[0].enabled = false;
-            hitBoxes[1].enabled = false;
-            hitBoxes[2].enabled = false;
+            hitboxes[0].enabled = false;
+            hitboxes[1].enabled = false;
+            hitboxes[2].enabled = false;
 
-            hitBoxes[3].enabled = false;
-            hitBoxes[4].enabled = false;
-            hitBoxes[5].enabled = true;
+            hitboxes[3].enabled = false;
+            hitboxes[4].enabled = false;
+            hitboxes[5].enabled = true;
+
+            //enable female bow damage area
+            damageAreas[0].enabled = false;
+            damageAreas[1].enabled = false;
+
+            damageAreas[2].enabled = false;
+            damageAreas[3].enabled = true;
         }
     }
 
@@ -204,10 +233,13 @@ public class HeroSelection : MonoBehaviour
         heroes[1].enabled = false;
         heroes[2].enabled = false;
         
-        //enable male sword box
-        hitBoxes[0].enabled = true; 
-        hitBoxes[1].enabled = false;
-        hitBoxes[2].enabled = false;
+        //enable male sword hit box
+        hitboxes[0].enabled = true; 
+        hitboxes[1].enabled = false;
+        hitboxes[2].enabled = false;
+
+        damageAreas[0].enabled = false;
+        damageAreas[1].enabled = false;
     }
 
     //when click Staff button in Male Weapon Selection menu
@@ -218,10 +250,14 @@ public class HeroSelection : MonoBehaviour
         heroes[1].enabled = true; 
         heroes[2].enabled = false;
         
-        //enable male staff box
-        hitBoxes[0].enabled = false;
-        hitBoxes[1].enabled = true; 
-        hitBoxes[2].enabled = false;
+        //enable male staff hit box
+        hitboxes[0].enabled = false;
+        hitboxes[1].enabled = true; 
+        hitboxes[2].enabled = false;
+
+        //enable male staff damage area
+        damageAreas[0].enabled = true;
+        damageAreas[1].enabled = false;
     }
 
     //when click Bow button in Male Weapon Selection menu
@@ -233,9 +269,13 @@ public class HeroSelection : MonoBehaviour
         heroes[2].enabled = true; 
         
         //enable male bow box
-        hitBoxes[0].enabled = false;
-        hitBoxes[1].enabled = false;
-        hitBoxes[2].enabled = true; 
+        hitboxes[0].enabled = false;
+        hitboxes[1].enabled = false;
+        hitboxes[2].enabled = true;
+
+        //enable male bow damage area
+        damageAreas[0].enabled = false;
+        damageAreas[1].enabled = true;
     }
 
     //when click Sword button in Female Weapon Selection menu
@@ -247,9 +287,12 @@ public class HeroSelection : MonoBehaviour
         heroes[5].enabled = false;
         
         //enable female sword box
-        hitBoxes[3].enabled = true; 
-        hitBoxes[4].enabled = false;
-        hitBoxes[5].enabled = false;
+        hitboxes[3].enabled = true; 
+        hitboxes[4].enabled = false;
+        hitboxes[5].enabled = false;
+
+        damageAreas[2].enabled = false;
+        damageAreas[3].enabled = false;
     }
 
     //when click Staff button in Female Weapon Selection menu
@@ -261,9 +304,13 @@ public class HeroSelection : MonoBehaviour
         heroes[5].enabled = false;
         
         //enable female staff box
-        hitBoxes[3].enabled = false;
-        hitBoxes[4].enabled = true; 
-        hitBoxes[5].enabled = false;
+        hitboxes[3].enabled = false;
+        hitboxes[4].enabled = true; 
+        hitboxes[5].enabled = false;
+
+        //enable female staff damage area
+        damageAreas[2].enabled = true;
+        damageAreas[3].enabled = false;
     }
 
     //when click Bow button in Female Weapon Selection menu
@@ -275,9 +322,13 @@ public class HeroSelection : MonoBehaviour
         heroes[5].enabled = true; 
         
         //enable female bow box
-        hitBoxes[3].enabled = false;
-        hitBoxes[4].enabled = false;
-        hitBoxes[5].enabled = true; 
+        hitboxes[3].enabled = false;
+        hitboxes[4].enabled = false;
+        hitboxes[5].enabled = true;
+
+        //enable female bow damage area
+        damageAreas[2].enabled = false;
+        damageAreas[3].enabled = true;
     }
 
     //when click Back button in Male Weapon Selection menu

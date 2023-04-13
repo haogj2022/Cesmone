@@ -10,13 +10,12 @@ using UnityEngine;
 public class JoystickController : MonoBehaviour
 {
     public Joystick joystick;
+    public SpriteRenderer[] heroes;
 
     public float moveSpeed = 5;
     public float handleOffset = 0.7f;   
     public bool isActive = false; 
-    
-    bool facingRight = true;
-    
+
     Rigidbody2D rb;   
     Animator[] anim;
     
@@ -50,17 +49,17 @@ public class JoystickController : MonoBehaviour
             UpDownLeftRight();
 
             //when character moves to the right
-            if (joystick.Horizontal > 0 && !facingRight)
+            if (joystick.Horizontal > 0)
             {
                 //character faces right
-                Flip();
+                FlipRight();
             }
 
             //when character moves to the left
-            if (joystick.Horizontal < 0 && facingRight)
+            if (joystick.Horizontal < 0)
             {
                 //character faces left
-                Flip();
+                FlipLeft();
             }
         }
         else //when joystick is not enable
@@ -115,18 +114,19 @@ public class JoystickController : MonoBehaviour
     }
 
     //called by MoveHandle() to face character in correct direction
-    void Flip()
+    void FlipLeft()
     {
-        //declare a new Vector3 for a new scale
-        Vector3 currentScale = transform.localScale;
+        foreach(SpriteRenderer hero in heroes)
+        {
+            hero.flipX = true;
+        }
+    }
 
-        //flip the character
-        currentScale.x *= -1;
-
-        //set the new scale
-        transform.localScale = currentScale;
-
-        //change the facing direction
-        facingRight = !facingRight; 
+    void FlipRight()
+    {
+        foreach (SpriteRenderer hero in heroes)
+        {
+            hero.flipX = false;
+        }
     }
 }

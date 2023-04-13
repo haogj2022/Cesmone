@@ -121,7 +121,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.5
+  m_Mass: 5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -172,8 +172,8 @@ MonoBehaviour:
   damageText: {fileID: 5565856242849039190, guid: 140723a8d4dabf644946edde9aecc0e0, type: 3}
   currentHealth: 20
   maxHealth: 20
-  moveSpeed: 0.7
-  numOfCoins: 2
+  moveSpeed: 1
+  numOfCoins: 4
 --- !u!1 &8947624160711008501
 GameObject:
   m_ObjectHideFlags: 0

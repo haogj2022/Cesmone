@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1862985331504474207}
   - component: {fileID: 444490564681496968}
   - component: {fileID: 5965199876644989872}
-  - component: {fileID: 2631152183783230185}
   - component: {fileID: 4466190233636724821}
   m_Layer: 0
   m_Name: Female staff
@@ -129,32 +128,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &2631152183783230185
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1205894154950849518}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 1.5, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
-    newSize: {x: 2, y: 2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 4, y: 8}
-  m_EdgeRadius: 0
 --- !u!114 &4466190233636724821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,6 +141,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
-  critChance: 3
-  critDamage: 5
+  critChance: 2
+  critDamage: 6
   isCritical: 0
