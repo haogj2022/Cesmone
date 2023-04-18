@@ -17,10 +17,10 @@ public class EnemyCoin : MonoBehaviour
         coin = GameObject.Find("Win & Lose Screen").GetComponent<PlayerStats>();
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         //when collide with player
-        if (collision.gameObject.tag == "Player")
+        if (collision.tag == "Player")
         {
             //increase number of coins
             coin.coinsCollected++;

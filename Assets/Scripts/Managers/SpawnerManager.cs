@@ -20,7 +20,6 @@ public class SpawnerManager : MonoBehaviour
 
     List<GameObject> enemies = new List<GameObject>();
     List<GameObject> coins = new List<GameObject>();
-    List<GameObject> damage = new List<GameObject>();
 
     CastleHealth castle;
     Image winScreen;
@@ -59,14 +58,6 @@ public class SpawnerManager : MonoBehaviour
 
         //find all coins with tag
         coins.AddRange(GameObject.FindGameObjectsWithTag("Coin"));
-
-        //find all damage game objects with tag
-        damage.AddRange(GameObject.FindGameObjectsWithTag("Damage"));
-
-        foreach(GameObject dmg in damage)
-        {
-            Destroy(dmg, 1);
-        }
     }
 
     //when click any level number on Level selection screen
@@ -149,11 +140,11 @@ public class SpawnerManager : MonoBehaviour
         {
             Destroy(enemy);
         }
-        
+
         //destroy all remaining coins
         foreach (GameObject coin in coins)
         {
             Destroy(coin);
-        }               
+        }
     }
 }

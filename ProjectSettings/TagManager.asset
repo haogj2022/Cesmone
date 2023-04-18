@@ -12,6 +12,7 @@ TagManager:
   - Damage
   - Hero
   - Spawner
+  - Hitbox
   layers:
   - Default
   - TransparentFX

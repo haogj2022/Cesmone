@@ -10,10 +10,7 @@ using UnityEngine;
 public class EnemyDamage : MonoBehaviour
 {
     void Start()
-    {   
-        //show enemy's damage
-        transform.localPosition = new Vector3(0, 1, 0);
-        
+    {          
         //destroy game object after a second
         Destroy(gameObject, 1);
     }

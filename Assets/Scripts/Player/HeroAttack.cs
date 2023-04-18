@@ -106,7 +106,12 @@ public class HeroAttack : MonoBehaviour
                     //enemy takes normal damage
                     enemy.TakeDamage(damage, isCritical = false);
                 }                
-            }            
-        }      
+            }
+            else //enemy is dead
+            {
+                //exit the code
+                return;
+            }
+        }        
     }    
 }
