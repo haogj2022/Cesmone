@@ -51,6 +51,7 @@ public class WaveSpawner : MonoBehaviour
     PlayerStats player;
     CastleHealth castle;
     SpawnerManager level;
+    GameObject spikeTrapButton;
 
     //called in LevelSelection script to start the level
     public void StartLevel()
@@ -232,7 +233,10 @@ public class WaveSpawner : MonoBehaviour
         //hide the joystick on screen
         joystick = GameObject.Find("Hero Selection").GetComponent<JoystickController>();
         joystick.isActive = false;
-                
+
+        spikeTrapButton = GameObject.Find("Spike trap Button");
+        spikeTrapButton.SetActive(false);
+
         //enable the victory screen
         winScreen = GameObject.Find("Win").GetComponent<Image>();
         winScreen.enabled = true;
@@ -267,6 +271,9 @@ public class WaveSpawner : MonoBehaviour
         //hide the joystick on screen
         joystick = GameObject.Find("Hero Selection").GetComponent<JoystickController>();
         joystick.isActive = false;
+
+        spikeTrapButton = GameObject.Find("Spike trap Button");
+        spikeTrapButton.SetActive(false);
 
         //enable the defeat screen
         loseScreen = GameObject.Find("Lose").GetComponent<Image>();
