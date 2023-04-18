@@ -172,7 +172,7 @@ MonoBehaviour:
   damageText: {fileID: 5565856242849039190, guid: 140723a8d4dabf644946edde9aecc0e0, type: 3}
   currentHealth: 25
   maxHealth: 25
-  moveSpeed: 1
+  moveSpeed: 2
   numOfCoins: 5
 --- !u!1 &5338392387740666954
 GameObject:

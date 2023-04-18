@@ -16,6 +16,7 @@ public class SpawnerManager : MonoBehaviour
     public GameObject mainMenu;
     public GameObject pauseButton;
     public GameObject quitConfirm;
+    public GameObject spikeTrapButton;
 
     List<GameObject> enemies = new List<GameObject>();
     List<GameObject> coins = new List<GameObject>();
@@ -76,6 +77,8 @@ public class SpawnerManager : MonoBehaviour
 
         //show pause button
         pauseButton.SetActive(true);
+
+        spikeTrapButton.SetActive(true);
 
         //show joystick on screen        
         joystick.isActive = true;
