@@ -19,23 +19,23 @@ public class HeroSelection : MonoBehaviour
     public BoxCollider2D[] hitboxes;
     public SpriteRenderer[] damageAreas;
 
-    //when click Edit Character button in main menu
+    //when click Edit Hero button in main menu
     public void LoadGenderSelection()
     {
-        //open the Gender Selection menu
+        //open the Hero Gender menu
         mainMenu.SetActive(false);
         genderSelection.SetActive(true); 
     }
 
-    //when click Home button in Gender Selection menu
+    //when click Back button in Hero Gender menu
     public void BackToMainMenu()
     {
-        //open main menu
+        //back to main menu
         mainMenu.SetActive(true); 
         genderSelection.SetActive(false);
     }
 
-    //when click Male button in Gender Selection menu
+    //when click Male button in Hero Gender menu
     public void LoadMaleGender()
     {
         //when sword heroes are visible
@@ -119,7 +119,7 @@ public class HeroSelection : MonoBehaviour
         }
     }
 
-    //when click Female button in Gender Selection menu
+    //when click Female button in Hero Gender menu
     public void LoadFemaleGender()
     {
         //when sword heroes are visible
@@ -203,8 +203,8 @@ public class HeroSelection : MonoBehaviour
         }
     }
 
-    //when click Next button in Gender Selection menu
-    //when click Back button in Character Name menu
+    //when click Next button in Hero Gender menu
+    //when click Back button in Hero Name menu
     public void LoadWeaponSelection()
     {
         genderSelection.SetActive(false);
@@ -213,19 +213,19 @@ public class HeroSelection : MonoBehaviour
         //when male heroes are visible
         if (heroes[0].enabled == true || heroes[1].enabled == true || heroes[2].enabled == true)
         {   
-            //open Male Weapon Selection menu
+            //open Male Hero Weapon menu
             maleWeaponSelection.SetActive(true); 
         }
 
         //when female heroes are visible
         if (heroes[3].enabled == true || heroes[4].enabled == true || heroes[5].enabled == true)
         {   
-            //open Female Weapon Selection menu
+            //open Female Hero Weapon menu
             femaleWeaponSelection.SetActive(true); 
         }
     }
 
-    //when click Sword button in Male Weapon Selection menu
+    //when click Sword button in Male Hero Weapon menu
     public void LoadMaleSword()
     {   
         //enable male sword hero     
@@ -242,7 +242,7 @@ public class HeroSelection : MonoBehaviour
         damageAreas[1].enabled = false;
     }
 
-    //when click Staff button in Male Weapon Selection menu
+    //when click Staff button in Male Hero Weapon menu
     public void LoadMaleStaff()
     {   
         //enable male staff hero
@@ -260,7 +260,7 @@ public class HeroSelection : MonoBehaviour
         damageAreas[1].enabled = false;
     }
 
-    //when click Bow button in Male Weapon Selection menu
+    //when click Bow button in Male Hero Weapon menu
     public void LoadMaleBow()
     {   
         //enable male bow hero
@@ -278,7 +278,7 @@ public class HeroSelection : MonoBehaviour
         damageAreas[1].enabled = true;
     }
 
-    //when click Sword button in Female Weapon Selection menu
+    //when click Sword button in Female Hero Weapon menu
     public void LoadFemaleSword()
     {   
         //enable female sword hero
@@ -295,7 +295,7 @@ public class HeroSelection : MonoBehaviour
         damageAreas[3].enabled = false;
     }
 
-    //when click Staff button in Female Weapon Selection menu
+    //when click Staff button in Female Hero Weapon menu
     public void LoadFemaleStaff()
     {   
         //enable female staff hero
@@ -313,7 +313,7 @@ public class HeroSelection : MonoBehaviour
         damageAreas[3].enabled = false;
     }
 
-    //when click Bow button in Female Weapon Selection menu
+    //when click Bow button in Female Hero Weapon menu
     public void LoadFemaleBow()
     {   
         //enable female bow hero
@@ -331,30 +331,30 @@ public class HeroSelection : MonoBehaviour
         damageAreas[3].enabled = true;
     }
 
-    //when click Back button in Male Weapon Selection menu
-    //when click Back button in Female Weapon Selection menu
+    //when click Back button in Male Hero Weapon menu
+    //when click Back button in Female Hero Weapon menu
     public void BackToGenderSelection()
     {   
-        //open Gender Selection menu
+        //open Hero Gender menu
         genderSelection.SetActive(true); 
 
         //when male heroes are visible
         if (heroes[0].enabled == true || heroes[1].enabled == true || heroes[2].enabled == true)
         {   
-            //close Male Weapon Selection menu
+            //close Male Hero Weapon menu
             maleWeaponSelection.SetActive(false); 
         }
 
         //when female heroes are visible
         if (heroes[3].enabled == true || heroes[4].enabled == true || heroes[5].enabled == true)
         {   
-            //close Female Weapon Selection menu
+            //close Female Hero Weapon menu
             femaleWeaponSelection.SetActive(false); 
         }
     }  
 
-    //when click Next button in Male Weapon Selection menu
-    //when click Next button in Female Weapon Selection menu
+    //when click Next button in Male Hero Weapon menu
+    //when click Next button in Female Hero Weapon menu
     public void LoadCharacterName()
     {
         characterName.SetActive(true);
@@ -362,14 +362,14 @@ public class HeroSelection : MonoBehaviour
         //when male heroes are visible
         if (heroes[0].enabled == true || heroes[1].enabled == true || heroes[2].enabled == true)
         {   
-            //close Male Weapon Selection menu
+            //close Male Hero Weapon menu
             maleWeaponSelection.SetActive(false); 
         }
 
         //when female heroes are visible
         if (heroes[3].enabled == true || heroes[4].enabled == true || heroes[5].enabled == true)
         {   
-            //close Female Weapon Selection menu
+            //close Female Hero Weapon menu
             femaleWeaponSelection.SetActive(false); 
         }
     }

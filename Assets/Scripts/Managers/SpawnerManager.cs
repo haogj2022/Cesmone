@@ -12,7 +12,6 @@ public class SpawnerManager : MonoBehaviour
 {
     public WaveSpawner[] spawners;
 
-    public GameObject startScreen;
     public GameObject mainMenu;
     public GameObject pauseButton;
     public GameObject quitConfirm;
@@ -29,9 +28,6 @@ public class SpawnerManager : MonoBehaviour
     
     void Start()
     {   
-        //open start screen
-        startScreen.SetActive(true);
-
         joystick = GameObject.Find("Hero Selection").GetComponent<JoystickController>();
 
         //find stat game object in hierarchy
@@ -98,9 +94,6 @@ public class SpawnerManager : MonoBehaviour
 
         //open main menu canvas
         mainMenu.SetActive(true);
-
-        //close start screen
-        startScreen.SetActive(false);
 
         //close quit confirm screen
         quitConfirm.SetActive(false);

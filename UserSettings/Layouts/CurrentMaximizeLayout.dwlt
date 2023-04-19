@@ -55,7 +55,7 @@ MonoBehaviour:
   m_SerializedViewNames:
   - UnityEditor.DeviceSimulation.SimulatorWindow
   m_SerializedViewValues:
-  - C:\Users\Admin\Documents\GitHub\Cesmone\Library\PlayModeViewStates\fa350fb5cfb47914da3905fcd0bba435
+  - C:\Users\Admin\Documents\GitHub\Cesmone\Library\PlayModeViewStates\ae7668f15c74aaa42bdd3b83f88d515f
   m_PlayModeViewName: GameView
   m_ShowGizmos: 0
   m_TargetDisplay: 0
@@ -111,7 +111,7 @@ MonoBehaviour:
       width: 1090.8107
       height: 1366
     m_MinimalGUI: 1
-  m_defaultScale: 0.3169839
+  m_defaultScale: 0.30161053
   m_LastWindowPixelSize: {x: 329, y: 433}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
@@ -253,7 +253,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 86f9ffff
+      m_ExpandedIDs: e68fffffd694ffff26fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -550,9 +550,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.05017349, y: 2.25321, z: -0.16626075}
+    m_Target: {x: -4.091853, y: 1.5123717, z: -0.4037494}
     speed: 2
-    m_Value: {x: 0.05017349, y: 2.25321, z: -0.16626075}
+    m_Value: {x: -0.7707987, y: 0.37799555, z: -0.022645319}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -603,9 +603,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 15.119445
+    m_Target: 20.171675
     speed: 2
-    m_Value: 15.119445
+    m_Value: 2.1453624
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -677,10 +677,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1287
+    x: 724
     y: 73
-    width: 587
-    height: 753
+    width: 329
+    height: 433
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -944,9 +944,9 @@ MonoBehaviour:
       e32: 0
       e33: 1
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: 4fc797298df6df54f9c0b84e1c57fbd8, type: 2}
+  m_AnimatorController: {fileID: 9100000, guid: d83ef6b2e8c51c448b6e6838a20b4f4b, type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: 5961125158524378810, guid: 4fc797298df6df54f9c0b84e1c57fbd8, type: 2}
+  - m_Target: {fileID: -1886494845123086198, guid: d83ef6b2e8c51c448b6e6838a20b4f4b, type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
   stateMachineGraphGUI: {fileID: 0}
@@ -1040,9 +1040,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 02740000
-    m_LastClickedID: 29698
-    m_ExpandedIDs: 000000000274000000ca9a3b
+    m_SelectedIDs: fc700000
+    m_LastClickedID: 28924
+    m_ExpandedIDs: 00000000fc70000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1070,7 +1070,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000000274000000ca9a3b
+    m_ExpandedIDs: 00000000fc70000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1147,16 +1147,16 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 847
-    width: 1875
-    height: 512
+    y: 527
+    width: 1054
+    height: 292
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 27382
+  m_LastSelectedObjectID: -24696
 --- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52

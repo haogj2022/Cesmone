@@ -86,7 +86,7 @@ public class EnemyMove : MonoBehaviour
             dmg.transform.GetChild(0).GetComponent<TMP_Text>().color = Color.yellow;
 
             //set damage text
-            dmg.transform.GetChild(0).GetComponent<TMP_Text>().text = damage + "\n critical";
+            dmg.transform.GetChild(0).GetComponent<TMP_Text>().text = damage + " \n critical";
         }
         else //is not critical damage
         {
