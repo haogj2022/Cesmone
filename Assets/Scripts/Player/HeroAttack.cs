@@ -17,7 +17,7 @@ public class HeroAttack : MonoBehaviour
     bool canAttack = false;
     
     Animator anim;
-    EnemyMove enemy;
+    EnemyBehaviour enemy;
     GameObject player;
     JoystickController handle;
     
@@ -60,7 +60,7 @@ public class HeroAttack : MonoBehaviour
                 if (canAttack)
                 {
                     //get component from enemy
-                    enemy = collision.GetComponent<EnemyMove>();
+                    enemy = collision.GetComponent<EnemyBehaviour>();
 
                     //play the attacking animation
                     anim.SetBool("canAttack", true);

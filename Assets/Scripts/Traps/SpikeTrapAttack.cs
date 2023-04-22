@@ -13,7 +13,7 @@ public class SpikeTrapAttack : MonoBehaviour
 
     bool canAttack = false;
 
-    EnemyMove enemy;
+    EnemyBehaviour enemy;
     Animator anim;
 
     void Start()
@@ -31,7 +31,7 @@ public class SpikeTrapAttack : MonoBehaviour
             if (canAttack)
             {   
                 //get component from enemy
-                enemy = collision.GetComponent<EnemyMove>(); 
+                enemy = collision.GetComponent<EnemyBehaviour>(); 
                 
                 //damage the enemy
                 anim.SetBool("canAttack", true);

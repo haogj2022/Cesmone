@@ -11,12 +11,12 @@ public class EnemyHealth : MonoBehaviour
 {
     Vector2 localScale;
 
-    EnemyMove enemy;
+    EnemyBehaviour enemy;
 
     void Start()
     {
         //get component from parent
-        enemy = GetComponentInParent<EnemyMove>();
+        enemy = GetComponentInParent<EnemyBehaviour>();
 
         //set the default scale
         localScale = transform.localScale;        
