@@ -26,7 +26,7 @@ public class EnemyBehaviour : MonoBehaviour
     public float numOfCoins;
 
     float hurtTime = 0.1f;
-    float runawayTime = 3;
+    float runawayTime = 1;
     bool facingRight = true;
 
     Vector2 direction;
@@ -69,17 +69,17 @@ public class EnemyBehaviour : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //when enemy hit the castle or hit each other
-        if (collision.gameObject.tag == "Castle" || collision.gameObject.tag == "Enemy")
+        //when enemy hit the castle
+        if (collision.gameObject.tag == "Castle")
         {
             //enemy is scared
             StartCoroutine(RunAwway(runawayTime));
         }
 
-        //when enemy touch wall or coin
-        if (collision.gameObject.tag == "Wall" || collision.gameObject.tag == "Coin")
+        //when enemy hit wall or coin or other enemy
+        if (collision.gameObject.tag == "Wall" || collision.gameObject.tag == "Coin" || collision.gameObject.tag == "Enemy")
         {
-            //ignore wall and ignore coin
+            //ignore wall and coin and other enemy
             Physics2D.IgnoreCollision(collision.gameObject.GetComponent<BoxCollider2D>(), GetComponent<BoxCollider2D>());
         }
     }    
@@ -149,7 +149,7 @@ public class EnemyBehaviour : MonoBehaviour
         if (currentHealth > 0)
         {
             //enemy is knocked back
-            StartCoroutine(HitBy(player));
+            StartCoroutine(IsHurt());
 
             //enemy takes damage
             currentHealth = currentHealth - damage;
@@ -163,20 +163,16 @@ public class EnemyBehaviour : MonoBehaviour
     }
 
     //called by TakeDamage() when enemy takes damage
-    IEnumerator HitBy(GameObject target)
+    IEnumerator IsHurt()
     {
-        //when player hit enemy
-        if (target == player)
-        {
-            //change color of enemy to red
-            self.color = Color.red;
+        //change color of enemy to red
+        self.color = Color.red;
 
-            //wait for a few seconds
-            yield return new WaitForSeconds(hurtTime);
+        //wait for a few seconds
+        yield return new WaitForSeconds(hurtTime);
 
-            //change color of enemy to white
-            self.color = Color.white;
-        }
+        //change color of enemy to white
+        self.color = Color.white;        
     }    
 
     void Update()
@@ -262,7 +258,7 @@ public class EnemyBehaviour : MonoBehaviour
         facingRight = !facingRight;
     }
 
-    //called by TakeDamage() when enemy get damage from player
+    //called by TakeDamage() when enemy take damage
     void EnemyDeath() 
     {
         //increase number of enemy killed
