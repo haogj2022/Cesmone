@@ -26,7 +26,7 @@ public class EnemyBehaviour : MonoBehaviour
     public float numOfCoins;
 
     float hurtTime = 0.1f;
-    float runawayTime = 1;
+    float runawayTime = 2;
     bool facingRight = true;
 
     Vector2 direction;
@@ -76,10 +76,10 @@ public class EnemyBehaviour : MonoBehaviour
             StartCoroutine(RunAwway(runawayTime));
         }
 
-        //when enemy hit wall or coin or other enemy
-        if (collision.gameObject.tag == "Wall" || collision.gameObject.tag == "Coin" || collision.gameObject.tag == "Enemy")
+        //when enemy hit wall or other enemies
+        if (collision.gameObject.tag == "Wall" || collision.gameObject.tag == "Enemy")
         {
-            //ignore wall and coin and other enemy
+            //ignore collision between them
             Physics2D.IgnoreCollision(collision.gameObject.GetComponent<BoxCollider2D>(), GetComponent<BoxCollider2D>());
         }
     }    

@@ -47,7 +47,7 @@ public class WaveSpawner : MonoBehaviour
     Animator anim; 
     Image winScreen;
     Image loseScreen;
-    JoystickController joystick; 
+    PlayerController joystick; 
     PlayerStats player;
     CastleHealth castle;
     SpawnerManager level;
@@ -231,7 +231,7 @@ public class WaveSpawner : MonoBehaviour
         yield return new WaitForSeconds(winDelay);
         
         //hide the joystick on screen
-        joystick = GameObject.Find("Hero Selection").GetComponent<JoystickController>();
+        joystick = GameObject.Find("Hero Selection").GetComponent<PlayerController>();
         joystick.isActive = false;
 
         spikeTrapButton = GameObject.Find("Spike trap Button");
@@ -269,7 +269,7 @@ public class WaveSpawner : MonoBehaviour
         yield return new WaitForSeconds(loseDelay);
 
         //hide the joystick on screen
-        joystick = GameObject.Find("Hero Selection").GetComponent<JoystickController>();
+        joystick = GameObject.Find("Hero Selection").GetComponent<PlayerController>();
         joystick.isActive = false;
 
         spikeTrapButton = GameObject.Find("Spike trap Button");

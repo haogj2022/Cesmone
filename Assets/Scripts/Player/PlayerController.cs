@@ -7,15 +7,16 @@ using UnityEngine;
 //Object(s) holding this script: Hero Selection
 //Summary: Move character with joystick
 
-public class JoystickController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     public Joystick joystick;
     public SpriteRenderer[] heroes;
 
-    public float moveSpeed = 5;
-    public float handleOffset = 0.7f;   
+    public float moveSpeed = 7;       
     public bool isActive = false; 
-
+    
+    float handleOffset = 0.7f;
+    
     Rigidbody2D rb;   
     Animator[] anim;
     
@@ -26,9 +27,16 @@ public class JoystickController : MonoBehaviour
 
         //get all the components from children
         anim = GetComponentsInChildren<Animator>();
+    }
 
-        //set joystick offset
-        handleOffset = 0.7f;
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        //when player collides with enemy
+        if (collision.gameObject.tag == "Enemy")
+        {
+            //ignore collision between them
+            Physics2D.IgnoreCollision(collision.gameObject.GetComponent<BoxCollider2D>(), GetComponent<BoxCollider2D>());
+        }
     }
 
     void Update()
@@ -46,7 +54,7 @@ public class JoystickController : MonoBehaviour
             joystick.gameObject.SetActive(true);
 
             //enable movement
-            UpDownLeftRight();
+            PlayerCanMove();
 
             //when character moves to the right
             if (joystick.Horizontal > 0)
@@ -73,14 +81,13 @@ public class JoystickController : MonoBehaviour
     }
 
     //called by MoveHandle() to move character around
-    void UpDownLeftRight()
+    void PlayerCanMove()
     {
         //when player fully drags the joystick's handle
         if (joystick.Horizontal > handleOffset || joystick.Horizontal < -handleOffset || 
 
             joystick.Vertical > handleOffset || joystick.Vertical < -handleOffset)
         {
-
             //play the running animations
             foreach (Animator anim in anim)
             {

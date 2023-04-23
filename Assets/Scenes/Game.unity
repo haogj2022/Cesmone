@@ -2802,21 +2802,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - name: Wave 1
+  - name: First Wave
     enemy:
     - {fileID: 402657509915324536, guid: 47c4fc7708198ac4daff9a0485fc3cd2, type: 3}
     - {fileID: 6024171398062761471, guid: 7bd622fd3731db243b987275e91af03b, type: 3}
     - {fileID: 4446863871178948850, guid: 25d3db5c8b39f2e4ebaed12d10471ac1, type: 3}
     - {fileID: 402657509915324536, guid: ff8ed2c7a29d42a43b8ba72c5f9a6046, type: 3}
-    count: 10
-    rate: 1
-  - name: Wave 2
-    enemy:
-    - {fileID: 402657509915324536, guid: 47c4fc7708198ac4daff9a0485fc3cd2, type: 3}
-    - {fileID: 6024171398062761471, guid: 7bd622fd3731db243b987275e91af03b, type: 3}
-    - {fileID: 4446863871178948850, guid: 25d3db5c8b39f2e4ebaed12d10471ac1, type: 3}
-    - {fileID: 402657509915324536, guid: ff8ed2c7a29d42a43b8ba72c5f9a6046, type: 3}
-    count: 10
+    count: 14
     rate: 1
   - name: Final Wave
     enemy:
@@ -2824,7 +2816,7 @@ MonoBehaviour:
     - {fileID: 6024171398062761471, guid: 7bd622fd3731db243b987275e91af03b, type: 3}
     - {fileID: 4446863871178948850, guid: 25d3db5c8b39f2e4ebaed12d10471ac1, type: 3}
     - {fileID: 402657509915324536, guid: ff8ed2c7a29d42a43b8ba72c5f9a6046, type: 3}
-    count: 10
+    count: 14
     rate: 1
   spawnPoints:
   - {fileID: 1526599913}
@@ -7242,7 +7234,6 @@ MonoBehaviour:
   - {fileID: 588444911}
   - {fileID: 181881474}
   moveSpeed: 7
-  handleOffset: 0.7
   isActive: 0
 --- !u!114 &395400108
 MonoBehaviour:
@@ -7652,26 +7643,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - name: Wave 1
+  - name: First Wave
     enemy:
     - {fileID: 2919814328056208941, guid: be935a3b51f7a1b4682ed8ca7dd9e9ab, type: 3}
     - {fileID: 7729727695085830221, guid: 7231436565af6a4489c3c24215f70896, type: 3}
     - {fileID: 2216256366025135717, guid: 989a810854ca9674386eba701de1a9d2, type: 3}
-    count: 10
-    rate: 1
-  - name: Wave 2
-    enemy:
-    - {fileID: 2919814328056208941, guid: be935a3b51f7a1b4682ed8ca7dd9e9ab, type: 3}
-    - {fileID: 7729727695085830221, guid: 7231436565af6a4489c3c24215f70896, type: 3}
-    - {fileID: 2216256366025135717, guid: 989a810854ca9674386eba701de1a9d2, type: 3}
-    count: 10
+    count: 13
     rate: 1
   - name: Final Wave
     enemy:
     - {fileID: 2919814328056208941, guid: be935a3b51f7a1b4682ed8ca7dd9e9ab, type: 3}
     - {fileID: 7729727695085830221, guid: 7231436565af6a4489c3c24215f70896, type: 3}
     - {fileID: 2216256366025135717, guid: 989a810854ca9674386eba701de1a9d2, type: 3}
-    count: 10
+    count: 13
     rate: 1
   spawnPoints:
   - {fileID: 1526599913}
@@ -15600,7 +15584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - name: Wave 1
+  - name: First Wave
     enemy:
     - {fileID: 2919814328056208941, guid: be935a3b51f7a1b4682ed8ca7dd9e9ab, type: 3}
     - {fileID: 7729727695085830221, guid: 7231436565af6a4489c3c24215f70896, type: 3}
@@ -15611,20 +15595,7 @@ MonoBehaviour:
     - {fileID: 100294770186647441, guid: 702744fbf28687b4dbf7c84c77700dfc, type: 3}
     - {fileID: 6682612381534170656, guid: 5946b9946c74779478811d77e00d16b6, type: 3}
     - {fileID: 8288457724750849638, guid: 069260d49f35622418b4a4a33062ceac, type: 3}
-    count: 10
-    rate: 1
-  - name: Wave 2
-    enemy:
-    - {fileID: 2919814328056208941, guid: be935a3b51f7a1b4682ed8ca7dd9e9ab, type: 3}
-    - {fileID: 7729727695085830221, guid: 7231436565af6a4489c3c24215f70896, type: 3}
-    - {fileID: 2216256366025135717, guid: 989a810854ca9674386eba701de1a9d2, type: 3}
-    - {fileID: 6786038748144555050, guid: 61647db6ad1c2814094511bacf36e707, type: 3}
-    - {fileID: 8040838010145126470, guid: d94061f0a9fae874aae20b4f40c39ea1, type: 3}
-    - {fileID: 98302638475005070, guid: edde58e6958323647b42b09977a9889b, type: 3}
-    - {fileID: 100294770186647441, guid: 702744fbf28687b4dbf7c84c77700dfc, type: 3}
-    - {fileID: 6682612381534170656, guid: 5946b9946c74779478811d77e00d16b6, type: 3}
-    - {fileID: 8288457724750849638, guid: 069260d49f35622418b4a4a33062ceac, type: 3}
-    count: 10
+    count: 19
     rate: 1
   - name: Final Wave
     enemy:
@@ -15637,7 +15608,7 @@ MonoBehaviour:
     - {fileID: 100294770186647441, guid: 702744fbf28687b4dbf7c84c77700dfc, type: 3}
     - {fileID: 6682612381534170656, guid: 5946b9946c74779478811d77e00d16b6, type: 3}
     - {fileID: 8288457724750849638, guid: 069260d49f35622418b4a4a33062ceac, type: 3}
-    count: 10
+    count: 19
     rate: 1
   spawnPoints:
   - {fileID: 1526599913}
@@ -16837,23 +16808,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - name: Wave 1
+  - name: First Wave
     enemy:
     - {fileID: 402657509915324536, guid: 47c4fc7708198ac4daff9a0485fc3cd2, type: 3}
     - {fileID: 6024171398062761471, guid: 7bd622fd3731db243b987275e91af03b, type: 3}
     - {fileID: 4446863871178948850, guid: 25d3db5c8b39f2e4ebaed12d10471ac1, type: 3}
     - {fileID: 402657509915324536, guid: ff8ed2c7a29d42a43b8ba72c5f9a6046, type: 3}
     - {fileID: 6024171398062761471, guid: d5f1266f9b78a004988230083c46ca18, type: 3}
-    count: 10
-    rate: 1
-  - name: Wave 2
-    enemy:
-    - {fileID: 402657509915324536, guid: 47c4fc7708198ac4daff9a0485fc3cd2, type: 3}
-    - {fileID: 6024171398062761471, guid: 7bd622fd3731db243b987275e91af03b, type: 3}
-    - {fileID: 4446863871178948850, guid: 25d3db5c8b39f2e4ebaed12d10471ac1, type: 3}
-    - {fileID: 402657509915324536, guid: ff8ed2c7a29d42a43b8ba72c5f9a6046, type: 3}
-    - {fileID: 6024171398062761471, guid: d5f1266f9b78a004988230083c46ca18, type: 3}
-    count: 10
+    count: 15
     rate: 1
   - name: Final Wave
     enemy:
@@ -16862,7 +16824,7 @@ MonoBehaviour:
     - {fileID: 4446863871178948850, guid: 25d3db5c8b39f2e4ebaed12d10471ac1, type: 3}
     - {fileID: 402657509915324536, guid: ff8ed2c7a29d42a43b8ba72c5f9a6046, type: 3}
     - {fileID: 6024171398062761471, guid: d5f1266f9b78a004988230083c46ca18, type: 3}
-    count: 10
+    count: 15
     rate: 1
   spawnPoints:
   - {fileID: 1526599913}
@@ -29842,20 +29804,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - name: Wave 1
+  - name: First Wave
     enemy:
     - {fileID: 2919814328056208941, guid: be935a3b51f7a1b4682ed8ca7dd9e9ab, type: 3}
-    count: 10
-    rate: 1
-  - name: Wave 2
-    enemy:
-    - {fileID: 2919814328056208941, guid: be935a3b51f7a1b4682ed8ca7dd9e9ab, type: 3}
-    count: 10
+    count: 11
     rate: 1
   - name: Final Wave
     enemy:
     - {fileID: 2919814328056208941, guid: be935a3b51f7a1b4682ed8ca7dd9e9ab, type: 3}
-    count: 10
+    count: 11
     rate: 1
   spawnPoints:
   - {fileID: 1526599913}
@@ -30396,26 +30353,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - name: Wave 1
+  - name: First Wave
     enemy:
     - {fileID: 3558043269584528654, guid: 038e38fc371b9ca4d91e6a72fb69ecd5, type: 3}
     - {fileID: 8403842406854636723, guid: faff1284ea7037d4bba13d4f5b2c158d, type: 3}
     - {fileID: 2007889208600363659, guid: 0e7c0ce04fe77cf4abf933909b01b521, type: 3}
-    count: 10
-    rate: 1
-  - name: Wave 2
-    enemy:
-    - {fileID: 3558043269584528654, guid: 038e38fc371b9ca4d91e6a72fb69ecd5, type: 3}
-    - {fileID: 8403842406854636723, guid: faff1284ea7037d4bba13d4f5b2c158d, type: 3}
-    - {fileID: 2007889208600363659, guid: 0e7c0ce04fe77cf4abf933909b01b521, type: 3}
-    count: 10
+    count: 13
     rate: 1
   - name: Final Wave
     enemy:
     - {fileID: 3558043269584528654, guid: 038e38fc371b9ca4d91e6a72fb69ecd5, type: 3}
     - {fileID: 8403842406854636723, guid: faff1284ea7037d4bba13d4f5b2c158d, type: 3}
     - {fileID: 2007889208600363659, guid: 0e7c0ce04fe77cf4abf933909b01b521, type: 3}
-    count: 10
+    count: 13
     rate: 1
   spawnPoints:
   - {fileID: 1526599913}
@@ -31902,26 +31852,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - name: Wave 1
+  - name: First Wave
     enemy:
     - {fileID: 402657509915324536, guid: 47c4fc7708198ac4daff9a0485fc3cd2, type: 3}
     - {fileID: 6024171398062761471, guid: 7bd622fd3731db243b987275e91af03b, type: 3}
     - {fileID: 4446863871178948850, guid: 25d3db5c8b39f2e4ebaed12d10471ac1, type: 3}
-    count: 10
-    rate: 1
-  - name: Wave 2
-    enemy:
-    - {fileID: 402657509915324536, guid: 47c4fc7708198ac4daff9a0485fc3cd2, type: 3}
-    - {fileID: 6024171398062761471, guid: 7bd622fd3731db243b987275e91af03b, type: 3}
-    - {fileID: 4446863871178948850, guid: 25d3db5c8b39f2e4ebaed12d10471ac1, type: 3}
-    count: 10
+    count: 13
     rate: 1
   - name: Final Wave
     enemy:
     - {fileID: 402657509915324536, guid: 47c4fc7708198ac4daff9a0485fc3cd2, type: 3}
     - {fileID: 6024171398062761471, guid: 7bd622fd3731db243b987275e91af03b, type: 3}
     - {fileID: 4446863871178948850, guid: 25d3db5c8b39f2e4ebaed12d10471ac1, type: 3}
-    count: 10
+    count: 13
     rate: 1
   spawnPoints:
   - {fileID: 1526599913}
@@ -32094,23 +32037,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - name: Wave 1
+  - name: First Wave
     enemy:
     - {fileID: 3558043269584528654, guid: 038e38fc371b9ca4d91e6a72fb69ecd5, type: 3}
     - {fileID: 8403842406854636723, guid: faff1284ea7037d4bba13d4f5b2c158d, type: 3}
     - {fileID: 2007889208600363659, guid: 0e7c0ce04fe77cf4abf933909b01b521, type: 3}
     - {fileID: 3558043269584528654, guid: a905bd42984280c4a9abf01d1c8edbe6, type: 3}
     - {fileID: 8403842406854636723, guid: 3065d5b1acbdf474f8d908f4285a8e04, type: 3}
-    count: 10
-    rate: 1
-  - name: Wave 2
-    enemy:
-    - {fileID: 3558043269584528654, guid: 038e38fc371b9ca4d91e6a72fb69ecd5, type: 3}
-    - {fileID: 8403842406854636723, guid: faff1284ea7037d4bba13d4f5b2c158d, type: 3}
-    - {fileID: 2007889208600363659, guid: 0e7c0ce04fe77cf4abf933909b01b521, type: 3}
-    - {fileID: 3558043269584528654, guid: a905bd42984280c4a9abf01d1c8edbe6, type: 3}
-    - {fileID: 8403842406854636723, guid: 3065d5b1acbdf474f8d908f4285a8e04, type: 3}
-    count: 10
+    count: 15
     rate: 1
   - name: Final Wave
     enemy:
@@ -32119,7 +32053,7 @@ MonoBehaviour:
     - {fileID: 2007889208600363659, guid: 0e7c0ce04fe77cf4abf933909b01b521, type: 3}
     - {fileID: 3558043269584528654, guid: a905bd42984280c4a9abf01d1c8edbe6, type: 3}
     - {fileID: 8403842406854636723, guid: 3065d5b1acbdf474f8d908f4285a8e04, type: 3}
-    count: 10
+    count: 15
     rate: 1
   spawnPoints:
   - {fileID: 1526599913}
@@ -32319,7 +32253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - name: Wave 1
+  - name: First Wave
     enemy:
     - {fileID: 3558043269584528654, guid: 038e38fc371b9ca4d91e6a72fb69ecd5, type: 3}
     - {fileID: 8403842406854636723, guid: faff1284ea7037d4bba13d4f5b2c158d, type: 3}
@@ -32329,19 +32263,7 @@ MonoBehaviour:
     - {fileID: 2007889208600363659, guid: a0b2f91621fc70e4cb765da31945078d, type: 3}
     - {fileID: 3558043269584528654, guid: 602718dde63c7c84abd1d0cd80e83104, type: 3}
     - {fileID: 8403842406854636723, guid: 20dcb05743d3b824791303e1f9304f2e, type: 3}
-    count: 10
-    rate: 1
-  - name: Wave 2
-    enemy:
-    - {fileID: 3558043269584528654, guid: 038e38fc371b9ca4d91e6a72fb69ecd5, type: 3}
-    - {fileID: 8403842406854636723, guid: faff1284ea7037d4bba13d4f5b2c158d, type: 3}
-    - {fileID: 2007889208600363659, guid: 0e7c0ce04fe77cf4abf933909b01b521, type: 3}
-    - {fileID: 3558043269584528654, guid: a905bd42984280c4a9abf01d1c8edbe6, type: 3}
-    - {fileID: 8403842406854636723, guid: 3065d5b1acbdf474f8d908f4285a8e04, type: 3}
-    - {fileID: 2007889208600363659, guid: a0b2f91621fc70e4cb765da31945078d, type: 3}
-    - {fileID: 3558043269584528654, guid: 602718dde63c7c84abd1d0cd80e83104, type: 3}
-    - {fileID: 8403842406854636723, guid: 20dcb05743d3b824791303e1f9304f2e, type: 3}
-    count: 10
+    count: 18
     rate: 1
   - name: Final Wave
     enemy:
@@ -32353,7 +32275,7 @@ MonoBehaviour:
     - {fileID: 2007889208600363659, guid: a0b2f91621fc70e4cb765da31945078d, type: 3}
     - {fileID: 3558043269584528654, guid: 602718dde63c7c84abd1d0cd80e83104, type: 3}
     - {fileID: 8403842406854636723, guid: 20dcb05743d3b824791303e1f9304f2e, type: 3}
-    count: 10
+    count: 18
     rate: 1
   spawnPoints:
   - {fileID: 1526599913}
@@ -34353,7 +34275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - name: Wave 1
+  - name: First Wave
     enemy:
     - {fileID: 2919814328056208941, guid: be935a3b51f7a1b4682ed8ca7dd9e9ab, type: 3}
     - {fileID: 7729727695085830221, guid: 7231436565af6a4489c3c24215f70896, type: 3}
@@ -34362,18 +34284,7 @@ MonoBehaviour:
     - {fileID: 8040838010145126470, guid: d94061f0a9fae874aae20b4f40c39ea1, type: 3}
     - {fileID: 98302638475005070, guid: edde58e6958323647b42b09977a9889b, type: 3}
     - {fileID: 100294770186647441, guid: 702744fbf28687b4dbf7c84c77700dfc, type: 3}
-    count: 10
-    rate: 1
-  - name: Wave 2
-    enemy:
-    - {fileID: 2919814328056208941, guid: be935a3b51f7a1b4682ed8ca7dd9e9ab, type: 3}
-    - {fileID: 7729727695085830221, guid: 7231436565af6a4489c3c24215f70896, type: 3}
-    - {fileID: 2216256366025135717, guid: 989a810854ca9674386eba701de1a9d2, type: 3}
-    - {fileID: 6786038748144555050, guid: 61647db6ad1c2814094511bacf36e707, type: 3}
-    - {fileID: 8040838010145126470, guid: d94061f0a9fae874aae20b4f40c39ea1, type: 3}
-    - {fileID: 98302638475005070, guid: edde58e6958323647b42b09977a9889b, type: 3}
-    - {fileID: 100294770186647441, guid: 702744fbf28687b4dbf7c84c77700dfc, type: 3}
-    count: 10
+    count: 17
     rate: 1
   - name: Final Wave
     enemy:
@@ -34384,7 +34295,7 @@ MonoBehaviour:
     - {fileID: 8040838010145126470, guid: d94061f0a9fae874aae20b4f40c39ea1, type: 3}
     - {fileID: 98302638475005070, guid: edde58e6958323647b42b09977a9889b, type: 3}
     - {fileID: 100294770186647441, guid: 702744fbf28687b4dbf7c84c77700dfc, type: 3}
-    count: 10
+    count: 17
     rate: 1
   spawnPoints:
   - {fileID: 1526599913}
@@ -34778,23 +34689,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - name: Wave 1
+  - name: First Wave
     enemy:
     - {fileID: 3558043269584528654, guid: 038e38fc371b9ca4d91e6a72fb69ecd5, type: 3}
     - {fileID: 8403842406854636723, guid: faff1284ea7037d4bba13d4f5b2c158d, type: 3}
-    count: 10
-    rate: 1
-  - name: Wave 2
-    enemy:
-    - {fileID: 3558043269584528654, guid: 038e38fc371b9ca4d91e6a72fb69ecd5, type: 3}
-    - {fileID: 8403842406854636723, guid: faff1284ea7037d4bba13d4f5b2c158d, type: 3}
-    count: 10
+    count: 12
     rate: 1
   - name: Final Wave
     enemy:
     - {fileID: 3558043269584528654, guid: 038e38fc371b9ca4d91e6a72fb69ecd5, type: 3}
     - {fileID: 8403842406854636723, guid: faff1284ea7037d4bba13d4f5b2c158d, type: 3}
-    count: 10
+    count: 12
     rate: 1
   spawnPoints:
   - {fileID: 1526599913}
@@ -35609,7 +35514,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - name: Wave 1
+  - name: First Wave
     enemy:
     - {fileID: 402657509915324536, guid: 47c4fc7708198ac4daff9a0485fc3cd2, type: 3}
     - {fileID: 6024171398062761471, guid: 7bd622fd3731db243b987275e91af03b, type: 3}
@@ -35619,19 +35524,7 @@ MonoBehaviour:
     - {fileID: 4446863871178948850, guid: 65c3ea5aed6b4494f80943e3663cb9f2, type: 3}
     - {fileID: 402657509915324536, guid: dbf4ff17c6f804947a73c620d6ddd264, type: 3}
     - {fileID: 6024171398062761471, guid: 16112c1f9a9d8804bb720b1f47dc3215, type: 3}
-    count: 10
-    rate: 1
-  - name: Wave 2
-    enemy:
-    - {fileID: 402657509915324536, guid: 47c4fc7708198ac4daff9a0485fc3cd2, type: 3}
-    - {fileID: 6024171398062761471, guid: 7bd622fd3731db243b987275e91af03b, type: 3}
-    - {fileID: 4446863871178948850, guid: 25d3db5c8b39f2e4ebaed12d10471ac1, type: 3}
-    - {fileID: 402657509915324536, guid: ff8ed2c7a29d42a43b8ba72c5f9a6046, type: 3}
-    - {fileID: 6024171398062761471, guid: d5f1266f9b78a004988230083c46ca18, type: 3}
-    - {fileID: 4446863871178948850, guid: 65c3ea5aed6b4494f80943e3663cb9f2, type: 3}
-    - {fileID: 402657509915324536, guid: dbf4ff17c6f804947a73c620d6ddd264, type: 3}
-    - {fileID: 6024171398062761471, guid: 16112c1f9a9d8804bb720b1f47dc3215, type: 3}
-    count: 10
+    count: 18
     rate: 1
   - name: Final Wave
     enemy:
@@ -35643,7 +35536,7 @@ MonoBehaviour:
     - {fileID: 4446863871178948850, guid: 65c3ea5aed6b4494f80943e3663cb9f2, type: 3}
     - {fileID: 402657509915324536, guid: dbf4ff17c6f804947a73c620d6ddd264, type: 3}
     - {fileID: 6024171398062761471, guid: 16112c1f9a9d8804bb720b1f47dc3215, type: 3}
-    count: 10
+    count: 18
     rate: 1
   spawnPoints:
   - {fileID: 1526599913}
@@ -36335,29 +36228,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - name: Wave 1
+  - name: First Wave
     enemy:
     - {fileID: 3558043269584528654, guid: 038e38fc371b9ca4d91e6a72fb69ecd5, type: 3}
     - {fileID: 8403842406854636723, guid: faff1284ea7037d4bba13d4f5b2c158d, type: 3}
     - {fileID: 2007889208600363659, guid: 0e7c0ce04fe77cf4abf933909b01b521, type: 3}
     - {fileID: 3558043269584528654, guid: a905bd42984280c4a9abf01d1c8edbe6, type: 3}
-    count: 10
-    rate: 1
-  - name: Wave 2
-    enemy:
-    - {fileID: 3558043269584528654, guid: 038e38fc371b9ca4d91e6a72fb69ecd5, type: 3}
-    - {fileID: 8403842406854636723, guid: faff1284ea7037d4bba13d4f5b2c158d, type: 3}
-    - {fileID: 2007889208600363659, guid: 0e7c0ce04fe77cf4abf933909b01b521, type: 3}
-    - {fileID: 3558043269584528654, guid: a905bd42984280c4a9abf01d1c8edbe6, type: 3}
-    count: 10
+    count: 14
     rate: 1
   - name: Final Wave
     enemy:
-    - {fileID: 3558043269584528654, guid: 038e38fc371b9ca4d91e6a72fb69ecd5, type: 3}
-    - {fileID: 8403842406854636723, guid: faff1284ea7037d4bba13d4f5b2c158d, type: 3}
-    - {fileID: 2007889208600363659, guid: 0e7c0ce04fe77cf4abf933909b01b521, type: 3}
     - {fileID: 3558043269584528654, guid: a905bd42984280c4a9abf01d1c8edbe6, type: 3}
-    count: 10
+    count: 14
     rate: 1
   spawnPoints:
   - {fileID: 1526599913}
@@ -37461,23 +37343,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - name: Wave 1
+  - name: First Wave
     enemy:
     - {fileID: 402657509915324536, guid: 47c4fc7708198ac4daff9a0485fc3cd2, type: 3}
     - {fileID: 6024171398062761471, guid: 7bd622fd3731db243b987275e91af03b, type: 3}
-    count: 10
-    rate: 1
-  - name: Wave 2
-    enemy:
-    - {fileID: 402657509915324536, guid: 47c4fc7708198ac4daff9a0485fc3cd2, type: 3}
-    - {fileID: 6024171398062761471, guid: 7bd622fd3731db243b987275e91af03b, type: 3}
-    count: 10
+    count: 12
     rate: 1
   - name: Final Wave
     enemy:
     - {fileID: 402657509915324536, guid: 47c4fc7708198ac4daff9a0485fc3cd2, type: 3}
     - {fileID: 6024171398062761471, guid: 7bd622fd3731db243b987275e91af03b, type: 3}
-    count: 10
+    count: 12
     rate: 1
   spawnPoints:
   - {fileID: 1526599913}
@@ -38667,7 +38543,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - name: Wave 1
+  - name: First Wave
     enemy:
     - {fileID: 2919814328056208941, guid: be935a3b51f7a1b4682ed8ca7dd9e9ab, type: 3}
     - {fileID: 7729727695085830221, guid: 7231436565af6a4489c3c24215f70896, type: 3}
@@ -38677,19 +38553,7 @@ MonoBehaviour:
     - {fileID: 98302638475005070, guid: edde58e6958323647b42b09977a9889b, type: 3}
     - {fileID: 100294770186647441, guid: 702744fbf28687b4dbf7c84c77700dfc, type: 3}
     - {fileID: 6682612381534170656, guid: 5946b9946c74779478811d77e00d16b6, type: 3}
-    count: 10
-    rate: 1
-  - name: Wave 2
-    enemy:
-    - {fileID: 2919814328056208941, guid: be935a3b51f7a1b4682ed8ca7dd9e9ab, type: 3}
-    - {fileID: 7729727695085830221, guid: 7231436565af6a4489c3c24215f70896, type: 3}
-    - {fileID: 2216256366025135717, guid: 989a810854ca9674386eba701de1a9d2, type: 3}
-    - {fileID: 6786038748144555050, guid: 61647db6ad1c2814094511bacf36e707, type: 3}
-    - {fileID: 8040838010145126470, guid: d94061f0a9fae874aae20b4f40c39ea1, type: 3}
-    - {fileID: 98302638475005070, guid: edde58e6958323647b42b09977a9889b, type: 3}
-    - {fileID: 100294770186647441, guid: 702744fbf28687b4dbf7c84c77700dfc, type: 3}
-    - {fileID: 6682612381534170656, guid: 5946b9946c74779478811d77e00d16b6, type: 3}
-    count: 10
+    count: 18
     rate: 1
   - name: Final Wave
     enemy:
@@ -38701,7 +38565,7 @@ MonoBehaviour:
     - {fileID: 98302638475005070, guid: edde58e6958323647b42b09977a9889b, type: 3}
     - {fileID: 100294770186647441, guid: 702744fbf28687b4dbf7c84c77700dfc, type: 3}
     - {fileID: 6682612381534170656, guid: 5946b9946c74779478811d77e00d16b6, type: 3}
-    count: 10
+    count: 18
     rate: 1
   spawnPoints:
   - {fileID: 1526599913}
@@ -44660,21 +44524,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - name: Wave 1
+  - name: First Wave
     enemy:
     - {fileID: 2919814328056208941, guid: be935a3b51f7a1b4682ed8ca7dd9e9ab, type: 3}
     - {fileID: 7729727695085830221, guid: 7231436565af6a4489c3c24215f70896, type: 3}
     - {fileID: 2216256366025135717, guid: 989a810854ca9674386eba701de1a9d2, type: 3}
     - {fileID: 6786038748144555050, guid: 61647db6ad1c2814094511bacf36e707, type: 3}
-    count: 10
-    rate: 1
-  - name: Wave 2
-    enemy:
-    - {fileID: 2919814328056208941, guid: be935a3b51f7a1b4682ed8ca7dd9e9ab, type: 3}
-    - {fileID: 7729727695085830221, guid: 7231436565af6a4489c3c24215f70896, type: 3}
-    - {fileID: 2216256366025135717, guid: 989a810854ca9674386eba701de1a9d2, type: 3}
-    - {fileID: 6786038748144555050, guid: 61647db6ad1c2814094511bacf36e707, type: 3}
-    count: 10
+    count: 14
     rate: 1
   - name: Final Wave
     enemy:
@@ -44682,7 +44538,7 @@ MonoBehaviour:
     - {fileID: 7729727695085830221, guid: 7231436565af6a4489c3c24215f70896, type: 3}
     - {fileID: 2216256366025135717, guid: 989a810854ca9674386eba701de1a9d2, type: 3}
     - {fileID: 6786038748144555050, guid: 61647db6ad1c2814094511bacf36e707, type: 3}
-    count: 10
+    count: 14
     rate: 1
   spawnPoints:
   - {fileID: 1526599913}
@@ -44776,7 +44632,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - name: Wave 1
+  - name: First Wave
     enemy:
     - {fileID: 3558043269584528654, guid: 038e38fc371b9ca4d91e6a72fb69ecd5, type: 3}
     - {fileID: 8403842406854636723, guid: faff1284ea7037d4bba13d4f5b2c158d, type: 3}
@@ -44784,17 +44640,7 @@ MonoBehaviour:
     - {fileID: 3558043269584528654, guid: a905bd42984280c4a9abf01d1c8edbe6, type: 3}
     - {fileID: 8403842406854636723, guid: 3065d5b1acbdf474f8d908f4285a8e04, type: 3}
     - {fileID: 2007889208600363659, guid: a0b2f91621fc70e4cb765da31945078d, type: 3}
-    count: 10
-    rate: 1
-  - name: Wave 2
-    enemy:
-    - {fileID: 3558043269584528654, guid: 038e38fc371b9ca4d91e6a72fb69ecd5, type: 3}
-    - {fileID: 8403842406854636723, guid: faff1284ea7037d4bba13d4f5b2c158d, type: 3}
-    - {fileID: 2007889208600363659, guid: 0e7c0ce04fe77cf4abf933909b01b521, type: 3}
-    - {fileID: 3558043269584528654, guid: a905bd42984280c4a9abf01d1c8edbe6, type: 3}
-    - {fileID: 8403842406854636723, guid: 3065d5b1acbdf474f8d908f4285a8e04, type: 3}
-    - {fileID: 2007889208600363659, guid: a0b2f91621fc70e4cb765da31945078d, type: 3}
-    count: 10
+    count: 16
     rate: 1
   - name: Final Wave
     enemy:
@@ -44804,7 +44650,7 @@ MonoBehaviour:
     - {fileID: 3558043269584528654, guid: a905bd42984280c4a9abf01d1c8edbe6, type: 3}
     - {fileID: 8403842406854636723, guid: 3065d5b1acbdf474f8d908f4285a8e04, type: 3}
     - {fileID: 2007889208600363659, guid: a0b2f91621fc70e4cb765da31945078d, type: 3}
-    count: 10
+    count: 16
     rate: 1
   spawnPoints:
   - {fileID: 1526599913}
@@ -45651,7 +45497,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - name: Wave 1
+  - name: First Wave
     enemy:
     - {fileID: 2919814328056208941, guid: be935a3b51f7a1b4682ed8ca7dd9e9ab, type: 3}
     - {fileID: 7729727695085830221, guid: 7231436565af6a4489c3c24215f70896, type: 3}
@@ -45659,17 +45505,7 @@ MonoBehaviour:
     - {fileID: 6786038748144555050, guid: 61647db6ad1c2814094511bacf36e707, type: 3}
     - {fileID: 8040838010145126470, guid: d94061f0a9fae874aae20b4f40c39ea1, type: 3}
     - {fileID: 98302638475005070, guid: edde58e6958323647b42b09977a9889b, type: 3}
-    count: 10
-    rate: 1
-  - name: Wave 2
-    enemy:
-    - {fileID: 2919814328056208941, guid: be935a3b51f7a1b4682ed8ca7dd9e9ab, type: 3}
-    - {fileID: 7729727695085830221, guid: 7231436565af6a4489c3c24215f70896, type: 3}
-    - {fileID: 2216256366025135717, guid: 989a810854ca9674386eba701de1a9d2, type: 3}
-    - {fileID: 6786038748144555050, guid: 61647db6ad1c2814094511bacf36e707, type: 3}
-    - {fileID: 8040838010145126470, guid: d94061f0a9fae874aae20b4f40c39ea1, type: 3}
-    - {fileID: 98302638475005070, guid: edde58e6958323647b42b09977a9889b, type: 3}
-    count: 10
+    count: 16
     rate: 1
   - name: Final Wave
     enemy:
@@ -45679,7 +45515,7 @@ MonoBehaviour:
     - {fileID: 6786038748144555050, guid: 61647db6ad1c2814094511bacf36e707, type: 3}
     - {fileID: 8040838010145126470, guid: d94061f0a9fae874aae20b4f40c39ea1, type: 3}
     - {fileID: 98302638475005070, guid: edde58e6958323647b42b09977a9889b, type: 3}
-    count: 10
+    count: 16
     rate: 1
   spawnPoints:
   - {fileID: 1526599913}
@@ -46587,7 +46423,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - name: Wave 1
+  - name: First Wave
     enemy:
     - {fileID: 3558043269584528654, guid: 038e38fc371b9ca4d91e6a72fb69ecd5, type: 3}
     - {fileID: 8403842406854636723, guid: faff1284ea7037d4bba13d4f5b2c158d, type: 3}
@@ -46598,20 +46434,7 @@ MonoBehaviour:
     - {fileID: 3558043269584528654, guid: 602718dde63c7c84abd1d0cd80e83104, type: 3}
     - {fileID: 8403842406854636723, guid: 20dcb05743d3b824791303e1f9304f2e, type: 3}
     - {fileID: 2007889208600363659, guid: ee1da47a8e9ddd34b880968b96eb8d91, type: 3}
-    count: 10
-    rate: 1
-  - name: Wave 2
-    enemy:
-    - {fileID: 3558043269584528654, guid: 038e38fc371b9ca4d91e6a72fb69ecd5, type: 3}
-    - {fileID: 8403842406854636723, guid: faff1284ea7037d4bba13d4f5b2c158d, type: 3}
-    - {fileID: 2007889208600363659, guid: 0e7c0ce04fe77cf4abf933909b01b521, type: 3}
-    - {fileID: 3558043269584528654, guid: a905bd42984280c4a9abf01d1c8edbe6, type: 3}
-    - {fileID: 8403842406854636723, guid: 3065d5b1acbdf474f8d908f4285a8e04, type: 3}
-    - {fileID: 2007889208600363659, guid: a0b2f91621fc70e4cb765da31945078d, type: 3}
-    - {fileID: 3558043269584528654, guid: 602718dde63c7c84abd1d0cd80e83104, type: 3}
-    - {fileID: 8403842406854636723, guid: 20dcb05743d3b824791303e1f9304f2e, type: 3}
-    - {fileID: 2007889208600363659, guid: ee1da47a8e9ddd34b880968b96eb8d91, type: 3}
-    count: 10
+    count: 19
     rate: 1
   - name: Final Wave
     enemy:
@@ -46624,7 +46447,7 @@ MonoBehaviour:
     - {fileID: 3558043269584528654, guid: 602718dde63c7c84abd1d0cd80e83104, type: 3}
     - {fileID: 8403842406854636723, guid: 20dcb05743d3b824791303e1f9304f2e, type: 3}
     - {fileID: 2007889208600363659, guid: ee1da47a8e9ddd34b880968b96eb8d91, type: 3}
-    count: 10
+    count: 19
     rate: 1
   spawnPoints:
   - {fileID: 1526599913}
@@ -46657,7 +46480,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - name: Wave 1
+  - name: First Wave
     enemy:
     - {fileID: 3558043269584528654, guid: 038e38fc371b9ca4d91e6a72fb69ecd5, type: 3}
     - {fileID: 8403842406854636723, guid: faff1284ea7037d4bba13d4f5b2c158d, type: 3}
@@ -46666,18 +46489,7 @@ MonoBehaviour:
     - {fileID: 8403842406854636723, guid: 3065d5b1acbdf474f8d908f4285a8e04, type: 3}
     - {fileID: 2007889208600363659, guid: a0b2f91621fc70e4cb765da31945078d, type: 3}
     - {fileID: 3558043269584528654, guid: 602718dde63c7c84abd1d0cd80e83104, type: 3}
-    count: 10
-    rate: 1
-  - name: Wave 2
-    enemy:
-    - {fileID: 3558043269584528654, guid: 038e38fc371b9ca4d91e6a72fb69ecd5, type: 3}
-    - {fileID: 8403842406854636723, guid: faff1284ea7037d4bba13d4f5b2c158d, type: 3}
-    - {fileID: 2007889208600363659, guid: 0e7c0ce04fe77cf4abf933909b01b521, type: 3}
-    - {fileID: 3558043269584528654, guid: a905bd42984280c4a9abf01d1c8edbe6, type: 3}
-    - {fileID: 8403842406854636723, guid: 3065d5b1acbdf474f8d908f4285a8e04, type: 3}
-    - {fileID: 2007889208600363659, guid: a0b2f91621fc70e4cb765da31945078d, type: 3}
-    - {fileID: 3558043269584528654, guid: 602718dde63c7c84abd1d0cd80e83104, type: 3}
-    count: 10
+    count: 17
     rate: 1
   - name: Final Wave
     enemy:
@@ -46688,7 +46500,7 @@ MonoBehaviour:
     - {fileID: 8403842406854636723, guid: 3065d5b1acbdf474f8d908f4285a8e04, type: 3}
     - {fileID: 2007889208600363659, guid: a0b2f91621fc70e4cb765da31945078d, type: 3}
     - {fileID: 3558043269584528654, guid: 602718dde63c7c84abd1d0cd80e83104, type: 3}
-    count: 10
+    count: 17
     rate: 1
   spawnPoints:
   - {fileID: 1526599913}
@@ -46782,7 +46594,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - name: Wave 1
+  - name: First Wave
     enemy:
     - {fileID: 402657509915324536, guid: 47c4fc7708198ac4daff9a0485fc3cd2, type: 3}
     - {fileID: 6024171398062761471, guid: 7bd622fd3731db243b987275e91af03b, type: 3}
@@ -46790,17 +46602,7 @@ MonoBehaviour:
     - {fileID: 402657509915324536, guid: ff8ed2c7a29d42a43b8ba72c5f9a6046, type: 3}
     - {fileID: 6024171398062761471, guid: d5f1266f9b78a004988230083c46ca18, type: 3}
     - {fileID: 4446863871178948850, guid: 65c3ea5aed6b4494f80943e3663cb9f2, type: 3}
-    count: 10
-    rate: 1
-  - name: Wave 2
-    enemy:
-    - {fileID: 402657509915324536, guid: 47c4fc7708198ac4daff9a0485fc3cd2, type: 3}
-    - {fileID: 6024171398062761471, guid: 7bd622fd3731db243b987275e91af03b, type: 3}
-    - {fileID: 4446863871178948850, guid: 25d3db5c8b39f2e4ebaed12d10471ac1, type: 3}
-    - {fileID: 402657509915324536, guid: ff8ed2c7a29d42a43b8ba72c5f9a6046, type: 3}
-    - {fileID: 6024171398062761471, guid: d5f1266f9b78a004988230083c46ca18, type: 3}
-    - {fileID: 4446863871178948850, guid: 65c3ea5aed6b4494f80943e3663cb9f2, type: 3}
-    count: 10
+    count: 16
     rate: 1
   - name: Final Wave
     enemy:
@@ -46810,7 +46612,7 @@ MonoBehaviour:
     - {fileID: 402657509915324536, guid: ff8ed2c7a29d42a43b8ba72c5f9a6046, type: 3}
     - {fileID: 6024171398062761471, guid: d5f1266f9b78a004988230083c46ca18, type: 3}
     - {fileID: 4446863871178948850, guid: 65c3ea5aed6b4494f80943e3663cb9f2, type: 3}
-    count: 10
+    count: 16
     rate: 1
   spawnPoints:
   - {fileID: 1526599913}
@@ -46843,23 +46645,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - name: Wave 1
+  - name: First Wave
     enemy:
     - {fileID: 2919814328056208941, guid: be935a3b51f7a1b4682ed8ca7dd9e9ab, type: 3}
     - {fileID: 7729727695085830221, guid: 7231436565af6a4489c3c24215f70896, type: 3}
     - {fileID: 2216256366025135717, guid: 989a810854ca9674386eba701de1a9d2, type: 3}
     - {fileID: 6786038748144555050, guid: 61647db6ad1c2814094511bacf36e707, type: 3}
     - {fileID: 8040838010145126470, guid: d94061f0a9fae874aae20b4f40c39ea1, type: 3}
-    count: 10
-    rate: 1
-  - name: Wave 2
-    enemy:
-    - {fileID: 2919814328056208941, guid: be935a3b51f7a1b4682ed8ca7dd9e9ab, type: 3}
-    - {fileID: 7729727695085830221, guid: 7231436565af6a4489c3c24215f70896, type: 3}
-    - {fileID: 2216256366025135717, guid: 989a810854ca9674386eba701de1a9d2, type: 3}
-    - {fileID: 6786038748144555050, guid: 61647db6ad1c2814094511bacf36e707, type: 3}
-    - {fileID: 8040838010145126470, guid: d94061f0a9fae874aae20b4f40c39ea1, type: 3}
-    count: 10
+    count: 15
     rate: 1
   - name: Final Wave
     enemy:
@@ -46868,7 +46661,7 @@ MonoBehaviour:
     - {fileID: 2216256366025135717, guid: 989a810854ca9674386eba701de1a9d2, type: 3}
     - {fileID: 6786038748144555050, guid: 61647db6ad1c2814094511bacf36e707, type: 3}
     - {fileID: 8040838010145126470, guid: d94061f0a9fae874aae20b4f40c39ea1, type: 3}
-    count: 10
+    count: 15
     rate: 1
   spawnPoints:
   - {fileID: 1526599913}
@@ -47102,7 +46895,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - name: Wave 1
+  - name: First Wave
     enemy:
     - {fileID: 402657509915324536, guid: 47c4fc7708198ac4daff9a0485fc3cd2, type: 3}
     - {fileID: 6024171398062761471, guid: 7bd622fd3731db243b987275e91af03b, type: 3}
@@ -47113,20 +46906,7 @@ MonoBehaviour:
     - {fileID: 402657509915324536, guid: dbf4ff17c6f804947a73c620d6ddd264, type: 3}
     - {fileID: 6024171398062761471, guid: 16112c1f9a9d8804bb720b1f47dc3215, type: 3}
     - {fileID: 4446863871178948850, guid: de9150dfc99564f4ab472533a7bc1ba8, type: 3}
-    count: 10
-    rate: 1
-  - name: Wave 2
-    enemy:
-    - {fileID: 402657509915324536, guid: 47c4fc7708198ac4daff9a0485fc3cd2, type: 3}
-    - {fileID: 6024171398062761471, guid: 7bd622fd3731db243b987275e91af03b, type: 3}
-    - {fileID: 4446863871178948850, guid: 25d3db5c8b39f2e4ebaed12d10471ac1, type: 3}
-    - {fileID: 402657509915324536, guid: ff8ed2c7a29d42a43b8ba72c5f9a6046, type: 3}
-    - {fileID: 6024171398062761471, guid: d5f1266f9b78a004988230083c46ca18, type: 3}
-    - {fileID: 4446863871178948850, guid: 65c3ea5aed6b4494f80943e3663cb9f2, type: 3}
-    - {fileID: 402657509915324536, guid: dbf4ff17c6f804947a73c620d6ddd264, type: 3}
-    - {fileID: 6024171398062761471, guid: 16112c1f9a9d8804bb720b1f47dc3215, type: 3}
-    - {fileID: 4446863871178948850, guid: de9150dfc99564f4ab472533a7bc1ba8, type: 3}
-    count: 10
+    count: 19
     rate: 1
   - name: Final Wave
     enemy:
@@ -47139,7 +46919,7 @@ MonoBehaviour:
     - {fileID: 402657509915324536, guid: dbf4ff17c6f804947a73c620d6ddd264, type: 3}
     - {fileID: 6024171398062761471, guid: 16112c1f9a9d8804bb720b1f47dc3215, type: 3}
     - {fileID: 4446863871178948850, guid: de9150dfc99564f4ab472533a7bc1ba8, type: 3}
-    count: 10
+    count: 19
     rate: 1
   spawnPoints:
   - {fileID: 1526599913}
@@ -47361,20 +47141,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - name: Wave 1
+  - name: First Wave
     enemy:
     - {fileID: 402657509915324536, guid: 47c4fc7708198ac4daff9a0485fc3cd2, type: 3}
-    count: 10
-    rate: 1
-  - name: Wave 2
-    enemy:
-    - {fileID: 402657509915324536, guid: 47c4fc7708198ac4daff9a0485fc3cd2, type: 3}
-    count: 10
+    count: 11
     rate: 1
   - name: Final Wave
     enemy:
     - {fileID: 402657509915324536, guid: 47c4fc7708198ac4daff9a0485fc3cd2, type: 3}
-    count: 10
+    count: 11
     rate: 1
   spawnPoints:
   - {fileID: 1526599913}
@@ -47949,7 +47724,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - name: Wave 1
+  - name: First Wave
     enemy:
     - {fileID: 402657509915324536, guid: 47c4fc7708198ac4daff9a0485fc3cd2, type: 3}
     - {fileID: 6024171398062761471, guid: 7bd622fd3731db243b987275e91af03b, type: 3}
@@ -47958,18 +47733,7 @@ MonoBehaviour:
     - {fileID: 6024171398062761471, guid: d5f1266f9b78a004988230083c46ca18, type: 3}
     - {fileID: 4446863871178948850, guid: 65c3ea5aed6b4494f80943e3663cb9f2, type: 3}
     - {fileID: 402657509915324536, guid: dbf4ff17c6f804947a73c620d6ddd264, type: 3}
-    count: 10
-    rate: 1
-  - name: Wave 2
-    enemy:
-    - {fileID: 402657509915324536, guid: 47c4fc7708198ac4daff9a0485fc3cd2, type: 3}
-    - {fileID: 6024171398062761471, guid: 7bd622fd3731db243b987275e91af03b, type: 3}
-    - {fileID: 4446863871178948850, guid: 25d3db5c8b39f2e4ebaed12d10471ac1, type: 3}
-    - {fileID: 402657509915324536, guid: ff8ed2c7a29d42a43b8ba72c5f9a6046, type: 3}
-    - {fileID: 6024171398062761471, guid: d5f1266f9b78a004988230083c46ca18, type: 3}
-    - {fileID: 4446863871178948850, guid: 65c3ea5aed6b4494f80943e3663cb9f2, type: 3}
-    - {fileID: 402657509915324536, guid: dbf4ff17c6f804947a73c620d6ddd264, type: 3}
-    count: 10
+    count: 17
     rate: 1
   - name: Final Wave
     enemy:
@@ -47980,7 +47744,7 @@ MonoBehaviour:
     - {fileID: 6024171398062761471, guid: d5f1266f9b78a004988230083c46ca18, type: 3}
     - {fileID: 4446863871178948850, guid: 65c3ea5aed6b4494f80943e3663cb9f2, type: 3}
     - {fileID: 402657509915324536, guid: dbf4ff17c6f804947a73c620d6ddd264, type: 3}
-    count: 10
+    count: 17
     rate: 1
   spawnPoints:
   - {fileID: 1526599913}
@@ -49330,20 +49094,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - name: Wave 1
+  - name: First Wave
     enemy:
     - {fileID: 3558043269584528654, guid: 038e38fc371b9ca4d91e6a72fb69ecd5, type: 3}
-    count: 10
-    rate: 1
-  - name: Wave 2
-    enemy:
-    - {fileID: 3558043269584528654, guid: 038e38fc371b9ca4d91e6a72fb69ecd5, type: 3}
-    count: 10
+    count: 11
     rate: 1
   - name: Final Wave
     enemy:
     - {fileID: 3558043269584528654, guid: 038e38fc371b9ca4d91e6a72fb69ecd5, type: 3}
-    count: 10
+    count: 11
     rate: 1
   spawnPoints:
   - {fileID: 1526599913}
@@ -49576,23 +49335,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - name: Wave 1
+  - name: First Wave
     enemy:
     - {fileID: 2919814328056208941, guid: be935a3b51f7a1b4682ed8ca7dd9e9ab, type: 3}
     - {fileID: 7729727695085830221, guid: 7231436565af6a4489c3c24215f70896, type: 3}
-    count: 10
-    rate: 1
-  - name: Wave 2
-    enemy:
-    - {fileID: 2919814328056208941, guid: be935a3b51f7a1b4682ed8ca7dd9e9ab, type: 3}
-    - {fileID: 7729727695085830221, guid: 7231436565af6a4489c3c24215f70896, type: 3}
-    count: 10
+    count: 12
     rate: 1
   - name: Final Wave
     enemy:
     - {fileID: 2919814328056208941, guid: be935a3b51f7a1b4682ed8ca7dd9e9ab, type: 3}
     - {fileID: 7729727695085830221, guid: 7231436565af6a4489c3c24215f70896, type: 3}
-    count: 10
+    count: 12
     rate: 1
   spawnPoints:
   - {fileID: 1526599913}

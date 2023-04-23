@@ -9,12 +9,32 @@ using UnityEngine;
 
 public class EnemyCoin : MonoBehaviour
 {
+    float moveSpeed = 5;
+
     PlayerStats coin;
+    GameObject player;
+    Rigidbody2D rb;
+    Vector2 direction;
 
     void Start()
     {
         //find the Win & Lose Screen object in hierarchy
         coin = GameObject.Find("Win & Lose Screen").GetComponent<PlayerStats>();
+
+        //get rigidbody component
+        rb = GetComponent<Rigidbody2D>();
+
+        //find the player
+        player = GameObject.Find("Hero Selection");        
+    }
+
+    void Update()
+    {
+        //set the direction to the player
+        direction = (player.transform.position - transform.position).normalized;
+
+        //coin moves to player
+        rb.velocity = new Vector2(direction.x * moveSpeed, direction.y * moveSpeed);
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -28,6 +48,16 @@ public class EnemyCoin : MonoBehaviour
 
             //remove object from screen
             Destroy(gameObject);
+        }        
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        //when coin hits castle or enemy
+        if (collision.gameObject.tag == "Castle" || collision.gameObject.tag == "Enemy")
+        {
+            //ignore collision between them
+            Physics2D.IgnoreCollision(collision.gameObject.GetComponent<BoxCollider2D>(), GetComponent<BoxCollider2D>());
         }
     }
 }

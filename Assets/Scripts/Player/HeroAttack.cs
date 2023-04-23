@@ -15,18 +15,19 @@ public class HeroAttack : MonoBehaviour
     public bool isCritical = false;   
 
     bool canAttack = false;
-    
+    float handleOffset = 0.7f;
+
     Animator anim;
     EnemyBehaviour enemy;
     GameObject player;
-    JoystickController handle;
+    PlayerController handle;
     
     void Start()
     {
         //get animator component
         anim = GetComponent<Animator>();
 
-        handle = GetComponentInParent<JoystickController>();
+        handle = GetComponentInParent<PlayerController>();
 
         //find the hero selection game object in hierarchy
         player = GameObject.Find("Hero Selection");
@@ -44,9 +45,9 @@ public class HeroAttack : MonoBehaviour
         if (collision.tag == "Enemy")
         {
             //character is running
-            if (handle.joystick.Horizontal > handle.handleOffset || handle.joystick.Horizontal < -handle.handleOffset ||
+            if (handle.joystick.Horizontal > handleOffset || handle.joystick.Horizontal < -handleOffset ||
 
-                handle.joystick.Vertical > handle.handleOffset || handle.joystick.Vertical < -handle.handleOffset)
+                handle.joystick.Vertical > handleOffset || handle.joystick.Vertical < -handleOffset)
             {
                 //character cannot attack
                 canAttack = false;

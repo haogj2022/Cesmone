@@ -23,12 +23,12 @@ public class SpawnerManager : MonoBehaviour
     CastleHealth castle;
     Image winScreen;
     Image loseScreen;
-    JoystickController joystick;
+    PlayerController joystick;
     PlayerStats stat;    
     
     void Start()
     {   
-        joystick = GameObject.Find("Hero Selection").GetComponent<JoystickController>();
+        joystick = GameObject.Find("Hero Selection").GetComponent<PlayerController>();
 
         //find stat game object in hierarchy
         stat = GameObject.Find("Win & Lose Screen").GetComponent<PlayerStats>();

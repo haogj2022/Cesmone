@@ -270,4 +270,4 @@ MonoBehaviour:
   currentHealth: 20
   maxHealth: 20
   moveSpeed: 3
-  numOfCoins: 3
+  numOfCoins: 4

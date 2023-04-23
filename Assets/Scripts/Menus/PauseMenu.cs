@@ -14,11 +14,11 @@ public class PauseMenu : MonoBehaviour
     public GameObject quitConfirm;
     public GameObject spikeTrapButton;
     
-    JoystickController joystick;
+    PlayerController joystick;
 
     private void Start()
     {
-        joystick = GameObject.Find("Hero Selection").GetComponent<JoystickController>();
+        joystick = GameObject.Find("Hero Selection").GetComponent<PlayerController>();
     }
 
     //when click Pause button in game

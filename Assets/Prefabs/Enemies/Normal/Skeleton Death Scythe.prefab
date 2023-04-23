@@ -173,7 +173,7 @@ MonoBehaviour:
   currentHealth: 90
   maxHealth: 90
   moveSpeed: 3
-  numOfCoins: 10
+  numOfCoins: 18
 --- !u!1 &7042329317574877687
 GameObject:
   m_ObjectHideFlags: 0
