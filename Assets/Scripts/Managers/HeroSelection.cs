@@ -57,7 +57,7 @@ public class HeroSelection : MonoBehaviour
 
             hitboxes[3].enabled = false;
             hitboxes[4].enabled = false;
-            hitboxes[5].enabled = false;
+            hitboxes[5].enabled = false;            
         }
 
         //when staff heroes are visible
@@ -141,7 +141,7 @@ public class HeroSelection : MonoBehaviour
 
             hitboxes[3].enabled = true;
             hitboxes[4].enabled = false;
-            hitboxes[5].enabled = false;            
+            hitboxes[5].enabled = false;
         }
 
         //when staff heroes are visible

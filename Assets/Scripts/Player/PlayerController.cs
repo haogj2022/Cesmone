@@ -12,10 +12,10 @@ public class PlayerController : MonoBehaviour
     public Joystick joystick;
     public SpriteRenderer[] heroes;
 
-    public float moveSpeed = 7;       
+    public float moveSpeed;       
     public bool isActive = false; 
     
-    float handleOffset = 0.7f;
+    float handleOffset = 0.4f;
     
     Rigidbody2D rb;   
     Animator[] anim;

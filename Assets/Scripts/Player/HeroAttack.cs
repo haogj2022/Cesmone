@@ -12,7 +12,9 @@ public class HeroAttack : MonoBehaviour
     public float damage;
     public float critChance;
     public float critDamage;
-    public bool isCritical = false;   
+    public bool isCritical = false;
+    public bool canUseLightning = false;
+    public GameObject lightning;
 
     bool canAttack = false;
     float handleOffset = 0.7f;
@@ -89,9 +91,14 @@ public class HeroAttack : MonoBehaviour
         //when enemy is still alive
         if (enemy.currentHealth > 0)
         {
+            if (canUseLightning)
+            {
+                Instantiate(lightning, enemy.transform.position, Quaternion.identity);
+            }
+
             //when enemy is within range
             if (canAttack)
-            {
+            {               
                 //random chance for crit attack
                 float randValue = Random.Range(0, 100);
 
