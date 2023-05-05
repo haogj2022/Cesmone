@@ -15,6 +15,8 @@ public class HeroAttack : MonoBehaviour
     public bool isCritical = false;
     public bool canUseLightning = false;
     public GameObject lightning;
+    public bool canShootArrow = false;
+    public GameObject arrow;
 
     bool canAttack = false;
     float handleOffset = 0.7f;
@@ -94,6 +96,10 @@ public class HeroAttack : MonoBehaviour
             if (canUseLightning)
             {
                 Instantiate(lightning, enemy.transform.position, Quaternion.identity);
+            }
+            else if (canShootArrow)
+            {
+                Instantiate(arrow, transform.position, Quaternion.identity);               
             }
 
             //when enemy is within range
