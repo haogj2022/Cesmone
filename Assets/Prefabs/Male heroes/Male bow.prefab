@@ -302,3 +302,7 @@ MonoBehaviour:
   critChance: 2
   critDamage: 6
   isCritical: 0
+  canUseLightning: 0
+  lightning: {fileID: 0}
+  canShootArrow: 1
+  arrow: {fileID: 4279098454256352634, guid: 4b65a6f5153c80c41a31917e51b4943e, type: 3}

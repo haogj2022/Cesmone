@@ -25,6 +25,7 @@ public class HeroAttack : MonoBehaviour
     EnemyBehaviour enemy;
     GameObject player;
     PlayerController handle;
+    GameObject hitbox;
     
     void Start()
     {
@@ -35,6 +36,8 @@ public class HeroAttack : MonoBehaviour
 
         //find the hero selection game object in hierarchy
         player = GameObject.Find("Hero Selection");
+
+        hitbox = GameObject.Find("Male Bow Hitbox");
     }
 
     void Update()
@@ -99,7 +102,7 @@ public class HeroAttack : MonoBehaviour
             }
             else if (canShootArrow)
             {
-                Instantiate(arrow, transform.position, Quaternion.identity);               
+                Instantiate(arrow, enemy.transform.position, hitbox.transform.rotation);               
             }
 
             //when enemy is within range
