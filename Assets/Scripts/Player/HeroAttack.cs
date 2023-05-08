@@ -26,7 +26,7 @@ public class HeroAttack : MonoBehaviour
     GameObject player;
     PlayerController handle;
     GameObject hitbox;
-    
+
     void Start()
     {
         //get animator component

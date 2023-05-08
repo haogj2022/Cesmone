@@ -8,30 +8,30 @@ using TMPro;
 //Object(s) holding this script: Uprade Menu
 //Summary: Manage weapon upgrades
 
-public class WeaponUpgrade : MonoBehaviour
+//make the class editable in Inspector
+[System.Serializable]
+public class Upgrade
 {
-    //make the class editable in Inspector
-    [System.Serializable]
-    public class Upgrade
-    {
-        public string name;
+    public string name;
         
-        public TMP_Text currentStat;
-        public TMP_Text upgrade;
-        public TMP_Text newStat;
+    public TMP_Text currentStat;
+    public TMP_Text upgrade;
+    public TMP_Text newStat;
         
-        public float lastUpgrade;
-        public float nextUpgrade;
-        public float cost;
-    }
+    public float lastUpgrade;
+    public float nextUpgrade;
+    public float cost;
+}
 
+public class WeaponUpgrade : MonoBehaviour
+{   
     public Upgrade[] upgrades;
     public HeroAttack[] heroes;
     public GameObject[] options;
 
     bool canUpgrade = true;
 
-    PlayerStats stat;
+    PlayerStats stat;   
 
     void Start()
     {

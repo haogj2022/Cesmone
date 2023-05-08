@@ -9,7 +9,7 @@ using TMPro;
 //Object(s) holding this script: Win & Lose Screen
 //Summary: Show stats after player complete a level
 
-public class PlayerStats : MonoBehaviour
+public class PlayerStats : MonoBehaviour, IDataPersistence
 {
     public GameObject[] stats;
     public TMP_Text[] num;
@@ -23,6 +23,16 @@ public class PlayerStats : MonoBehaviour
 
     CastleHealth castle;
     
+    public void LoadData(SaveData data)
+    {
+        totalCoins = data.totalCoins;
+    }
+
+    public void SaveData(ref SaveData data)
+    {
+        data.totalCoins = totalCoins;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
