@@ -7,7 +7,7 @@ using UnityEngine;
 //Object(s) holding this script: Main Menu
 //Summary: Handle main menu events 
 
-public class MainMenu : MonoBehaviour
+public class GameMenu : MonoBehaviour
 {
     public GameObject optionMenu;
     public GameObject levelSelect;

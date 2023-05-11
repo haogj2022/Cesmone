@@ -26,16 +26,16 @@ public class Upgrade
 public class WeaponUpgrade : MonoBehaviour
 {   
     public Upgrade[] upgrades;
-    public HeroAttack[] heroes;
+    public HeroStats[] heroes;
     public GameObject[] options;
 
     bool canUpgrade = true;
 
-    PlayerStats stat;   
+    LevelStats levelStat;
 
     void Start()
     {
-        stat = GameObject.Find("Win & Lose Screen").GetComponent<PlayerStats>();
+        levelStat = GameObject.Find("Win & Lose Screen").GetComponent<LevelStats>();
     }
 
     void Update()
@@ -79,21 +79,20 @@ public class WeaponUpgrade : MonoBehaviour
     public void UpgradeDamage(int type)
     {
         //player can afford the upgrade
-        if (stat.totalCoins >= upgrades[type].cost)
+        if (levelStat.totalCoins >= upgrades[type].cost)
         {
             //upgrade is enabled
             if (canUpgrade)
             {
                 //remove coins from player's bank
-                stat.totalCoins -= upgrades[type].cost;
-
-                //upgrade damage
-                heroes[type].damage += 2;
-                heroes[type + 3].damage += 2;
+                levelStat.totalCoins -= upgrades[type].cost;
 
                 //update damage information
                 upgrades[type].lastUpgrade += 2;
                 upgrades[type].nextUpgrade = upgrades[type].lastUpgrade + 2;
+
+                heroes[type].damage = upgrades[type].lastUpgrade;
+                heroes[type + 3].damage = upgrades[type].lastUpgrade;
 
                 //disable upgrade
                 canUpgrade = false;
@@ -111,21 +110,20 @@ public class WeaponUpgrade : MonoBehaviour
     public void UpgradeCritChance(int type)
     {
         //player can afford the upgrade
-        if (stat.totalCoins >= upgrades[type + 3].cost)
+        if (levelStat.totalCoins >= upgrades[type + 3].cost)
         {
             //upgrade is enabled
             if (canUpgrade)
             {
                 //remove coins from player's bank
-                stat.totalCoins -= upgrades[type + 3].cost;
-
-                //upgrade crit chance
-                heroes[type].critChance += 2;
-                heroes[type + 3].critChance += 2;
+                levelStat.totalCoins -= upgrades[type + 3].cost;
 
                 //update crit chance information
                 upgrades[type + 3].lastUpgrade += 2;
                 upgrades[type + 3].nextUpgrade = upgrades[type + 3].lastUpgrade + 2;
+
+                heroes[type].critChance = upgrades[type + 3].lastUpgrade;
+                heroes[type + 3].critChance = upgrades[type + 3].lastUpgrade;
 
                 //disable upgrade
                 canUpgrade = false;
@@ -155,21 +153,20 @@ public class WeaponUpgrade : MonoBehaviour
     public void UpgradeCritDamage(int type)
     {
         //player can afford the upgrade
-        if (stat.totalCoins >= upgrades[type + 6].cost)
+        if (levelStat.totalCoins >= upgrades[type + 6].cost)
         {
             //upgrade is enabled
             if (canUpgrade)
             {
                 //remove coins from player's bank
-                stat.totalCoins -= upgrades[type + 6].cost;
-
-                //upgrade crit damage
-                heroes[type].critDamage += 2;
-                heroes[type + 3].critDamage += 2;
+                levelStat.totalCoins -= upgrades[type + 6].cost;
 
                 //update crit damage information
                 upgrades[type + 6].lastUpgrade += 2;
                 upgrades[type + 6].nextUpgrade = upgrades[type + 6].lastUpgrade + 2;
+
+                heroes[type].critDamage = upgrades[type + 6].lastUpgrade;
+                heroes[type + 3].critDamage = upgrades[type + 6].lastUpgrade;
 
                 //disable upgrade
                 canUpgrade = false;

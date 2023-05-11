@@ -7,7 +7,7 @@ using UnityEngine;
 //Object(s) holding this script: Coin
 //Summary: Enemies take damage when they step on spike trap
 
-public class SpikeTrapAttack : MonoBehaviour
+public class SpikeTrap : MonoBehaviour
 {
     public float damage;
 

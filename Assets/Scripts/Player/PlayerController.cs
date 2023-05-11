@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed;       
     public bool isActive = false; 
     
-    float handleOffset = 0.4f;
+    float joystickHandlePos = 0.4f;
     
     Rigidbody2D rb;   
     Animator[] anim;
@@ -83,10 +83,10 @@ public class PlayerController : MonoBehaviour
     //called by MoveHandle() to move character around
     void PlayerCanMove()
     {
-        //when player fully drags the joystick's handle
-        if (joystick.Horizontal > handleOffset || joystick.Horizontal < -handleOffset || 
+        //when player drags the joystick's handle
+        if (joystick.Horizontal > joystickHandlePos || joystick.Horizontal < -joystickHandlePos || 
 
-            joystick.Vertical > handleOffset || joystick.Vertical < -handleOffset)
+            joystick.Vertical > joystickHandlePos || joystick.Vertical < -joystickHandlePos)
         {
             //play the running animations
             foreach (Animator anim in anim)
@@ -98,15 +98,15 @@ public class PlayerController : MonoBehaviour
             //move the character to drag direction
             rb.velocity = new Vector2(joystick.Horizontal * moveSpeed, joystick.Vertical * moveSpeed);
         }
-        else //when player does not fully drag the joystick's handle
+        else //when player does not drag the handle
         {
             //character stop moving
             StopMoving();
         }
     }
 
-    //called by MoveHandle() and UpDownLeftRight() 
-    //to stop character from moving
+    //called by MoveHandle() and PlayerCanMove()
+    //to make character stop moving
     void StopMoving()
     {
         //play the idling animations
@@ -120,7 +120,7 @@ public class PlayerController : MonoBehaviour
         rb.velocity = Vector2.zero;
     }
 
-    //called by MoveHandle() to face character in correct direction
+    //called by MoveHandle() to make character face left
     void FlipLeft()
     {
         foreach(SpriteRenderer hero in heroes)
@@ -129,6 +129,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //called by MoveHandle() to make character face right
     void FlipRight()
     {
         foreach (SpriteRenderer hero in heroes)

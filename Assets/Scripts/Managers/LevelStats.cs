@@ -9,10 +9,10 @@ using TMPro;
 //Object(s) holding this script: Win & Lose Screen
 //Summary: Show stats after player complete a level
 
-public class PlayerStats : MonoBehaviour, IDataPersistence
+public class LevelStats : MonoBehaviour, IDataPersistence
 {
     public GameObject[] stats;
-    public TMP_Text[] num;
+    public TMP_Text[] texts;
 
     public float currentTime = 0;
     public float enemiesKilled = 0;
@@ -21,7 +21,7 @@ public class PlayerStats : MonoBehaviour, IDataPersistence
     
     public bool startTimer = false;
 
-    CastleHealth castle;
+    CastleHealthText castle;
     
     public void LoadData(SaveData data)
     {
@@ -37,7 +37,7 @@ public class PlayerStats : MonoBehaviour, IDataPersistence
     void Start()
     {
         //find castle game object in hierarchy
-        castle = GameObject.Find("Castle").GetComponent<CastleHealth>();
+        castle = GameObject.Find("Castle").GetComponent<CastleHealthText>();
     }
 
     // Update is called once per frame
@@ -61,21 +61,21 @@ public class PlayerStats : MonoBehaviour, IDataPersistence
         {
             //set the time text
             TimeSpan time = TimeSpan.FromSeconds(currentTime);
-            num[0].text = "Clear Time: " + time.ToString(@"hh\:mm\:ss");
+            texts[0].text = "Clear Time: " + time.ToString(@"hh\:mm\:ss");
         }
         else //castle is destroyed
         {
             //player not complete the level yet
-            num[0].text = "Clear Time: N/A";
+            texts[0].text = "Clear Time: N/A";
         }
 
         //set the enemy killed text
-        num[1].text = "Enemies Killed: " + enemiesKilled;
+        texts[1].text = "Enemies Killed: " + enemiesKilled;
 
         //set the coin collected text
-        num[2].text = "Coins Collected: " + coinsCollected;
+        texts[2].text = "Coins Collected: " + coinsCollected;
 
         //set the total coin text
-        num[3].text = "" + totalCoins;
+        texts[3].text = "" + totalCoins;
     }
 }

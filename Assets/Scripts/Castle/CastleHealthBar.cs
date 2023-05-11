@@ -4,28 +4,28 @@ using UnityEngine;
 
 //Created by: Nguyen Anh Hao
 //Date created: 29/11/2022
-//Object(s) holding this script: All game objects with 'Enemy' tag
-//Summary: Display enemy's health
+//Object(s) holding this script: Castle bar
+//Summary: Display castle's health bar
 
-public class EnemyHealth : MonoBehaviour
+public class CastleHealthBar : MonoBehaviour
 {
     Vector2 localScale;
 
-    EnemyBehaviour enemy;
+    CastleHealthText castle;
 
     void Start()
-    {
+    {   
         //get component from parent
-        enemy = GetComponentInParent<EnemyBehaviour>();
+        castle = GetComponentInParent<CastleHealthText>();
 
         //set the default scale
-        localScale = transform.localScale;        
+        localScale = transform.localScale;
     }
 
     void Update()
     {
         //calculate the scale by dividing current health and max health
-        localScale.x = enemy.currentHealth / enemy.maxHealth; 
+        localScale.x = castle.currentHealth / castle.maxHealth;
 
         //set the new scale
         transform.localScale = localScale;

@@ -36,7 +36,7 @@ public class EnemyBehaviour : MonoBehaviour
     Rigidbody2D rb;
     GameObject castle;
     GameObject player;
-    PlayerStats num;
+    LevelStats levelStat;
     
     void Start()
     {
@@ -262,8 +262,8 @@ public class EnemyBehaviour : MonoBehaviour
     void EnemyDeath() 
     {
         //increase number of enemy killed
-        num = GameObject.Find("Win & Lose Screen").GetComponent<PlayerStats>();
-        num.enemiesKilled++;
+        levelStat = GameObject.Find("Win & Lose Screen").GetComponent<LevelStats>();
+        levelStat.enemiesKilled++;
 
         //drop a number of coins
         for (int i = 0; i < numOfCoins; i++)

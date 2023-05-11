@@ -7,11 +7,11 @@ using UnityEngine;
 //Object(s) holding this script: Coin
 //Summary: Enemies drop coins upon death
 
-public class EnemyCoin : MonoBehaviour
+public class EnemyDropCoin : MonoBehaviour
 {
     float moveSpeed = 5;
 
-    PlayerStats coin;
+    LevelStats coin;
     GameObject player;
     Rigidbody2D rb;
     Vector2 direction;
@@ -19,7 +19,7 @@ public class EnemyCoin : MonoBehaviour
     void Start()
     {
         //find the Win & Lose Screen object in hierarchy
-        coin = GameObject.Find("Win & Lose Screen").GetComponent<PlayerStats>();
+        coin = GameObject.Find("Win & Lose Screen").GetComponent<LevelStats>();
 
         //get rigidbody component
         rb = GetComponent<Rigidbody2D>();

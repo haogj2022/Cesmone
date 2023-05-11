@@ -9,7 +9,7 @@ using UnityEngine;
 
 public class HeroSelection : MonoBehaviour
 {
-    public GameObject mainMenu;
+    public GameObject gameMenu;
     public GameObject genderSelection;
     public GameObject maleWeaponSelection;
     public GameObject femaleWeaponSelection;
@@ -23,15 +23,15 @@ public class HeroSelection : MonoBehaviour
     public void LoadGenderSelection()
     {
         //open the Hero Gender menu
-        mainMenu.SetActive(false);
+        gameMenu.SetActive(false);
         genderSelection.SetActive(true); 
     }
 
     //when click Back button in Hero Gender menu
     public void BackToMainMenu()
     {
-        //back to main menu
-        mainMenu.SetActive(true); 
+        //back to game menu
+        gameMenu.SetActive(true); 
         genderSelection.SetActive(false);
     }
 

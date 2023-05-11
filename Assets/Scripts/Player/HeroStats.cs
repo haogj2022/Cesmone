@@ -7,7 +7,7 @@ using UnityEngine;
 //Object(s) holding this script: All game objects with 'Hero' tag
 //Summary: Deal damage to enemies
 
-public class HeroAttack : MonoBehaviour
+public class HeroStats : MonoBehaviour
 {
     public float damage;
     public float critChance;
@@ -19,7 +19,7 @@ public class HeroAttack : MonoBehaviour
     public GameObject arrow;
 
     bool canAttack = false;
-    float handleOffset = 0.7f;
+    float joystickHandlePos = 0.4f;
 
     Animator anim;
     EnemyBehaviour enemy;
@@ -52,9 +52,9 @@ public class HeroAttack : MonoBehaviour
         if (collision.tag == "Enemy")
         {
             //character is running
-            if (handle.joystick.Horizontal > handleOffset || handle.joystick.Horizontal < -handleOffset ||
+            if (handle.joystick.Horizontal > joystickHandlePos || handle.joystick.Horizontal < -joystickHandlePos ||
 
-                handle.joystick.Vertical > handleOffset || handle.joystick.Vertical < -handleOffset)
+                handle.joystick.Vertical > joystickHandlePos || handle.joystick.Vertical < -joystickHandlePos)
             {
                 //character cannot attack
                 canAttack = false;

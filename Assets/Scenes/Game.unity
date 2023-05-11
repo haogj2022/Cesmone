@@ -7247,7 +7247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba307c67ee6a1fe468ed21f133dc8b3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenu: {fileID: 1848721228}
+  gameMenu: {fileID: 0}
   genderSelection: {fileID: 1021421185}
   maleWeaponSelection: {fileID: 598353610}
   femaleWeaponSelection: {fileID: 1328229038}
@@ -14685,7 +14685,7 @@ MonoBehaviour:
   - {fileID: 844886806}
   - {fileID: 378115646}
   - {fileID: 1130585323}
-  num:
+  texts:
   - {fileID: 1406364276}
   - {fileID: 844886808}
   - {fileID: 378115648}
@@ -15377,7 +15377,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3784109351530946847, guid: 914892bc7a83f3144b2fac8e200fefbb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 3784109351530946847, guid: 914892bc7a83f3144b2fac8e200fefbb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -46161,7 +46161,7 @@ GameObject:
   - component: {fileID: 1848721229}
   - component: {fileID: 1848721233}
   m_Layer: 5
-  m_Name: Main Menu
+  m_Name: Game Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48906,7 +48906,7 @@ MonoBehaviour:
   - {fileID: 2023168123}
   - {fileID: 1421634286}
   - {fileID: 1974917404}
-  mainMenu: {fileID: 1848721228}
+  gameMenu: {fileID: 1848721228}
   pauseButton: {fileID: 1435527002}
   quitConfirm: {fileID: 518197047}
   spikeTrapButton: {fileID: 1941116763}

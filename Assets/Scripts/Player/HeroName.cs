@@ -10,7 +10,7 @@ using TMPro;
 //Object(s) holding this script: Hero Name
 //Summary: Hero name follows the character
 
-public class ReadInput : MonoBehaviour
+public class HeroName : MonoBehaviour
 {
     public TMP_InputField nameInput;
 

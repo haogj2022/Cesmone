@@ -9,7 +9,7 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {  
-    public CastleHealth castle;
+    public CastleHealthText castle;
     public BoxCollider2D mapBounds;
     
     float xMin, xMax, yMin, yMax;
@@ -23,7 +23,7 @@ public class CameraFollow : MonoBehaviour
     void Start()
     {
         //get castle health script
-        castle.GetComponent<CastleHealth>();
+        castle.GetComponent<CastleHealthText>();
 
         //calculate the map bounds sizes
         xMin = mapBounds.bounds.min.x - 4;

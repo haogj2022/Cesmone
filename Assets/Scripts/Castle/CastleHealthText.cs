@@ -8,7 +8,7 @@ using TMPro;
 //Object(s) holding this script: Castle
 //Summary: Show castle's health text
 
-public class CastleHealth : MonoBehaviour
+public class CastleHealthText : MonoBehaviour
 {
     public float currentHealth;
     public float maxHealth;

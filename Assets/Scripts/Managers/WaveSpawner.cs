@@ -48,8 +48,8 @@ public class WaveSpawner : MonoBehaviour
     Image winScreen;
     Image loseScreen;
     PlayerController joystick; 
-    PlayerStats player;
-    CastleHealth castle;
+    LevelStats levelStat;
+    CastleHealthText castle;
     SpawnerManager level;
     GameObject spikeTrapButton;
 
@@ -60,7 +60,7 @@ public class WaveSpawner : MonoBehaviour
         anim = GameObject.Find("Wave Animation").GetComponent<Animator>();
 
         //find castle game object in hierarchy
-        castle = GameObject.Find("Castle").GetComponent<CastleHealth>();
+        castle = GameObject.Find("Castle").GetComponent<CastleHealthText>();
 
         //find spawner manager object in hierarchy
         level = GameObject.Find("Spawner Manager").GetComponent<SpawnerManager>();
@@ -224,8 +224,8 @@ public class WaveSpawner : MonoBehaviour
         level.LevelComplete();
 
         //stop the timer
-        player = GameObject.Find("Win & Lose Screen").GetComponent<PlayerStats>();
-        player.startTimer = false;
+        levelStat = GameObject.Find("Win & Lose Screen").GetComponent<LevelStats>();
+        levelStat.startTimer = false;
                 
         //wait for a few seconds
         yield return new WaitForSeconds(winDelay);
@@ -242,7 +242,7 @@ public class WaveSpawner : MonoBehaviour
         winScreen.enabled = true;
 
         //show the stats one by one
-        foreach (GameObject stat in player.stats)
+        foreach (GameObject stat in levelStat.stats)
         {
             yield return new WaitForSeconds(1);
             stat.SetActive(true);
@@ -262,8 +262,8 @@ public class WaveSpawner : MonoBehaviour
         level.LevelComplete();
 
         //stop the timer
-        player = GameObject.Find("Win & Lose Screen").GetComponent<PlayerStats>();
-        player.startTimer = false;
+        levelStat = GameObject.Find("Win & Lose Screen").GetComponent<LevelStats>();
+        levelStat.startTimer = false;
 
         //wait for a few seconds
         yield return new WaitForSeconds(loseDelay);
@@ -280,7 +280,7 @@ public class WaveSpawner : MonoBehaviour
         loseScreen.enabled = true;
 
         //show the stats one by one
-        foreach (GameObject stat in player.stats)
+        foreach (GameObject stat in levelStat.stats)
         {
             yield return new WaitForSeconds(1);
             stat.SetActive(true);

@@ -7,7 +7,7 @@ using UnityEngine;
 //Object(s) holding this script: All game objects with 'Damage' tag
 //Summary: Show enemy's damage
 
-public class EnemyDamage : MonoBehaviour
+public class EnemyTakeDamage : MonoBehaviour
 {
     void Start()
     {          

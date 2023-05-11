@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Lightning : MonoBehaviour
+public class LightningSpell : MonoBehaviour
 {
     float lightningDuration = 1;
 

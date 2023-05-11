@@ -12,7 +12,7 @@ public class SpawnerManager : MonoBehaviour
 {
     public WaveSpawner[] spawners;
 
-    public GameObject mainMenu;
+    public GameObject gameMenu;
     public GameObject pauseButton;
     public GameObject quitConfirm;
     public GameObject spikeTrapButton;
@@ -20,21 +20,21 @@ public class SpawnerManager : MonoBehaviour
     List<GameObject> enemies = new List<GameObject>();
     List<GameObject> coins = new List<GameObject>();
 
-    CastleHealth castle;
+    CastleHealthText castle;
     Image winScreen;
     Image loseScreen;
     PlayerController joystick;
-    PlayerStats stat;    
+    LevelStats levelStat;    
     
     void Start()
     {   
         joystick = GameObject.Find("Hero Selection").GetComponent<PlayerController>();
 
         //find stat game object in hierarchy
-        stat = GameObject.Find("Win & Lose Screen").GetComponent<PlayerStats>();
+        levelStat = GameObject.Find("Win & Lose Screen").GetComponent<LevelStats>();
 
         //get castle's health
-        castle = GameObject.Find("Castle").GetComponent<CastleHealth>();
+        castle = GameObject.Find("Castle").GetComponent<CastleHealthText>();
         
         //get win and lose screen
         winScreen = GameObject.Find("Win").GetComponent<Image>();
@@ -60,7 +60,7 @@ public class SpawnerManager : MonoBehaviour
     public void ChooseLevel(int level)
     {
         //close main menu canvas
-        mainMenu.SetActive(false);
+        gameMenu.SetActive(false);
 
         //show pause button
         pauseButton.SetActive(true);
@@ -71,7 +71,7 @@ public class SpawnerManager : MonoBehaviour
         joystick.isActive = true;
                 
         //start timer
-        stat.startTimer = true;
+        levelStat.startTimer = true;
 
         //enable chosen level's spawner
         spawners[level].canSpawn = true;
@@ -93,7 +93,7 @@ public class SpawnerManager : MonoBehaviour
         Time.timeScale = 1;
 
         //open main menu canvas
-        mainMenu.SetActive(true);
+        gameMenu.SetActive(true);
 
         //close quit confirm screen
         quitConfirm.SetActive(false);
@@ -110,13 +110,13 @@ public class SpawnerManager : MonoBehaviour
     void CleanUp()
     {
         //reset stats
-        stat.currentTime = 0;
-        stat.enemiesKilled = 0;
-        stat.coinsCollected = 0;
+        levelStat.currentTime = 0;
+        levelStat.enemiesKilled = 0;
+        levelStat.coinsCollected = 0;
         castle.currentHealth = castle.maxHealth;
         
         //hide all the stats
-        foreach (GameObject stat in stat.stats)
+        foreach (GameObject stat in levelStat.stats)
         {
             stat.SetActive(false);
         }
