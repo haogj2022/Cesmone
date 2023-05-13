@@ -14,6 +14,7 @@ public class EnemyDropCoin : MonoBehaviour
     LevelStats coin;
     GameObject player;
     Rigidbody2D rb;
+
     Vector2 direction;
 
     void Start()
@@ -25,7 +26,7 @@ public class EnemyDropCoin : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         //find the player
-        player = GameObject.Find("Player Character");        
+        player = GameObject.Find("Player Character");
     }
 
     void Update()

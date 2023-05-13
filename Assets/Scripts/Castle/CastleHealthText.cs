@@ -15,6 +15,7 @@ public class CastleHealthText : MonoBehaviour
     
     Animator anim;
     TMP_Text healthText;
+    AudioManager audioManager;
     
     void Start()
     {
@@ -26,6 +27,8 @@ public class CastleHealthText : MonoBehaviour
         
         //set the new health
         currentHealth = maxHealth;
+
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -36,6 +39,8 @@ public class CastleHealthText : MonoBehaviour
             //when castle is not destroyed
             if(currentHealth > 0)
             {
+                audioManager.Hit();
+
                 //play the hit animation
                 anim.SetTrigger("isHit");
 

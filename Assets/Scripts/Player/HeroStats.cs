@@ -17,6 +17,7 @@ public class HeroStats : MonoBehaviour
     public GameObject lightning;
     public bool canShootArrow = false;
     public GameObject arrow;
+    public bool canUseSword = false;
 
     bool canAttack = false;
     float joystickHandlePos = 0.4f;
@@ -26,6 +27,7 @@ public class HeroStats : MonoBehaviour
     GameObject player;
     PlayerController handle;
     GameObject hitbox;
+    AudioManager audioManager;
 
     void Start()
     {
@@ -38,6 +40,8 @@ public class HeroStats : MonoBehaviour
         player = GameObject.Find("Player Character");
 
         hitbox = GameObject.Find("Male Bow Hitbox");
+
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
     void Update()
@@ -98,16 +102,24 @@ public class HeroStats : MonoBehaviour
         {
             if (canUseLightning)
             {
+                audioManager.Thunder();
                 Instantiate(lightning, enemy.transform.position, Quaternion.identity);
             }
             else if (canShootArrow)
             {
+                audioManager.Shoot();
                 Instantiate(arrow, enemy.transform.position, hitbox.transform.rotation);               
             }
-
+            else if (canUseSword)
+            {
+                audioManager.Slash();
+            }            
+                                    
             //when enemy is within range
             if (canAttack)
-            {               
+            {
+                audioManager.Damage();  
+                
                 //random chance for crit attack
                 float randValue = Random.Range(0, 100);
 

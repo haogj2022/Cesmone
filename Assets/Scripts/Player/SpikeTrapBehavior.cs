@@ -15,10 +15,13 @@ public class SpikeTrapBehavior : MonoBehaviour
 
     EnemyBehaviour enemy;
     Animator anim;
+    AudioManager audioManager;
 
     void Start()
     {
         anim = GetComponent<Animator>();
+
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -53,13 +56,16 @@ public class SpikeTrapBehavior : MonoBehaviour
 
     //called in spike trap animation when enemy takes damage
     public void Attack()
-    {
-        
+    {        
         //when enemy is still alive
         if (enemy.currentHealth > 0)
         {
+            audioManager.Slash();
+            
             if (canAttack)
             {
+                audioManager.Damage();
+
                 //enemy takes damage
                 enemy.TakeDamage(damage, false);
             }

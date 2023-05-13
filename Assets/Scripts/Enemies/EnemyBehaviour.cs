@@ -37,6 +37,7 @@ public class EnemyBehaviour : MonoBehaviour
     GameObject castle;
     GameObject player;
     LevelStats levelStat;
+    AudioManager audioManager;
     
     void Start()
     {
@@ -55,6 +56,8 @@ public class EnemyBehaviour : MonoBehaviour
 
         //set the new health
         currentHealth = maxHealth;
+
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -86,7 +89,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     //called by HeroAttack.Attack() when hero deals damage to enemy
     public void TakeDamage(float damage, bool isCrit)
-    {      
+    {           
         //check for enemy state
         switch (currentState)
         {
@@ -261,6 +264,8 @@ public class EnemyBehaviour : MonoBehaviour
     //called by TakeDamage() when enemy take damage
     void EnemyDeath() 
     {
+        audioManager.Coin();
+
         //increase number of enemy killed
         levelStat = GameObject.Find("Win & Lose Screen").GetComponent<LevelStats>();
         levelStat.enemiesKilled++;

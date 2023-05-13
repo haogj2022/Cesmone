@@ -6,7 +6,7 @@ public class AudioManager : MonoBehaviour
 {
     public AudioSource audioSource;
     public AudioClip[] soundEffectUI;
-    public AudioClip[] soundEffectInGame;
+    public AudioClip[] soundEffectInGame;   
 
     public float volume;
 
@@ -40,7 +40,7 @@ public class AudioManager : MonoBehaviour
         audioSource.PlayOneShot(soundEffectUI[5], volume);
     }
 
-    public void Buy()
+    public void Coin()
     {
         audioSource.PlayOneShot(soundEffectUI[6], volume);
     }
@@ -55,28 +55,18 @@ public class AudioManager : MonoBehaviour
         audioSource.PlayOneShot(soundEffectInGame[1], volume);
     }
 
-    public void Hit()
+    public void Shoot()
     {
         audioSource.PlayOneShot(soundEffectInGame[2], volume);
     }
 
-    public void StepOnGrass()
+    public void Hit()
     {
         audioSource.PlayOneShot(soundEffectInGame[3], volume);
     }
 
-    public void Miss()
+    public void Damage()
     {
         audioSource.PlayOneShot(soundEffectInGame[4], volume);
-    }
-
-    public void Flee()
-    {
-        audioSource.PlayOneShot(soundEffectInGame[5], volume);
-    }
-
-    public void Death()
-    {
-        audioSource.PlayOneShot(soundEffectInGame[6], volume);
     }
 }

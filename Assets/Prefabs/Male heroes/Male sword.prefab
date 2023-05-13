@@ -175,3 +175,4 @@ MonoBehaviour:
   lightning: {fileID: 0}
   canShootArrow: 0
   arrow: {fileID: 0}
+  canUseSword: 1

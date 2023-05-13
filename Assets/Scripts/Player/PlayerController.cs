@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     
     Rigidbody2D rb;   
     Animator[] anim;
-    
+
     void Start()
     {      
         //get rigid body component
