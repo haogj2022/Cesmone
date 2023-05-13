@@ -23,15 +23,162 @@ public class Upgrade
     public float cost;
 }
 
-public class WeaponUpgrade : MonoBehaviour
+public class WeaponUpgrade : MonoBehaviour, IDataPersistence
 {   
     public Upgrade[] upgrades;
     public HeroStats[] heroes;
     public GameObject[] options;
 
     bool canUpgrade = true;
+    float upgradeAmount = 2;
 
     LevelStats levelStat;
+
+    public void LoadData(SaveData data)
+    {
+        LoadSwordData(data);
+        LoadStaffData(data);
+        LoadBowData(data);
+    }
+
+    void LoadSwordData(SaveData data)
+    {
+        int type = 0;
+
+        //load sword hero data
+        heroes[type].damage = data.currentSwordDamage;
+        heroes[type].critChance = data.currentSwordCritChance;
+        heroes[type].critDamage = data.currentSwordCritDamage;
+
+        heroes[type + 3].damage = data.currentSwordDamage;
+        heroes[type + 3].critChance = data.currentSwordCritChance;
+        heroes[type + 3].critDamage = data.currentSwordCritDamage;
+
+        //load sword upgrade data
+        upgrades[type].lastUpgrade = data.currentSwordDamage;
+        upgrades[type + 3].lastUpgrade = data.currentSwordCritChance;
+        upgrades[type + 6].lastUpgrade = data.currentSwordCritDamage;
+
+        upgrades[type].nextUpgrade = data.nextSwordDamage;
+        upgrades[type + 3].nextUpgrade = data.nextSwordCritChance;
+        upgrades[type + 6].nextUpgrade = data.nextSwordCritDamage;
+
+        upgrades[type].cost = data.swordDamageUpgradeCost;
+        upgrades[type + 3].cost = data.swordCritChanceUpgradeCost;
+        upgrades[type + 6].cost = data.swordCritDamageUpgradeCost;
+    }
+
+    void LoadStaffData(SaveData data)
+    {
+        int type = 0;
+
+        //load staff hero data
+        heroes[type + 1].damage = data.currentStaffDamage;
+        heroes[type + 1].critChance = data.currentStaffCritChance;
+        heroes[type + 1].critDamage = data.currentStaffCritDamage;
+
+        heroes[type + 4].damage = data.currentStaffDamage;
+        heroes[type + 4].critChance = data.currentStaffCritChance;
+        heroes[type + 4].critDamage = data.currentStaffCritDamage;
+
+        //load staff upgrade data
+        upgrades[type + 1].lastUpgrade = data.currentStaffDamage;
+        upgrades[type + 4].lastUpgrade = data.currentStaffCritChance;
+        upgrades[type + 7].lastUpgrade = data.currentStaffCritDamage;
+
+        upgrades[type + 1].nextUpgrade = data.nextStaffDamage;
+        upgrades[type + 4].nextUpgrade = data.nextStaffCritChance;
+        upgrades[type + 7].nextUpgrade = data.nextStaffCritDamage;
+
+        upgrades[type + 1].cost = data.staffDamageUpgradeCost;
+        upgrades[type + 4].cost = data.staffCritChanceUpgradeCost;
+        upgrades[type + 7].cost = data.staffCritDamageUpgradeCost;
+    }
+
+    void LoadBowData(SaveData data)
+    {
+        int type = 0;
+
+        //load bow hero data
+        heroes[type + 2].damage = data.currentBowDamage;
+        heroes[type + 2].critChance = data.currentBowCritChance;
+        heroes[type + 2].critDamage = data.currentBowCritDamage;
+
+        heroes[type + 5].damage = data.currentBowDamage;
+        heroes[type + 5].critChance = data.currentBowCritChance;
+        heroes[type + 5].critDamage = data.currentBowCritDamage;
+
+        //load bow upgrade data
+        upgrades[type + 2].lastUpgrade = data.currentBowDamage;
+        upgrades[type + 5].lastUpgrade = data.currentBowCritChance;
+        upgrades[type + 8].lastUpgrade = data.currentBowCritDamage;
+
+        upgrades[type + 2].nextUpgrade = data.nextBowDamage;
+        upgrades[type + 5].nextUpgrade = data.nextBowCritChance;
+        upgrades[type + 8].nextUpgrade = data.nextBowCritDamage;
+
+        upgrades[type + 2].cost = data.bowDamageUpgradeCost;
+        upgrades[type + 5].cost = data.bowCritChanceUpgradeCost;
+        upgrades[type + 8].cost = data.bowCritDamageUpgradeCost;
+    }
+
+    public void SaveData(ref SaveData data)
+    {
+        SaveSwordData(ref data);
+        SaveStaffData(ref data);
+        SaveBowData(ref data);
+    }
+
+    void SaveSwordData(ref SaveData data)
+    {
+        int type = 0;
+
+        data.currentSwordDamage = upgrades[type].lastUpgrade;
+        data.currentSwordCritChance = upgrades[type + 3].lastUpgrade;
+        data.currentSwordCritDamage = upgrades[type + 6].lastUpgrade;
+
+        data.nextSwordDamage = upgrades[type].nextUpgrade;
+        data.nextSwordCritChance = upgrades[type + 3].nextUpgrade;
+        data.nextSwordCritDamage = upgrades[type + 6].nextUpgrade;
+
+        data.swordDamageUpgradeCost = upgrades[type].cost;
+        data.swordCritChanceUpgradeCost = upgrades[type + 3].cost;
+        data.swordCritDamageUpgradeCost = upgrades[type + 6].cost;
+    }
+
+    void SaveStaffData(ref SaveData data)
+    {
+        int type = 0;
+
+        data.currentStaffDamage = upgrades[type + 1].lastUpgrade;
+        data.currentStaffCritChance = upgrades[type + 4].lastUpgrade;
+        data.currentStaffCritDamage = upgrades[type + 7].lastUpgrade;
+
+        data.nextStaffDamage = upgrades[type + 1].nextUpgrade;
+        data.nextStaffCritChance = upgrades[type + 4].nextUpgrade;
+        data.nextStaffCritDamage = upgrades[type + 7].nextUpgrade;
+
+        data.staffDamageUpgradeCost = upgrades[type + 1].cost;
+        data.staffCritChanceUpgradeCost = upgrades[type + 4].cost;
+        data.staffCritDamageUpgradeCost = upgrades[type + 7].cost;
+    }
+
+    void SaveBowData(ref SaveData data)
+    {
+        int type = 0;
+
+        data.currentBowDamage = upgrades[type + 2].lastUpgrade;
+        data.currentBowCritChance = upgrades[type + 5].lastUpgrade;
+        data.currentBowCritDamage = upgrades[type + 8].lastUpgrade;
+
+        data.nextBowDamage = upgrades[type + 2].nextUpgrade;
+        data.nextBowCritChance = upgrades[type + 5].nextUpgrade;
+        data.nextBowCritDamage = upgrades[type + 8].nextUpgrade;
+
+        data.bowDamageUpgradeCost = upgrades[type + 2].cost;
+        data.bowCritChanceUpgradeCost = upgrades[type + 5].cost;
+        data.bowCritDamageUpgradeCost = upgrades[type + 8].cost;
+    }
 
     void Start()
     {
@@ -40,7 +187,7 @@ public class WeaponUpgrade : MonoBehaviour
 
     void Update()
     {
-        ManageUpgrade();
+        ManageUpgrade();        
     }
 
     //called by Update() to manage the upgrades
@@ -88,11 +235,11 @@ public class WeaponUpgrade : MonoBehaviour
                 levelStat.totalCoins -= upgrades[type].cost;
 
                 //update damage information
-                upgrades[type].lastUpgrade += 2;
-                upgrades[type].nextUpgrade = upgrades[type].lastUpgrade + 2;
+                heroes[type].damage += upgradeAmount;
+                heroes[type + 3].damage += upgradeAmount;
 
-                heroes[type].damage = upgrades[type].lastUpgrade;
-                heroes[type + 3].damage = upgrades[type].lastUpgrade;
+                upgrades[type].lastUpgrade += upgradeAmount;
+                upgrades[type].nextUpgrade = upgrades[type].lastUpgrade + upgradeAmount;
 
                 //disable upgrade
                 canUpgrade = false;
@@ -119,11 +266,11 @@ public class WeaponUpgrade : MonoBehaviour
                 levelStat.totalCoins -= upgrades[type + 3].cost;
 
                 //update crit chance information
-                upgrades[type + 3].lastUpgrade += 2;
-                upgrades[type + 3].nextUpgrade = upgrades[type + 3].lastUpgrade + 2;
+                heroes[type].critChance += upgradeAmount;
+                heroes[type + 3].critChance += upgradeAmount;
 
-                heroes[type].critChance = upgrades[type + 3].lastUpgrade;
-                heroes[type + 3].critChance = upgrades[type + 3].lastUpgrade;
+                upgrades[type + 3].lastUpgrade += upgradeAmount;
+                upgrades[type + 3].nextUpgrade = upgrades[type + 3].lastUpgrade + upgradeAmount;
 
                 //disable upgrade
                 canUpgrade = false;
@@ -162,11 +309,12 @@ public class WeaponUpgrade : MonoBehaviour
                 levelStat.totalCoins -= upgrades[type + 6].cost;
 
                 //update crit damage information
-                upgrades[type + 6].lastUpgrade += 2;
-                upgrades[type + 6].nextUpgrade = upgrades[type + 6].lastUpgrade + 2;
+                //update sword hero stats
+                heroes[type].critDamage += upgradeAmount;
+                heroes[type + 3].critDamage += upgradeAmount;
 
-                heroes[type].critDamage = upgrades[type + 6].lastUpgrade;
-                heroes[type + 3].critDamage = upgrades[type + 6].lastUpgrade;
+                upgrades[type + 6].lastUpgrade += upgradeAmount;
+                upgrades[type + 6].nextUpgrade = upgrades[type + 6].lastUpgrade + upgradeAmount;
 
                 //disable upgrade
                 canUpgrade = false;

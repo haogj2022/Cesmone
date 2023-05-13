@@ -5,7 +5,7 @@ using UnityEngine;
 //Created by: Nguyen Anh Hao
 //Date created: 20/11/2022
 //Object(s) holding this script: All game objects with 'Hero' tag
-//Summary: Deal damage to enemies
+//Summary: Manage hero stats
 
 public class HeroStats : MonoBehaviour
 {
@@ -35,7 +35,7 @@ public class HeroStats : MonoBehaviour
         handle = GetComponentInParent<PlayerController>();
 
         //find the hero selection game object in hierarchy
-        player = GameObject.Find("Hero Selection");
+        player = GameObject.Find("Player Character");
 
         hitbox = GameObject.Find("Male Bow Hitbox");
     }

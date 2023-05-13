@@ -2,44 +2,55 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Created by: Nguyen Anh Hao
+//Date created: 14/12/2022
+//Object(s) holding this script: Home Menu
+//Summary: Handle home menu events 
+
 public class HomeMenu : MonoBehaviour
 {
-    public GameObject homeScreen;
-    public GameObject settingsScreen;
-    public GameObject creditScreen;
-    public GameObject mainMenu;
+    public GameObject startMenu;
+    public GameObject settingsMenu;
+    public GameObject creditsMenu;
+
+    public GameObject playerMenu;
+    public GameObject optionMenu;
 
     //when click Play button in home menu
     public void PlayGame()
     {
-        //open main menu
-        homeScreen.SetActive(false);
-        mainMenu.SetActive(true);
+        //open option menu
+        startMenu.SetActive(false);
+        playerMenu.SetActive(true);
+        optionMenu.SetActive(true);
     }
 
     //when click Settings button in home menu
     public void OpenSettings()
     {
         //open settings screen
-        settingsScreen.SetActive(true);
-        homeScreen.SetActive(false);
+        settingsMenu.SetActive(true);
+        startMenu.SetActive(false);
     }
 
     //when click Credits button in home menu
     public void OpenCredits()
     {
         //open credits screen
-        creditScreen.SetActive(true);
-        homeScreen.SetActive(false);
+        creditsMenu.SetActive(true);
+        startMenu.SetActive(false);
     }
 
-    //when click Go Back button in main menu
-    public void BackToHomeMenu()
+    //when click Go Back button in home menu
+    //when click Go Back button in game menu
+    public void OpenStartMenu()
     {
-        //go back to home screen
-        homeScreen.SetActive(true);
-        settingsScreen.SetActive(false);
-        creditScreen.SetActive(false);
-        mainMenu.SetActive(false);
+        //open start menu
+        startMenu.SetActive(true);
+        settingsMenu.SetActive(false);
+        creditsMenu.SetActive(false);
+
+        playerMenu.SetActive(false);
+        optionMenu.SetActive(false);
     }
 }

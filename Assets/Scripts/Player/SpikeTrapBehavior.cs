@@ -4,10 +4,10 @@ using UnityEngine;
 
 //Created by: Nguyen Anh Hao
 //Date created: 07/12/2022
-//Object(s) holding this script: Coin
+//Object(s) holding this script: Spike trap
 //Summary: Enemies take damage when they step on spike trap
 
-public class SpikeTrap : MonoBehaviour
+public class SpikeTrapBehavior : MonoBehaviour
 {
     public float damage;
 

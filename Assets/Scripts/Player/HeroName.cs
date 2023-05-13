@@ -10,7 +10,7 @@ using TMPro;
 //Object(s) holding this script: Hero Name
 //Summary: Hero name follows the character
 
-public class HeroName : MonoBehaviour
+public class HeroName : MonoBehaviour, IDataPersistence
 {
     public TMP_InputField nameInput;
 
@@ -18,19 +18,32 @@ public class HeroName : MonoBehaviour
     public TMP_Text nameInMainMenu;
     
     public GameObject characterName; 
-    public GameObject mainMenu;
+    public GameObject optionMenu;
+    public GameObject playerMenu;
     
     GameObject player;
 
-    float offset = 1.2f;    
- 
+    float offset = 1.2f;
+
+    public void LoadData(SaveData data)
+    {
+        nameToDisplay.text = data.playerName;
+        nameInMainMenu.text = data.playerName;
+    }
+
+    public void SaveData(ref SaveData data)
+    {
+        data.playerName = nameToDisplay.text;
+        data.playerName = nameInMainMenu.text;
+    }
+
     void Start()
     {
         //get the display name
         nameToDisplay.text = PlayerPrefs.GetString(nameInput.text); 
 
         //find hero selection game object in hierarchy
-        player = GameObject.Find("Hero Selection");             
+        player = GameObject.Find("Player Character");             
     }
 
     //when enter name in input field
@@ -61,8 +74,11 @@ public class HeroName : MonoBehaviour
         //when player enter a valid name
         if (!string.IsNullOrEmpty(nameInput.text))
         {
-            //open main menu canvas
-            mainMenu.SetActive(true);
+            //open option menu
+            optionMenu.SetActive(true);
+
+            //open player menu
+            playerMenu.SetActive(true);
 
             //close character name canvas
             characterName.SetActive(false);

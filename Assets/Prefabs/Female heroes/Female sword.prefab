@@ -168,6 +168,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
-  critChance: 2
-  critDamage: 6
+  critChance: 10
+  critDamage: 10
   isCritical: 0
+  canUseLightning: 0
+  lightning: {fileID: 0}
+  canShootArrow: 0
+  arrow: {fileID: 0}

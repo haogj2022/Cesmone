@@ -5,7 +5,7 @@ using UnityEngine;
 //Created by: Nguyen Anh Hao
 //Date created: 14/12/2022
 //Object(s) holding this script: Pause Menu
-//Summary: Handle pause events
+//Summary: Handle pause menu events
 
 public class PauseMenu : MonoBehaviour
 {
@@ -14,11 +14,11 @@ public class PauseMenu : MonoBehaviour
     public GameObject quitConfirm;
     public GameObject spikeTrapButton;
     
-    PlayerController joystick;
+    PlayerController playerController;
 
     private void Start()
     {
-        joystick = GameObject.Find("Hero Selection").GetComponent<PlayerController>();
+        playerController = GameObject.Find("Player Character").GetComponent<PlayerController>();
     }
 
     //when click Pause button in game
@@ -27,8 +27,8 @@ public class PauseMenu : MonoBehaviour
         //pause the game
         Time.timeScale = 0;
 
-        //hide joystick
-        joystick.isActive = false;
+        //disable player controller
+        playerController.isActive = false;
 
         //open pause screen
         pauseScreen.SetActive(true);
@@ -45,8 +45,8 @@ public class PauseMenu : MonoBehaviour
         //pause the game
         Time.timeScale = 1;
 
-        //show joystick
-        joystick.isActive = true;
+        //enable player controller
+        playerController.isActive = true;
 
         //close pause screen
         pauseScreen.SetActive(false);

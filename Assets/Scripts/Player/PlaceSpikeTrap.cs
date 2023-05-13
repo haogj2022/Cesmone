@@ -4,7 +4,7 @@ using UnityEngine;
 
 //Created by: Nguyen Anh Hao
 //Date created: 18/04/2023
-//Object(s) holding this script: Hero Selection
+//Object(s) holding this script: Player Character
 //Summary: Place spike trap at player's position
 
 public class PlaceSpikeTrap : MonoBehaviour

@@ -45,7 +45,7 @@ public class EnemyBehaviour : MonoBehaviour
 
         //find the castle and player game object in hierarchy
         castle = GameObject.Find("Castle");
-        player = GameObject.Find("Hero Selection");
+        player = GameObject.Find("Player Character");
 
         //get rigid body component
         rb = GetComponent<Rigidbody2D>();

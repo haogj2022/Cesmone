@@ -4,16 +4,18 @@ using UnityEngine;
 
 //Created by: Nguyen Anh Hao
 //Date created: 14/11/2022
-//Object(s) holding this script: Hero Selection
+//Object(s) holding this script: Hero Menu
 //Summary: Handle hero selection
 
-public class HeroSelection : MonoBehaviour
+public class HeroMenu : MonoBehaviour
 {
-    public GameObject gameMenu;
-    public GameObject genderSelection;
-    public GameObject maleWeaponSelection;
-    public GameObject femaleWeaponSelection;
-    public GameObject characterName;
+    public GameObject optionMenu;
+    public GameObject playerMenu;
+
+    public GameObject heroGender;
+    public GameObject maleHeroWeapon;
+    public GameObject femaleHeroWeapon;
+    public GameObject heroName;
 
     public SpriteRenderer[] heroes;
     public BoxCollider2D[] hitboxes;
@@ -23,16 +25,18 @@ public class HeroSelection : MonoBehaviour
     public void LoadGenderSelection()
     {
         //open the Hero Gender menu
-        gameMenu.SetActive(false);
-        genderSelection.SetActive(true); 
+        optionMenu.SetActive(false);
+        playerMenu.SetActive(false);
+        heroGender.SetActive(true); 
     }
 
     //when click Back button in Hero Gender menu
     public void BackToMainMenu()
     {
-        //back to game menu
-        gameMenu.SetActive(true); 
-        genderSelection.SetActive(false);
+        //back to option menu
+        optionMenu.SetActive(true);
+        playerMenu.SetActive(true);
+        heroGender.SetActive(false);
     }
 
     //when click Male button in Hero Gender menu
@@ -207,21 +211,21 @@ public class HeroSelection : MonoBehaviour
     //when click Back button in Hero Name menu
     public void LoadWeaponSelection()
     {
-        genderSelection.SetActive(false);
-        characterName.SetActive(false);
+        heroGender.SetActive(false);
+        heroName.SetActive(false);
         
         //when male heroes are visible
         if (heroes[0].enabled == true || heroes[1].enabled == true || heroes[2].enabled == true)
         {   
             //open Male Hero Weapon menu
-            maleWeaponSelection.SetActive(true); 
+            maleHeroWeapon.SetActive(true); 
         }
 
         //when female heroes are visible
         if (heroes[3].enabled == true || heroes[4].enabled == true || heroes[5].enabled == true)
         {   
             //open Female Hero Weapon menu
-            femaleWeaponSelection.SetActive(true); 
+            femaleHeroWeapon.SetActive(true); 
         }
     }
 
@@ -336,20 +340,20 @@ public class HeroSelection : MonoBehaviour
     public void BackToGenderSelection()
     {   
         //open Hero Gender menu
-        genderSelection.SetActive(true); 
+        heroGender.SetActive(true); 
 
         //when male heroes are visible
         if (heroes[0].enabled == true || heroes[1].enabled == true || heroes[2].enabled == true)
         {   
             //close Male Hero Weapon menu
-            maleWeaponSelection.SetActive(false); 
+            maleHeroWeapon.SetActive(false); 
         }
 
         //when female heroes are visible
         if (heroes[3].enabled == true || heroes[4].enabled == true || heroes[5].enabled == true)
         {   
             //close Female Hero Weapon menu
-            femaleWeaponSelection.SetActive(false); 
+            femaleHeroWeapon.SetActive(false); 
         }
     }  
 
@@ -357,20 +361,20 @@ public class HeroSelection : MonoBehaviour
     //when click Next button in Female Hero Weapon menu
     public void LoadCharacterName()
     {
-        characterName.SetActive(true);
+        heroName.SetActive(true);
 
         //when male heroes are visible
         if (heroes[0].enabled == true || heroes[1].enabled == true || heroes[2].enabled == true)
         {   
             //close Male Hero Weapon menu
-            maleWeaponSelection.SetActive(false); 
+            maleHeroWeapon.SetActive(false); 
         }
 
         //when female heroes are visible
         if (heroes[3].enabled == true || heroes[4].enabled == true || heroes[5].enabled == true)
         {   
             //close Female Hero Weapon menu
-            femaleWeaponSelection.SetActive(false); 
+            femaleHeroWeapon.SetActive(false); 
         }
     }
 }

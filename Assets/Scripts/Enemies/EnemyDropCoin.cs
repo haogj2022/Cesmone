@@ -25,7 +25,7 @@ public class EnemyDropCoin : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         //find the player
-        player = GameObject.Find("Hero Selection");        
+        player = GameObject.Find("Player Character");        
     }
 
     void Update()

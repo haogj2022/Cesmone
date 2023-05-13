@@ -226,11 +226,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
-  critChance: 2
-  critDamage: 6
+  critChance: 10
+  critDamage: 10
   isCritical: 0
   canUseLightning: 1
   lightning: {fileID: 5091386661301860108, guid: 1b121628a192bd94cbd5e79746c8a019, type: 3}
+  canShootArrow: 0
+  arrow: {fileID: 0}
 --- !u!1 &5848952868668912043
 GameObject:
   m_ObjectHideFlags: 0

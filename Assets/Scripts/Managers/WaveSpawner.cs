@@ -9,21 +9,25 @@ using TMPro;
 //Object(s) holding this script: All game objects with 'Spawner' tag
 //Summary: Spawn random enemies each wave
 
-public class WaveSpawner : MonoBehaviour
+[System.Serializable]
+public class Wave
 {
-    //the current states of the wave spawner
-    public enum SpawnState { SPAWN, WAIT, COUNT}; 
+    public string name; 
+    public Transform[] enemy; 
+    public int count; 
+    public float rate; 
+}
 
-    //make the class editable in Inspector
-    [System.Serializable]
-    public class Wave
-    {
-        public string name; 
-        public Transform[] enemy; 
-        public int count; 
-        public float rate; 
-    }
+//the current states of the wave spawner
+public enum SpawnState 
+{ 
+    SPAWN, 
+    WAIT, 
+    COUNT
+};
 
+public class WaveSpawner : MonoBehaviour, IDataPersistence
+{        
     public Wave[] waves;
     public Transform[] spawnPoints; 
     
@@ -41,19 +45,53 @@ public class WaveSpawner : MonoBehaviour
 
     int nextWave = 0; 
     bool canAnimate = true;
+    bool isClear = false;
 
     SpawnState state = SpawnState.COUNT; 
     
     Animator anim; 
     Image winScreen;
     Image loseScreen;
-    PlayerController joystick; 
+    PlayerController playerController; 
     LevelStats levelStat;
     CastleHealthText castle;
     SpawnerManager level;
     GameObject spikeTrapButton;
 
-    //called in LevelSelection script to start the level
+    [SerializeField] string id;
+
+    [ContextMenu("Generate guid for id")]
+
+    void GeneratedGuid()
+    {
+        id = System.Guid.NewGuid().ToString();
+    }
+
+    public void LoadData(SaveData data)
+    {
+        data.isClear.TryGetValue(id, out isClear);
+
+        if (isClear)
+        {
+            //enable clear text
+            clearText.SetActive(true);
+
+            //enable next level
+            nextLevel.interactable = true;
+        }
+    }
+
+    public void SaveData(ref SaveData data)
+    {
+        if (data.isClear.ContainsKey(id))
+        {
+            data.isClear.Remove(id);
+        }
+
+        data.isClear.Add(id, isClear);
+    }
+
+    //called in SpawnerManager script to start the chosen level
     public void StartLevel()
     {
         //find wave animation game object in hierarchy
@@ -219,10 +257,23 @@ public class WaveSpawner : MonoBehaviour
 
     //called by WaveCompleted() when player completed all the waves
     IEnumerator PlayerWin()
-    {
+    {   
+        //all wave is clear
+        isClear = true;
+        
+        //when player clear the level
+        if (isClear)
+        {
+            //enable clear text
+            clearText.SetActive(true);
+
+            //enable next level
+            nextLevel.interactable = true;
+        }
+
         //level is complete
         level.LevelComplete();
-
+        
         //stop the timer
         levelStat = GameObject.Find("Win & Lose Screen").GetComponent<LevelStats>();
         levelStat.startTimer = false;
@@ -230,9 +281,9 @@ public class WaveSpawner : MonoBehaviour
         //wait for a few seconds
         yield return new WaitForSeconds(winDelay);
         
-        //hide the joystick on screen
-        joystick = GameObject.Find("Hero Selection").GetComponent<PlayerController>();
-        joystick.isActive = false;
+        //disable player controller
+        playerController = GameObject.Find("Player Character").GetComponent<PlayerController>();
+        playerController.isActive = false;
 
         spikeTrapButton = GameObject.Find("Spike trap Button");
         spikeTrapButton.SetActive(false);
@@ -248,11 +299,7 @@ public class WaveSpawner : MonoBehaviour
             stat.SetActive(true);
         }
 
-        //enable clear text
-        clearText.SetActive(true);
-
-        //enable next level
-        nextLevel.interactable = true;
+        
     }
 
     //called by WaveComplete() when player fails to defend the castle
@@ -268,9 +315,9 @@ public class WaveSpawner : MonoBehaviour
         //wait for a few seconds
         yield return new WaitForSeconds(loseDelay);
 
-        //hide the joystick on screen
-        joystick = GameObject.Find("Hero Selection").GetComponent<PlayerController>();
-        joystick.isActive = false;
+        //disable player controller
+        playerController = GameObject.Find("Player Character").GetComponent<PlayerController>();
+        playerController.isActive = false;
 
         spikeTrapButton = GameObject.Find("Spike trap Button");
         spikeTrapButton.SetActive(false);

@@ -12,7 +12,8 @@ public class SpawnerManager : MonoBehaviour
 {
     public WaveSpawner[] spawners;
 
-    public GameObject gameMenu;
+    public GameObject stageMenu;
+    public GameObject playerMenu;
     public GameObject pauseButton;
     public GameObject quitConfirm;
     public GameObject spikeTrapButton;
@@ -23,12 +24,12 @@ public class SpawnerManager : MonoBehaviour
     CastleHealthText castle;
     Image winScreen;
     Image loseScreen;
-    PlayerController joystick;
-    LevelStats levelStat;    
-    
+    PlayerController playerController;
+    LevelStats levelStat;       
+
     void Start()
     {   
-        joystick = GameObject.Find("Hero Selection").GetComponent<PlayerController>();
+        playerController = GameObject.Find("Player Character").GetComponent<PlayerController>();
 
         //find stat game object in hierarchy
         levelStat = GameObject.Find("Win & Lose Screen").GetComponent<LevelStats>();
@@ -59,16 +60,19 @@ public class SpawnerManager : MonoBehaviour
     //when click any level number on Level selection screen
     public void ChooseLevel(int level)
     {
-        //close main menu canvas
-        gameMenu.SetActive(false);
+        //close stage menu
+        stageMenu.SetActive(false);
+
+        //hide player menu
+        playerMenu.SetActive(false);
 
         //show pause button
         pauseButton.SetActive(true);
 
         spikeTrapButton.SetActive(true);
 
-        //show joystick on screen        
-        joystick.isActive = true;
+        //enable player controller       
+        playerController.isActive = true;
                 
         //start timer
         levelStat.startTimer = true;
@@ -88,12 +92,15 @@ public class SpawnerManager : MonoBehaviour
     }
 
     //called when open main menu screen
-    public void OpenMainMenu()
+    public void QuitToStageMenu()
     {
         Time.timeScale = 1;
 
-        //open main menu canvas
-        gameMenu.SetActive(true);
+        //open stage menu
+        stageMenu.SetActive(true);
+
+        //show player menu
+        playerMenu.SetActive(true);
 
         //close quit confirm screen
         quitConfirm.SetActive(false);

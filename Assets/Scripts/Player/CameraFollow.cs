@@ -47,7 +47,7 @@ public class CameraFollow : MonoBehaviour
     void FollowTarget()
     {       
         //camera follows the character
-        follower = GameObject.Find("Hero Selection");
+        follower = GameObject.Find("Player Character");
 
         //when castle is destroyed
         if (castle.currentHealth <= 0)
