@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Created by: Nguyen Anh Hao
+//Date created: 15/05/2023
+//Object(s) holding this script: AudioManager
+//Summary: Manage sound effects
+
 public class AudioManager : MonoBehaviour
 {
     public AudioSource audioSource;

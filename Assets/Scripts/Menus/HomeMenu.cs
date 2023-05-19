@@ -10,7 +10,7 @@ using UnityEngine;
 public class HomeMenu : MonoBehaviour
 {
     public GameObject startMenu;
-    public GameObject settingsMenu;
+    public GameObject coinShopMenu;
     public GameObject creditsMenu;
 
     public GameObject playerMenu;
@@ -26,11 +26,13 @@ public class HomeMenu : MonoBehaviour
     }
 
     //when click Settings button in home menu
-    public void OpenSettings()
+    public void OpenCoinShop()
     {
         //open settings screen
-        settingsMenu.SetActive(true);
+        coinShopMenu.SetActive(true);
         startMenu.SetActive(false);
+
+        playerMenu.SetActive(true);
     }
 
     //when click Credits button in home menu
@@ -47,7 +49,7 @@ public class HomeMenu : MonoBehaviour
     {
         //open start menu
         startMenu.SetActive(true);
-        settingsMenu.SetActive(false);
+        coinShopMenu.SetActive(false);
         creditsMenu.SetActive(false);
 
         playerMenu.SetActive(false);
