@@ -16,7 +16,7 @@ public class SpawnerManager : MonoBehaviour
     public GameObject playerMenu;
     public GameObject pauseButton;
     public GameObject quitConfirm;
-    public GameObject spikeTrapButton;
+    public GameObject[] trapButton;
 
     List<GameObject> enemies = new List<GameObject>();
     List<GameObject> coins = new List<GameObject>();
@@ -69,7 +69,10 @@ public class SpawnerManager : MonoBehaviour
         //show pause button
         pauseButton.SetActive(true);
 
-        spikeTrapButton.SetActive(true);
+        foreach (GameObject button in trapButton)
+        {
+            button.SetActive(true);
+        }
 
         //enable player controller       
         playerController.isActive = true;

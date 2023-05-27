@@ -34,7 +34,8 @@ public class WaveSpawner : MonoBehaviour, IDataPersistence
     public TMP_Text waveName;
     public GameObject clearText;
     public Button nextLevel;
-      
+    public GameObject[] trapButton;  
+
     public bool canSpawn = true;
 
     float waveDelay = 5;       
@@ -56,7 +57,6 @@ public class WaveSpawner : MonoBehaviour, IDataPersistence
     LevelStats levelStat;
     CastleHealthText castle;
     SpawnerManager level;
-    GameObject spikeTrapButton;
 
     [SerializeField] string id;
 
@@ -285,8 +285,10 @@ public class WaveSpawner : MonoBehaviour, IDataPersistence
         playerController = GameObject.Find("Player Character").GetComponent<PlayerController>();
         playerController.isActive = false;
 
-        spikeTrapButton = GameObject.Find("Spike trap Button");
-        spikeTrapButton.SetActive(false);
+        foreach(GameObject button in trapButton)
+        {
+            button.SetActive(false);
+        }
 
         //enable the victory screen
         winScreen = GameObject.Find("Win").GetComponent<Image>();
@@ -319,8 +321,10 @@ public class WaveSpawner : MonoBehaviour, IDataPersistence
         playerController = GameObject.Find("Player Character").GetComponent<PlayerController>();
         playerController.isActive = false;
 
-        spikeTrapButton = GameObject.Find("Spike trap Button");
-        spikeTrapButton.SetActive(false);
+        foreach (GameObject button in trapButton)
+        {
+            button.SetActive(false);
+        }
 
         //enable the defeat screen
         loseScreen = GameObject.Find("Lose").GetComponent<Image>();

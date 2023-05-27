@@ -12,7 +12,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseScreen;
     public GameObject pauseButton;
     public GameObject quitConfirm;
-    public GameObject spikeTrapButton;
+    public GameObject[] trapButton;
     
     PlayerController playerController;
 
@@ -36,7 +36,10 @@ public class PauseMenu : MonoBehaviour
         //hide pause button
         pauseButton.SetActive(false);
 
-        spikeTrapButton.SetActive(false);
+        foreach(GameObject button in trapButton)
+        {
+            button.SetActive(false);
+        }
     }
 
     //when click Resume button in pause screen canvas
@@ -54,7 +57,10 @@ public class PauseMenu : MonoBehaviour
         //show pause button
         pauseButton.SetActive(true);
 
-        spikeTrapButton.SetActive(true);
+        foreach (GameObject button in trapButton)
+        {
+            button.SetActive(true);
+        }
     }
 
     //when click Quit button in pause screen canvas
