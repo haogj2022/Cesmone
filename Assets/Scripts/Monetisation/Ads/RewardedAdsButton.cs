@@ -9,6 +9,9 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
     [SerializeField] string _iOSAdUnitId = "Rewarded_iOS";
     string _adUnitId = null; // This will remain null for unsupported platforms
 
+    [SerializeField] LevelStats levelStat;
+    float rewardedCoins = 100;
+
     void Awake()
     {
         // Get the Ad Unit ID for the current platform:
@@ -60,6 +63,8 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
         {
             Debug.Log("Unity Ads Rewarded Ad Completed");
             // Grant a reward.
+
+            levelStat.totalCoins += rewardedCoins;
         }
     }
 
@@ -79,7 +84,7 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
     public void OnUnityAdsShowStart(string adUnitId) { }
     public void OnUnityAdsShowClick(string adUnitId) { }
 
-    void OnDestroy()
+    public void OnDestroy()
     {
         // Clean up the button listeners:
         _showAdButton.onClick.RemoveAllListeners();
