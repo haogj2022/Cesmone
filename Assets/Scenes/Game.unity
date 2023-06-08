@@ -3101,8 +3101,6 @@ MonoBehaviour:
     count: 14
     rate: 1
   spawnPoints:
-  - {fileID: 1526599913}
-  - {fileID: 1545614053}
   - {fileID: 365927268}
   - {fileID: 272221774}
   - {fileID: 462661994}
@@ -3112,9 +3110,7 @@ MonoBehaviour:
   waveName: {fileID: 707434518}
   clearText: {fileID: 953891254}
   nextLevel: {fileID: 1765818332}
-  trapButton:
-  - {fileID: 1941116763}
-  - {fileID: 2003276628}
+  trapButton: []
   canSpawn: 1
   id: 3a61f362-0d9d-40ef-89fc-892dbe17d128
 --- !u!1 &183444582
@@ -4432,82 +4428,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 223339407}
   m_CullTransparentMesh: 1
---- !u!1 &233255594
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 233255597}
-  - component: {fileID: 233255596}
-  - component: {fileID: 233255595}
-  m_Layer: 5
-  m_Name: Flame trap Image
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &233255595
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 233255594}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 1587728366, guid: d2ca29e1bb58d114584e0d34be7d6ec8, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 1
-  m_FillCenter: 1
-  m_FillMethod: 1
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &233255596
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 233255594}
-  m_CullTransparentMesh: 1
---- !u!224 &233255597
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 233255594}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
-  m_ConstrainProportionsScale: 1
-  m_Children: []
-  m_Father: {fileID: 2003276633}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &237882842
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7792,6 +7712,7 @@ Transform:
   - {fileID: 2127458668}
   - {fileID: 176223194}
   - {fileID: 1863442580}
+  - {fileID: 738517576}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8474,8 +8395,6 @@ MonoBehaviour:
     count: 13
     rate: 1
   spawnPoints:
-  - {fileID: 1526599913}
-  - {fileID: 1545614053}
   - {fileID: 365927268}
   - {fileID: 272221774}
   - {fileID: 462661994}
@@ -8485,9 +8404,7 @@ MonoBehaviour:
   waveName: {fileID: 707434518}
   clearText: {fileID: 1999867082}
   nextLevel: {fileID: 1786700397}
-  trapButton:
-  - {fileID: 1941116763}
-  - {fileID: 2003276628}
+  trapButton: []
   canSpawn: 1
   id: 558d8555-4fc7-4ac9-b3c2-a26feae897cb
 --- !u!1001 &414215539
@@ -11341,7 +11258,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1569905552}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -14376,6 +14293,50 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!1 &738517574
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 738517576}
+  - component: {fileID: 738517575}
+  m_Layer: 0
+  m_Name: IAPManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &738517575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 738517574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a53491632ae38d44a7222b75b66787a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &738517576
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 738517574}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 380730404}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &745257026
 GameObject:
   m_ObjectHideFlags: 0
@@ -15646,8 +15607,6 @@ RectTransform:
   - {fileID: 844886807}
   - {fileID: 378115647}
   - {fileID: 275099736}
-  - {fileID: 1941116767}
-  - {fileID: 2003276633}
   m_Father: {fileID: 380730404}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -16316,11 +16275,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3784109351530946847, guid: 914892bc7a83f3144b2fac8e200fefbb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 3784109351530946847, guid: 914892bc7a83f3144b2fac8e200fefbb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3784109351530946847, guid: 914892bc7a83f3144b2fac8e200fefbb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -16378,7 +16337,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1718328620356509338, guid: af131488b9f86be45806c8010e7f8acc, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1718328620356509338, guid: af131488b9f86be45806c8010e7f8acc, type: 3}
       propertyPath: m_AnchorMax.x
@@ -16561,82 +16520,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7275918435768156666, guid: 2bcdae7f7f7c85343904e6b72d594549, type: 3}
   m_PrefabInstance: {fileID: 1441790819}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &833841213
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 833841214}
-  - component: {fileID: 833841216}
-  - component: {fileID: 833841215}
-  m_Layer: 5
-  m_Name: Spike trap Image
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &833841214
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 833841213}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
-  m_ConstrainProportionsScale: 1
-  m_Children: []
-  m_Father: {fileID: 1941116767}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &833841215
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 833841213}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 1769675504, guid: 0d8a34531891afd4e90cea3958f36b90, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 1
-  m_FillCenter: 1
-  m_FillMethod: 1
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &833841216
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 833841213}
-  m_CullTransparentMesh: 1
 --- !u!1 &842446624 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 865007608686401111, guid: 91b282210cbd2584ba3ecd3d8f9977ad, type: 3}
@@ -16682,8 +16565,6 @@ MonoBehaviour:
     count: 19
     rate: 1
   spawnPoints:
-  - {fileID: 1526599913}
-  - {fileID: 1545614053}
   - {fileID: 365927268}
   - {fileID: 272221774}
   - {fileID: 462661994}
@@ -16693,9 +16574,7 @@ MonoBehaviour:
   waveName: {fileID: 707434518}
   clearText: {fileID: 390916890}
   nextLevel: {fileID: 287393693}
-  trapButton:
-  - {fileID: 1941116763}
-  - {fileID: 2003276628}
+  trapButton: []
   canSpawn: 1
   id: 9967b366-1f42-4a55-b374-ed9264ec02ab
 --- !u!1 &844235861
@@ -17890,8 +17769,6 @@ MonoBehaviour:
     count: 15
     rate: 1
   spawnPoints:
-  - {fileID: 1526599913}
-  - {fileID: 1545614053}
   - {fileID: 365927268}
   - {fileID: 272221774}
   - {fileID: 462661994}
@@ -17901,9 +17778,7 @@ MonoBehaviour:
   waveName: {fileID: 707434518}
   clearText: {fileID: 1398839875}
   nextLevel: {fileID: 1077786428}
-  trapButton:
-  - {fileID: 1941116763}
-  - {fileID: 2003276628}
+  trapButton: []
   canSpawn: 1
   id: 1aefc335-2e52-4c4d-a9c6-a17de09628a4
 --- !u!1001 &912522749
@@ -32655,8 +32530,6 @@ MonoBehaviour:
     count: 11
     rate: 1
   spawnPoints:
-  - {fileID: 1526599913}
-  - {fileID: 1545614053}
   - {fileID: 365927268}
   - {fileID: 272221774}
   - {fileID: 462661994}
@@ -32666,9 +32539,7 @@ MonoBehaviour:
   waveName: {fileID: 707434518}
   clearText: {fileID: 2002919152}
   nextLevel: {fileID: 644843863}
-  trapButton:
-  - {fileID: 1941116763}
-  - {fileID: 2003276628}
+  trapButton: []
   canSpawn: 1
   id: 499c734d-95a2-47b0-939f-a69cec027d62
 --- !u!4 &1124664588 stripped
@@ -33264,7 +33135,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1718328620356509338, guid: af131488b9f86be45806c8010e7f8acc, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1718328620356509338, guid: af131488b9f86be45806c8010e7f8acc, type: 3}
       propertyPath: m_AnchorMax.x
@@ -33427,6 +33298,57 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1166016561 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4433195345410838607, guid: af131488b9f86be45806c8010e7f8acc, type: 3}
+  m_PrefabInstance: {fileID: 1166016557}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1166016559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1166016564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1166016559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b79b5624d944058bd39aad2b90fb275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  productId: com.hao.cesmone.coin25000
+  buttonType: 0
+  consumePurchase: 1
+  onTransactionsRestored:
+    m_PersistentCalls:
+      m_Calls: []
+  onPurchaseComplete:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 738517575}
+        m_TargetAssemblyTypeName: IAPManager, Assembly-CSharp
+        m_MethodName: OnPurchaseComplete
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onPurchaseFailed:
+    m_PersistentCalls:
+      m_Calls: []
+  onProductFetched:
+    m_PersistentCalls:
+      m_Calls: []
+  button: {fileID: 1166016561}
 --- !u!1 &1167928185 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 865007608686401111, guid: 91b282210cbd2584ba3ecd3d8f9977ad, type: 3}
@@ -33460,8 +33382,6 @@ MonoBehaviour:
     count: 13
     rate: 1
   spawnPoints:
-  - {fileID: 1526599913}
-  - {fileID: 1545614053}
   - {fileID: 365927268}
   - {fileID: 272221774}
   - {fileID: 462661994}
@@ -33471,9 +33391,7 @@ MonoBehaviour:
   waveName: {fileID: 707434518}
   clearText: {fileID: 1135328405}
   nextLevel: {fileID: 1635358069}
-  trapButton:
-  - {fileID: 1941116763}
-  - {fileID: 2003276628}
+  trapButton: []
   canSpawn: 1
   id: f00e8765-1560-40db-a0d5-c59b869ac5f8
 --- !u!1 &1169982248
@@ -35128,8 +35046,6 @@ MonoBehaviour:
     count: 13
     rate: 1
   spawnPoints:
-  - {fileID: 1526599913}
-  - {fileID: 1545614053}
   - {fileID: 365927268}
   - {fileID: 272221774}
   - {fileID: 462661994}
@@ -35139,9 +35055,7 @@ MonoBehaviour:
   waveName: {fileID: 707434518}
   clearText: {fileID: 902848144}
   nextLevel: {fileID: 1590530310}
-  trapButton:
-  - {fileID: 1941116763}
-  - {fileID: 2003276628}
+  trapButton: []
   canSpawn: 1
   id: 21a26df3-631c-4054-9052-e6655e1e58f3
 --- !u!1 &1260713689 stripped
@@ -35355,8 +35269,6 @@ MonoBehaviour:
     count: 15
     rate: 1
   spawnPoints:
-  - {fileID: 1526599913}
-  - {fileID: 1545614053}
   - {fileID: 365927268}
   - {fileID: 272221774}
   - {fileID: 462661994}
@@ -35366,9 +35278,7 @@ MonoBehaviour:
   waveName: {fileID: 707434518}
   clearText: {fileID: 1898239051}
   nextLevel: {fileID: 1734684671}
-  trapButton:
-  - {fileID: 1941116763}
-  - {fileID: 2003276628}
+  trapButton: []
   canSpawn: 1
   id: b05cb65c-4b26-43d6-9e8e-eedc8f9ff0e2
 --- !u!1001 &1290797521
@@ -35475,8 +35385,6 @@ MonoBehaviour:
     count: 18
     rate: 1
   spawnPoints:
-  - {fileID: 1526599913}
-  - {fileID: 1545614053}
   - {fileID: 365927268}
   - {fileID: 272221774}
   - {fileID: 462661994}
@@ -35486,9 +35394,7 @@ MonoBehaviour:
   waveName: {fileID: 707434518}
   clearText: {fileID: 2014984361}
   nextLevel: {fileID: 1736198105}
-  trapButton:
-  - {fileID: 1941116763}
-  - {fileID: 2003276628}
+  trapButton: []
   canSpawn: 1
   id: 89a01b2e-630d-454a-8369-903eb9bf8640
 --- !u!1 &1293414511
@@ -37391,8 +37297,6 @@ MonoBehaviour:
     count: 17
     rate: 1
   spawnPoints:
-  - {fileID: 1526599913}
-  - {fileID: 1545614053}
   - {fileID: 365927268}
   - {fileID: 272221774}
   - {fileID: 462661994}
@@ -37402,9 +37306,7 @@ MonoBehaviour:
   waveName: {fileID: 707434518}
   clearText: {fileID: 1763123256}
   nextLevel: {fileID: 1419924258}
-  trapButton:
-  - {fileID: 1941116763}
-  - {fileID: 2003276628}
+  trapButton: []
   canSpawn: 1
   id: ce6fcee3-e78d-44f5-9475-a317df60b3f2
 --- !u!1001 &1395872129
@@ -37595,9 +37497,7 @@ MonoBehaviour:
   pauseScreen: {fileID: 1636597466}
   pauseButton: {fileID: 1435527002}
   quitConfirm: {fileID: 518197047}
-  trapButton:
-  - {fileID: 1941116763}
-  - {fileID: 2003276628}
+  trapButton: []
 --- !u!224 &1403358725 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1718328620356509338, guid: af131488b9f86be45806c8010e7f8acc, type: 3}
@@ -37830,8 +37730,6 @@ MonoBehaviour:
     count: 12
     rate: 1
   spawnPoints:
-  - {fileID: 1526599913}
-  - {fileID: 1545614053}
   - {fileID: 365927268}
   - {fileID: 272221774}
   - {fileID: 462661994}
@@ -37841,9 +37739,7 @@ MonoBehaviour:
   waveName: {fileID: 707434518}
   clearText: {fileID: 1439146393}
   nextLevel: {fileID: 701502982}
-  trapButton:
-  - {fileID: 1941116763}
-  - {fileID: 2003276628}
+  trapButton: []
   canSpawn: 1
   id: b6070b98-a974-4156-b76b-bcd540c10152
 --- !u!1 &1406364274
@@ -38805,8 +38701,6 @@ MonoBehaviour:
     count: 18
     rate: 1
   spawnPoints:
-  - {fileID: 1526599913}
-  - {fileID: 1545614053}
   - {fileID: 365927268}
   - {fileID: 272221774}
   - {fileID: 462661994}
@@ -38816,9 +38710,7 @@ MonoBehaviour:
   waveName: {fileID: 707434518}
   clearText: {fileID: 270498272}
   nextLevel: {fileID: 590437541}
-  trapButton:
-  - {fileID: 1941116763}
-  - {fileID: 2003276628}
+  trapButton: []
   canSpawn: 1
   id: d2f983c5-b959-45aa-bef8-1362c464a242
 --- !u!1 &1424233891
@@ -39570,8 +39462,6 @@ MonoBehaviour:
     count: 14
     rate: 1
   spawnPoints:
-  - {fileID: 1526599913}
-  - {fileID: 1545614053}
   - {fileID: 365927268}
   - {fileID: 272221774}
   - {fileID: 462661994}
@@ -39581,9 +39471,7 @@ MonoBehaviour:
   waveName: {fileID: 707434518}
   clearText: {fileID: 1490183606}
   nextLevel: {fileID: 1646435899}
-  trapButton:
-  - {fileID: 1941116763}
-  - {fileID: 2003276628}
+  trapButton: []
   canSpawn: 1
   id: 3aca483b-3df9-450c-909a-6db9c9563405
 --- !u!1001 &1453335108
@@ -40603,8 +40491,6 @@ MonoBehaviour:
     count: 12
     rate: 1
   spawnPoints:
-  - {fileID: 1526599913}
-  - {fileID: 1545614053}
   - {fileID: 365927268}
   - {fileID: 272221774}
   - {fileID: 462661994}
@@ -40614,9 +40500,7 @@ MonoBehaviour:
   waveName: {fileID: 707434518}
   clearText: {fileID: 293293382}
   nextLevel: {fileID: 1918312278}
-  trapButton:
-  - {fileID: 1941116763}
-  - {fileID: 2003276628}
+  trapButton: []
   canSpawn: 1
   id: fc461224-98a4-4b47-a0e8-152937137e2a
 --- !u!1 &1515756931 stripped
@@ -41972,8 +41856,6 @@ MonoBehaviour:
     count: 18
     rate: 1
   spawnPoints:
-  - {fileID: 1526599913}
-  - {fileID: 1545614053}
   - {fileID: 365927268}
   - {fileID: 272221774}
   - {fileID: 462661994}
@@ -41983,9 +41865,7 @@ MonoBehaviour:
   waveName: {fileID: 707434518}
   clearText: {fileID: 306616005}
   nextLevel: {fileID: 353885050}
-  trapButton:
-  - {fileID: 1941116763}
-  - {fileID: 2003276628}
+  trapButton: []
   canSpawn: 1
   id: 752d3e08-27c8-417d-a628-43662170ec6a
 --- !u!1 &1564438129 stripped
@@ -42431,10 +42311,10 @@ RectTransform:
   m_Children:
   - {fileID: 1800791857}
   - {fileID: 810241359}
+  - {fileID: 541182715}
   - {fileID: 1967350839}
   - {fileID: 1166016558}
   - {fileID: 1908601483}
-  - {fileID: 541182715}
   - {fileID: 823214425}
   - {fileID: 1643403563}
   m_Father: {fileID: 1569180854}
@@ -48366,8 +48246,6 @@ MonoBehaviour:
     count: 14
     rate: 1
   spawnPoints:
-  - {fileID: 1526599913}
-  - {fileID: 1545614053}
   - {fileID: 365927268}
   - {fileID: 272221774}
   - {fileID: 462661994}
@@ -48377,9 +48255,7 @@ MonoBehaviour:
   waveName: {fileID: 707434518}
   clearText: {fileID: 670396140}
   nextLevel: {fileID: 746819466}
-  trapButton:
-  - {fileID: 1941116763}
-  - {fileID: 2003276628}
+  trapButton: []
   canSpawn: 1
   id: a91df4c9-65c9-457e-8ca8-237d134cfda9
 --- !u!1001 &1834047401
@@ -48482,8 +48358,6 @@ MonoBehaviour:
     count: 16
     rate: 1
   spawnPoints:
-  - {fileID: 1526599913}
-  - {fileID: 1545614053}
   - {fileID: 365927268}
   - {fileID: 272221774}
   - {fileID: 462661994}
@@ -48493,9 +48367,7 @@ MonoBehaviour:
   waveName: {fileID: 707434518}
   clearText: {fileID: 67260166}
   nextLevel: {fileID: 1788108472}
-  trapButton:
-  - {fileID: 1941116763}
-  - {fileID: 2003276628}
+  trapButton: []
   canSpawn: 1
   id: 0ea5a917-944c-4836-ba69-ac1535a882ea
 --- !u!1001 &1835450306
@@ -49228,7 +49100,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1718328620356509338, guid: af131488b9f86be45806c8010e7f8acc, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1718328620356509338, guid: af131488b9f86be45806c8010e7f8acc, type: 3}
       propertyPath: m_AnchorMax.x
@@ -49407,6 +49279,57 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1908601486 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4433195345410838607, guid: af131488b9f86be45806c8010e7f8acc, type: 3}
+  m_PrefabInstance: {fileID: 1908601482}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1908601484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1908601489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1908601484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b79b5624d944058bd39aad2b90fb275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  productId: com.hao.cesmone.coin100000
+  buttonType: 0
+  consumePurchase: 1
+  onTransactionsRestored:
+    m_PersistentCalls:
+      m_Calls: []
+  onPurchaseComplete:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 738517575}
+        m_TargetAssemblyTypeName: IAPManager, Assembly-CSharp
+        m_MethodName: OnPurchaseComplete
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onPurchaseFailed:
+    m_PersistentCalls:
+      m_Calls: []
+  onProductFetched:
+    m_PersistentCalls:
+      m_Calls: []
+  button: {fileID: 1908601486}
 --- !u!1001 &1918312276
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49639,8 +49562,6 @@ MonoBehaviour:
     count: 16
     rate: 1
   spawnPoints:
-  - {fileID: 1526599913}
-  - {fileID: 1545614053}
   - {fileID: 365927268}
   - {fileID: 272221774}
   - {fileID: 462661994}
@@ -49650,9 +49571,7 @@ MonoBehaviour:
   waveName: {fileID: 707434518}
   clearText: {fileID: 909498452}
   nextLevel: {fileID: 1327811506}
-  trapButton:
-  - {fileID: 1941116763}
-  - {fileID: 2003276628}
+  trapButton: []
   canSpawn: 1
   id: 8d2265ea-18ae-49f8-bcc7-73167d6c2403
 --- !u!1001 &1926678176
@@ -50074,170 +49993,6 @@ MonoBehaviour:
         - m_Target: {fileID: 176223192}
           m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
           m_MethodName: Unpause
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
---- !u!1 &1941116763
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1941116767}
-  - component: {fileID: 1941116766}
-  - component: {fileID: 1941116765}
-  - component: {fileID: 1941116764}
-  - component: {fileID: 1941116768}
-  m_Layer: 5
-  m_Name: Spike trap Button
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1941116764
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1941116763}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 833841215}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 395400109}
-        m_TargetAssemblyTypeName: PlaceTrap, Assembly-CSharp
-        m_MethodName: SpikeTrap
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1941116765
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1941116763}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 54628aafa20f64b40ae661038ee7abf0, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1941116766
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1941116763}
-  m_CullTransparentMesh: 1
---- !u!224 &1941116767
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1941116763}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 833841214}
-  m_Father: {fileID: 799336717}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 200, y: -150}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1941116768
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1941116763}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 176223192}
-          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-          m_MethodName: UseItem
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -50760,8 +50515,6 @@ MonoBehaviour:
     count: 19
     rate: 1
   spawnPoints:
-  - {fileID: 1526599913}
-  - {fileID: 1545614053}
   - {fileID: 365927268}
   - {fileID: 272221774}
   - {fileID: 462661994}
@@ -50771,9 +50524,7 @@ MonoBehaviour:
   waveName: {fileID: 707434518}
   clearText: {fileID: 1322737797}
   nextLevel: {fileID: 925411467}
-  trapButton:
-  - {fileID: 1941116763}
-  - {fileID: 2003276628}
+  trapButton: []
   canSpawn: 1
   id: 75272972-a9a2-4a2a-a5e2-e254e7218317
 --- !u!1 &1965266766 stripped
@@ -50817,8 +50568,6 @@ MonoBehaviour:
     count: 17
     rate: 1
   spawnPoints:
-  - {fileID: 1526599913}
-  - {fileID: 1545614053}
   - {fileID: 365927268}
   - {fileID: 272221774}
   - {fileID: 462661994}
@@ -50828,9 +50577,7 @@ MonoBehaviour:
   waveName: {fileID: 707434518}
   clearText: {fileID: 673605785}
   nextLevel: {fileID: 367187795}
-  trapButton:
-  - {fileID: 1941116763}
-  - {fileID: 2003276628}
+  trapButton: []
   canSpawn: 1
   id: 6cd53429-2aba-4496-adac-aea83a6d41b1
 --- !u!1001 &1967350838
@@ -50850,7 +50597,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1718328620356509338, guid: af131488b9f86be45806c8010e7f8acc, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1718328620356509338, guid: af131488b9f86be45806c8010e7f8acc, type: 3}
       propertyPath: m_AnchorMax.x
@@ -51021,6 +50768,57 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1967350842 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4433195345410838607, guid: af131488b9f86be45806c8010e7f8acc, type: 3}
+  m_PrefabInstance: {fileID: 1967350838}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967350840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1967350843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967350840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b79b5624d944058bd39aad2b90fb275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  productId: com.hao.cesmone.coin5000
+  buttonType: 0
+  consumePurchase: 1
+  onTransactionsRestored:
+    m_PersistentCalls:
+      m_Calls: []
+  onPurchaseComplete:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 738517575}
+        m_TargetAssemblyTypeName: IAPManager, Assembly-CSharp
+        m_MethodName: OnPurchaseComplete
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onPurchaseFailed:
+    m_PersistentCalls:
+      m_Calls: []
+  onProductFetched:
+    m_PersistentCalls:
+      m_Calls: []
+  button: {fileID: 1967350842}
 --- !u!1001 &1969627234
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -51121,8 +50919,6 @@ MonoBehaviour:
     count: 16
     rate: 1
   spawnPoints:
-  - {fileID: 1526599913}
-  - {fileID: 1545614053}
   - {fileID: 365927268}
   - {fileID: 272221774}
   - {fileID: 462661994}
@@ -51132,9 +50928,7 @@ MonoBehaviour:
   waveName: {fileID: 707434518}
   clearText: {fileID: 1096591990}
   nextLevel: {fileID: 1462723388}
-  trapButton:
-  - {fileID: 1941116763}
-  - {fileID: 2003276628}
+  trapButton: []
   canSpawn: 1
   id: 098e089e-6e2b-487d-b9cb-919cfff15cd5
 --- !u!1 &1969774278 stripped
@@ -51174,8 +50968,6 @@ MonoBehaviour:
     count: 15
     rate: 1
   spawnPoints:
-  - {fileID: 1526599913}
-  - {fileID: 1545614053}
   - {fileID: 365927268}
   - {fileID: 272221774}
   - {fileID: 462661994}
@@ -51185,9 +50977,7 @@ MonoBehaviour:
   waveName: {fileID: 707434518}
   clearText: {fileID: 19083443}
   nextLevel: {fileID: 132401177}
-  trapButton:
-  - {fileID: 1941116763}
-  - {fileID: 2003276628}
+  trapButton: []
   canSpawn: 1
   id: d256f160-b9e9-429b-83b1-3a498c4e7cdd
 --- !u!224 &1970060990 stripped
@@ -51465,8 +51255,6 @@ MonoBehaviour:
     count: 19
     rate: 1
   spawnPoints:
-  - {fileID: 1526599913}
-  - {fileID: 1545614053}
   - {fileID: 365927268}
   - {fileID: 272221774}
   - {fileID: 462661994}
@@ -51476,9 +51264,7 @@ MonoBehaviour:
   waveName: {fileID: 707434518}
   clearText: {fileID: 1620989448}
   nextLevel: {fileID: 590437541}
-  trapButton:
-  - {fileID: 1941116763}
-  - {fileID: 2003276628}
+  trapButton: []
   canSpawn: 1
   id: b429b34f-d74b-468f-8896-476e8874c0e6
 --- !u!1 &1976848183 stripped
@@ -51827,8 +51613,6 @@ MonoBehaviour:
     count: 11
     rate: 1
   spawnPoints:
-  - {fileID: 1526599913}
-  - {fileID: 1545614053}
   - {fileID: 365927268}
   - {fileID: 272221774}
   - {fileID: 462661994}
@@ -51838,9 +51622,7 @@ MonoBehaviour:
   waveName: {fileID: 707434518}
   clearText: {fileID: 1184788392}
   nextLevel: {fileID: 1610539589}
-  trapButton:
-  - {fileID: 1941116763}
-  - {fileID: 2003276628}
+  trapButton: []
   canSpawn: 1
   id: ff0ae91d-a5ae-4e6e-9883-97263e6ea2ae
 --- !u!1001 &2002365579
@@ -51921,170 +51703,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4624880072304599299, guid: ba7d04843672a894fa6527ca8c997e9c, type: 3}
   m_PrefabInstance: {fileID: 2952306748900045254}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2003276628
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2003276633}
-  - component: {fileID: 2003276632}
-  - component: {fileID: 2003276631}
-  - component: {fileID: 2003276630}
-  - component: {fileID: 2003276629}
-  m_Layer: 5
-  m_Name: Flame trap Button
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &2003276629
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2003276628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 176223192}
-          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-          m_MethodName: UseItem
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
---- !u!114 &2003276630
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2003276628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 233255595}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 395400109}
-        m_TargetAssemblyTypeName: PlaceTrap, Assembly-CSharp
-        m_MethodName: FlameTrap
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &2003276631
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2003276628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 54628aafa20f64b40ae661038ee7abf0, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &2003276632
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2003276628}
-  m_CullTransparentMesh: 1
---- !u!224 &2003276633
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2003276628}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 233255597}
-  m_Father: {fileID: 799336717}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 200, y: -300}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2005418065
 GameObject:
   m_ObjectHideFlags: 0
@@ -52583,9 +52201,7 @@ MonoBehaviour:
   playerMenu: {fileID: 962351717}
   pauseButton: {fileID: 1435527002}
   quitConfirm: {fileID: 518197047}
-  trapButton:
-  - {fileID: 1941116763}
-  - {fileID: 2003276628}
+  trapButton: []
 --- !u!1 &2021263848 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2743831088735061932, guid: af131488b9f86be45806c8010e7f8acc, type: 3}
@@ -52661,8 +52277,6 @@ MonoBehaviour:
     count: 17
     rate: 1
   spawnPoints:
-  - {fileID: 1526599913}
-  - {fileID: 1545614053}
   - {fileID: 365927268}
   - {fileID: 272221774}
   - {fileID: 462661994}
@@ -52672,9 +52286,7 @@ MonoBehaviour:
   waveName: {fileID: 707434518}
   clearText: {fileID: 687128155}
   nextLevel: {fileID: 481649137}
-  trapButton:
-  - {fileID: 1941116763}
-  - {fileID: 2003276628}
+  trapButton: []
   canSpawn: 1
   id: 5568860b-1193-4e29-9aed-71641089dba6
 --- !u!1 &2027830735
@@ -53432,7 +53044,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
       propertyPath: m_AnchorMin.x
@@ -53440,7 +53052,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
       propertyPath: m_SizeDelta.x
@@ -53496,7 +53108,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 400
+      value: -200
       objectReference: {fileID: 0}
     - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -54132,8 +53744,6 @@ MonoBehaviour:
     count: 11
     rate: 1
   spawnPoints:
-  - {fileID: 1526599913}
-  - {fileID: 1545614053}
   - {fileID: 365927268}
   - {fileID: 272221774}
   - {fileID: 462661994}
@@ -54143,9 +53753,7 @@ MonoBehaviour:
   waveName: {fileID: 707434518}
   clearText: {fileID: 43430374}
   nextLevel: {fileID: 1736760838}
-  trapButton:
-  - {fileID: 1941116763}
-  - {fileID: 2003276628}
+  trapButton: []
   canSpawn: 1
   id: e30a1c5f-486f-4dbc-b527-35357fdabca1
 --- !u!224 &2101278572 stripped
@@ -54583,8 +54191,6 @@ MonoBehaviour:
     count: 12
     rate: 1
   spawnPoints:
-  - {fileID: 1526599913}
-  - {fileID: 1545614053}
   - {fileID: 365927268}
   - {fileID: 272221774}
   - {fileID: 462661994}
@@ -54594,9 +54200,7 @@ MonoBehaviour:
   waveName: {fileID: 707434518}
   clearText: {fileID: 1868303616}
   nextLevel: {fileID: 57593313}
-  trapButton:
-  - {fileID: 1941116763}
-  - {fileID: 2003276628}
+  trapButton: []
   canSpawn: 1
   id: 28e748e0-159a-4a61-9965-b822feb262c8
 --- !u!1 &2125125452
@@ -65666,11 +65270,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5706073298417329902, guid: b10aeb93bfbfb30408bd2e9ef2c0147c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5706073298417329902, guid: b10aeb93bfbfb30408bd2e9ef2c0147c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5706073298417329902, guid: b10aeb93bfbfb30408bd2e9ef2c0147c, type: 3}
       propertyPath: m_LocalPosition.z
